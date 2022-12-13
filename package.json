@@ -14,11 +14,20 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@waveshq/standard-web": "^0.13.0",
-    "@waveshq/standard-web-linter": "^0.13.0",
-    "@waveshq/standard-defichain-jellyfishsdk": "^0.13.0",
-    "@waveshq/standard-prettier": "^0.13.0",
-    "@birthdayresearch/sticky-turbo": "^0.3.2"
+    "@birthdayresearch/eslint-config": "^0.3.2",
+    "@birthdayresearch/sticky-turbo": "^0.3.2",
+    "@waveshq/standard-web": "^0.14.0",
+    "@waveshq/standard-web-linter": "^0.14.0",
+    "@waveshq/standard-defichain-jellyfishsdk": "^0.14.0",
+    "@waveshq/standard-prettier": "^0.14.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@birthdayresearch"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
