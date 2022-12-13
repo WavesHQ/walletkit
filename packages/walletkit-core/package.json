@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "@waveshq/wallet-core",
+  "name": "@waveshq/walletkit-core",
   "version": "0.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
