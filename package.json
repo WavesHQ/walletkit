@@ -1,0 +1,30 @@
+{
+  "name": "@waveshq/walletkit",
+  "version": "0.0.0",
+  "private": true,
+  "files": [],
+  "scripts": {
+    "prepare": "husky install",
+    "write": "turbo run write",
+    "clean": "turbo run clean",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint -- --fix",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@waveshq/standard-web": "^0.13.0",
+    "@waveshq/standard-web-linter": "^0.13.0",
+    "@waveshq/standard-defichain-jellyfishsdk": "^0.13.0",
+    "@waveshq/standard-prettier": "^0.13.0",
+    "@birthdayresearch/sticky-turbo": "^0.3.2"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
+  },
+  "prettier": "@waveshq/standard-prettier",
+  "engines": {
+    "node": "^16.6.0",
+    "pnpm": ">=7.18.0"
+  }
+}
