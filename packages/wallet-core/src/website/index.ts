@@ -132,4 +132,5 @@ export type FeatureFlagID =
   | "composite_swap_v2"
   | "unloop_dusd";
 
+// Stages of feature flag
 export type FeatureFlagStage = "alpha" | "beta" | "public";
