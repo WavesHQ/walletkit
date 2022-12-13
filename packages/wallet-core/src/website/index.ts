@@ -31,10 +31,10 @@ export interface AnnouncementData {
 }
 
 export interface FeatureFlag {
-  id: FEATURE_FLAG_ID;
+  id: FeatureFlagID;
   name: string;
   version: string;
-  stage: FEATURE_FLAG_STAGE;
+  stage: FeatureFlagStage;
   description: string;
   networks: EnvironmentNetwork[];
   platforms: Platform[];
@@ -112,7 +112,7 @@ export type Platform = "ios" | "android" | "windows" | "macos" | "web";
 
 export type App = "MOBILE_LW" | "DESKTOP_LW" | "SCAN";
 
-export type FEATURE_FLAG_ID =
+export type FeatureFlagID =
   | "loan"
   | "auction"
   | "dfi_loan_payment"
@@ -132,4 +132,4 @@ export type FEATURE_FLAG_ID =
   | "composite_swap_v2"
   | "unloop_dusd";
 
-export type FEATURE_FLAG_STAGE = "alpha" | "beta" | "public";
+export type FeatureFlagStage = "alpha" | "beta" | "public";
