@@ -6,17 +6,17 @@ importers:
     specifiers:
       '@birthdayresearch/eslint-config': ^0.3.2
       '@birthdayresearch/sticky-turbo': ^0.3.2
-      '@waveshq/standard-defichain-jellyfishsdk': ^0.14.0
-      '@waveshq/standard-prettier': ^0.14.0
-      '@waveshq/standard-web': ^0.14.0
-      '@waveshq/standard-web-linter': ^0.14.0
+      '@waveshq/standard-defichain-jellyfishsdk': ^0.15.1
+      '@waveshq/standard-prettier': ^0.15.1
+      '@waveshq/standard-web': ^0.15.1
+      '@waveshq/standard-web-linter': ^0.15.1
     devDependencies:
       '@birthdayresearch/eslint-config': 0.3.2_typescript@4.9.4
       '@birthdayresearch/sticky-turbo': 0.3.2
-      '@waveshq/standard-defichain-jellyfishsdk': 0.14.0
-      '@waveshq/standard-prettier': 0.14.0_e7u5tpybn3aag54biwlhh5atyq
-      '@waveshq/standard-web': 0.14.0_@next+env@13.0.6
-      '@waveshq/standard-web-linter': 0.14.0_pfdqwu4op3ya37d2btxzqvhfm4
+      '@waveshq/standard-defichain-jellyfishsdk': 0.15.1
+      '@waveshq/standard-prettier': 0.15.1_e7u5tpybn3aag54biwlhh5atyq
+      '@waveshq/standard-web': 0.15.1_@next+env@13.0.6
+      '@waveshq/standard-web-linter': 0.15.1_pfdqwu4op3ya37d2btxzqvhfm4
 
   packages/wallet-core:
     specifiers:
@@ -1413,8 +1413,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@waveshq/standard-defichain-jellyfishsdk/0.14.0:
-    resolution: {integrity: sha512-/VfFW25MyDJRReTCTi67F6e5Q2VzB3FEWg+/2B5Bbali7VD9o/PotYpXKsEBC3PHcwjjb4hT0GzLyshbyP1qkA==}
+  /@waveshq/standard-defichain-jellyfishsdk/0.15.1:
+    resolution: {integrity: sha512-L38sUw7r/b26w78hr2dGUrV+f/8/X/mt1LyYr8nx5Yx5Ws+K4LQYw3WIIOMfeYd2cvh2ZIGeNB1GPQnLxuiLYg==}
     dependencies:
       '@defichain/jellyfish-address': 3.9.0_defichain@3.9.0
       '@defichain/jellyfish-api-core': 3.9.0_defichain@3.9.0
@@ -1432,14 +1432,15 @@ packages:
       - encoding
     dev: true
 
-  /@waveshq/standard-prettier/0.14.0_e7u5tpybn3aag54biwlhh5atyq:
-    resolution: {integrity: sha512-1rhfArVPcPEhrTxiejNyvVHv0vsFiHLK0YtERjmNH2V9FXUJGAkcvzIo0el1S524aOx5Idl9ZdCqIU/Nm0tkGQ==}
+  /@waveshq/standard-prettier/0.15.1_e7u5tpybn3aag54biwlhh5atyq:
+    resolution: {integrity: sha512-l5GcleiUxv5jc/I/ZrKbTcJqx9oeHFnspKz9U0AoaobdgoihLGPhTtqkpV4aVhDtlRzlCMtIfPvJkwA+J87+2A==}
     dependencies:
       eslint: 8.29.0
       eslint-config-airbnb: 19.0.4_u6r7wmyqgznou2plc6ye67x2ku
       eslint-config-airbnb-typescript: 17.0.0_wmbfqyzc3rp5gdyh5jpn7s32my
       eslint-config-prettier: 8.5.0_eslint@8.29.0
       eslint-plugin-prettier: 4.2.1_5dgjrgoi64tgrv3zzn3walur3u
+      eslint-plugin-simple-import-sort: 8.0.0_eslint@8.29.0
       husky: 8.0.2
       lint-staged: 13.1.0
       prettier: 2.8.1
@@ -1455,8 +1456,8 @@ packages:
       - supports-color
     dev: true
 
-  /@waveshq/standard-web-linter/0.14.0_pfdqwu4op3ya37d2btxzqvhfm4:
-    resolution: {integrity: sha512-Iwbn9qUBweSCFATmpRWz4jEKRzeRDD0YJ8WKuHFmU9hyOk+Zt8aLwWcxbk6arllpctjD5xPgPjfYuvxcPtWlLw==}
+  /@waveshq/standard-web-linter/0.15.1_pfdqwu4op3ya37d2btxzqvhfm4:
+    resolution: {integrity: sha512-zm/BhqtT+onzVtJp5eAj5xeam3g95Mi7gvPRgVA7AZaLfdRbFJMIqJ1KeelXYp8MRiZZbDdfZ8Hb1PvNzsNr+Q==}
     dependencies:
       eslint: 8.29.0
       eslint-config-airbnb: 19.0.4_u6r7wmyqgznou2plc6ye67x2ku
@@ -1470,6 +1471,7 @@ packages:
       eslint-plugin-prettier: 4.2.1_5dgjrgoi64tgrv3zzn3walur3u
       eslint-plugin-react: 7.31.11_eslint@8.29.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.29.0
+      eslint-plugin-simple-import-sort: 8.0.0_eslint@8.29.0
       husky: 8.0.2
       lint-staged: 13.1.0
       next: 13.0.6_biqbaboplfbrettd7655fr4n2y
@@ -1491,8 +1493,8 @@ packages:
       - supports-color
     dev: true
 
-  /@waveshq/standard-web/0.14.0_@next+env@13.0.6:
-    resolution: {integrity: sha512-eGp3YfyxuX3CYmoWE7ngRULtLgm63SqDNdypbWxpR2qRPeqAPpCCJQICIc+6iC3Hl9H7mqIugAxOapopcjn4MQ==}
+  /@waveshq/standard-web/0.15.1_@next+env@13.0.6:
+    resolution: {integrity: sha512-VNInz7irHdwEluOPMhig3opLNeOwIaxSlB3RMWoJATpxflkI/NDg9bA6pPwvkXIDCkLHhh3PszCYsIMenvAbPQ==}
     dependencies:
       '@netlify/ipx': 1.3.2
       '@types/react': 18.0.26
