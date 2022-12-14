@@ -5,6 +5,7 @@ import {
   TestNet,
 } from "@defichain/jellyfish-network";
 import { Bip32Options } from "@defichain/jellyfish-wallet-mnemonic";
+
 import { EnvironmentNetwork } from "./environment";
 
 export function getJellyfishNetwork(network: EnvironmentNetwork): Network {
@@ -15,6 +16,8 @@ export function getJellyfishNetwork(network: EnvironmentNetwork): Network {
       return TestNet;
     case EnvironmentNetwork.LocalPlayground:
     case EnvironmentNetwork.RemotePlayground:
+      return RegTest;
+    default:
       return RegTest;
   }
 }

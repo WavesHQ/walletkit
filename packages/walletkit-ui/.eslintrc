@@ -1,0 +1,9 @@
+{
+  "extends": ["./node_modules/@waveshq/standard-web-linter"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "check-file/filename-naming-convention": "off"
+  }
+}
