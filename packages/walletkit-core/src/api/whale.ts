@@ -24,7 +24,7 @@ export function newOceanOptions(
       };
     case EnvironmentNetwork.TestNet:
       return {
-        url: "https://testnet.ocean.jellyfffishsdk.com",
+        url: "https://testnet.ocean.jellyfishsdk.com",
         network: "testnet",
         version: "v0",
       };
