@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.build.json",
-  "include": ["./src/**/*"],
+  "include": ["./src"],
+  "exclude": ["**/*.unit.ts"],
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"
