@@ -16,7 +16,7 @@
     "bignumber.js": "^9.1.1"
   },
   "scripts": {
-    "build": "tsc -b tsconfig.build.json",
+    "build": "tsc -b ./tsconfig.build.json",
     "test": "jest --maxWorkers=100% --passWithNoTests",
     "lint": "eslint ."
   },
