@@ -34,6 +34,8 @@ importers:
       '@waveshq/standard-web-linter': ^0.17.0
       '@waveshq/walletkit-core': workspace:*
       bignumber.js: ^9.1.1
+      immer: ^9.0.16
+      reselect: ^4.1.7
       smart-buffer: ^4.2.0
     dependencies:
       '@birthdayresearch/sticky-jest': 0.3.2_3vm2xah52xviuhfzvoq2fyl7ve
@@ -42,6 +44,8 @@ importers:
       '@waveshq/standard-web-linter': 0.17.0_rsrorrpfqoe5pmgf4axxk6jweq
       '@waveshq/walletkit-core': link:../walletkit-core
       bignumber.js: 9.1.1
+      immer: 9.0.16
+      reselect: 4.1.7
       smart-buffer: 4.2.0
 
 packages:

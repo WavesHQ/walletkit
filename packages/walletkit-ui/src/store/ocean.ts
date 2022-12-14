@@ -1,5 +1,7 @@
 import { CTransactionSegWit } from "@defichain/jellyfish-transaction";
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
+// TODO(@thedoublejay): see https://github.com/microsoft/TypeScript/issues/47663
+import type {} from "reselect";
 
 export enum TransactionStatusCode {
   success = 200,

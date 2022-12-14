@@ -1,6 +1,8 @@
 import { CTransactionSegWit } from "@defichain/jellyfish-transaction";
 import { WhaleWalletAccount } from "@defichain/whale-api-wallet";
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
+// TODO(@thedoublejay): see https://github.com/microsoft/TypeScript/issues/47663
+import type {} from "reselect";
 
 export interface DfTxSigner {
   sign: (account: WhaleWalletAccount) => Promise<CTransactionSegWit>;

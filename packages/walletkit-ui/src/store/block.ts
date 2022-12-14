@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+// TODO(@thedoublejay): see https://github.com/microsoft/TypeScript/issues/47663
+import type {} from "immer";
 
 export interface BlockState {
   count?: number;
