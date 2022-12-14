@@ -9,11 +9,14 @@
   ],
   "dependencies": {
     "@birthdayresearch/sticky-jest": "^0.3.2",
-    "@waveshq/standard-web": "^0.15.1",
-    "@waveshq/standard-web-linter": "^0.15.1",
-    "@waveshq/standard-defichain-jellyfishsdk": "^0.15.1",
+    "@waveshq/standard-web": "^0.17.0",
+    "@waveshq/standard-web-linter": "^0.17.0",
+    "@waveshq/standard-defichain-jellyfishsdk": "^0.17.0",
     "@waveshq/walletkit-core": "workspace:*",
-    "bignumber.js": "^9.1.1"
+    "bignumber.js": "^9.1.1",
+    "immer": "^9.0.16",
+    "reselect": "^4.1.7",
+    "smart-buffer": "^4.2.0"
   },
   "scripts": {
     "build": "tsc -b ./tsconfig.build.json",
