@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "walletkit",
   "compilerOptions": {
-    "lib": ["es6", "dom"],
-    "target": "es6",
+    "lib": ["esnext", "dom"],
+    "target": "ESNext",
     "module": "commonjs",
     "moduleResolution": "node",
     "strict": true,

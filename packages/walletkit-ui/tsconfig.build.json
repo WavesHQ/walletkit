@@ -3,8 +3,8 @@
   "include": ["./src"],
   "exclude": ["**/*.unit.ts"],
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["dom", "dom.iterable", "es6"],
+    "target": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
