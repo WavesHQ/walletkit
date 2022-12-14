@@ -10,7 +10,7 @@ importers:
       '@waveshq/standard-prettier': ^0.15.1
       '@waveshq/standard-web': ^0.15.1
       '@waveshq/standard-web-linter': ^0.15.1
-      '@waveshq/walletkit-core': workspace:0.0.0
+      '@waveshq/walletkit-core': workspace:*
     devDependencies:
       '@birthdayresearch/eslint-config': 0.3.2_typescript@4.9.4
       '@birthdayresearch/sticky-turbo': 0.3.2
@@ -32,7 +32,7 @@ importers:
       '@waveshq/standard-defichain-jellyfishsdk': ^0.15.1
       '@waveshq/standard-web': ^0.15.1
       '@waveshq/standard-web-linter': ^0.15.1
-      '@waveshq/walletkit-core': workspace:0.0.0
+      '@waveshq/walletkit-core': workspace:*
       bignumber.js: ^9.1.1
     dependencies:
       '@birthdayresearch/sticky-jest': 0.3.2_3vm2xah52xviuhfzvoq2fyl7ve

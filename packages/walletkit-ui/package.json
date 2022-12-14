@@ -12,7 +12,7 @@
     "@waveshq/standard-web": "^0.15.1",
     "@waveshq/standard-web-linter": "^0.15.1",
     "@waveshq/standard-defichain-jellyfishsdk": "^0.15.1",
-    "@waveshq/walletkit-core": "workspace:0.0.0",
+    "@waveshq/walletkit-core": "workspace:*",
     "bignumber.js": "^9.1.1"
   },
   "scripts": {
