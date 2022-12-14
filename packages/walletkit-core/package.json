@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "@waveshq/wallet-core",
+  "name": "@waveshq/walletkit-core",
   "version": "0.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,7 +12,8 @@
   },
   "scripts": {
     "build": "tsc -b ./tsconfig.build.json",
-    "test": "jest --maxWorkers=100%"
+    "test": "jest --maxWorkers=100%",
+    "lint": "eslint ."
   },
   "jest": {
     "preset": "@birthdayresearch/sticky-jest"

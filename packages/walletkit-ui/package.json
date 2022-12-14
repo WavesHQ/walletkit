@@ -1,0 +1,26 @@
+{
+  "private": false,
+  "name": "@waveshq/walletkit-ui",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@birthdayresearch/sticky-jest": "^0.3.2",
+    "@waveshq/standard-web": "^0.15.1",
+    "@waveshq/standard-web-linter": "^0.15.1",
+    "@waveshq/standard-defichain-jellyfishsdk": "^0.15.1",
+    "@waveshq/walletkit-core": "workspace:0.0.0",
+    "bignumber.js": "^9.1.1"
+  },
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "test": "jest --maxWorkers=100% --passWithNoTests",
+    "lint": "eslint ."
+  },
+  "jest": {
+    "preset": "@birthdayresearch/sticky-jest"
+  }
+}

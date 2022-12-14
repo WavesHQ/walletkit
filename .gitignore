@@ -24,3 +24,5 @@ coverage
 
 # contented
 .contented
+/packages/walletkit-core/tsconfig.build.tsbuildinfo
+tsconfig.build.tsbuildinfo

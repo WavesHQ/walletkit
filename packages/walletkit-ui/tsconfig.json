@@ -1,0 +1,7 @@
+{
+  "extends": "@waveshq/standard-web/tsconfig.json",
+  "include": ["./src/**/*"],
+  "compilerOptions": {
+    "rootDir": "./src"
+  }
+}

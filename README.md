@@ -9,9 +9,10 @@ Collection of components to be used for developing Wallet applications for DeFiC
 `@waveshq/walletkit` follows a monorepo methodology, all maintained packages are in the same repo and published with the
 same version tag.
 
-| Package              | Type           | Description                                                          |
-| -------------------- | -------------- | -------------------------------------------------------------------- |
-| @waveshq/wallet-core | Core functions | Contains common core functionalities when building DeFiChain Wallet. |
+| Package                 | Type             | Description                                                          |
+| ----------------------- | ---------------- | -------------------------------------------------------------------- |
+| @waveshq/walletkit-core | Core Functions   | Contains common core functionalities when building DeFiChain Wallet. |
+| @waveshq/walletkit-ui   | React Components | React components for building DeFiChain Wallet.                      |
 
 ## License & Disclaimer
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should resolve bip32 option for LocalPlayground 1`] = `
+exports[`network should resolve bip32 option for LocalPlayground 1`] = `
 {
   "bip32": {
     "private": 70615956,
@@ -10,7 +10,7 @@ exports[`should resolve bip32 option for LocalPlayground 1`] = `
 }
 `;
 
-exports[`should resolve bip32 option for MainNet 1`] = `
+exports[`network should resolve bip32 option for MainNet 1`] = `
 {
   "bip32": {
     "private": 76066276,
@@ -20,7 +20,7 @@ exports[`should resolve bip32 option for MainNet 1`] = `
 }
 `;
 
-exports[`should resolve bip32 option for RemotePlayground 1`] = `
+exports[`network should resolve bip32 option for RemotePlayground 1`] = `
 {
   "bip32": {
     "private": 70615956,
@@ -30,7 +30,7 @@ exports[`should resolve bip32 option for RemotePlayground 1`] = `
 }
 `;
 
-exports[`should resolve bip32 option for TestNet 1`] = `
+exports[`network should resolve bip32 option for TestNet 1`] = `
 {
   "bip32": {
     "private": 70615956,
