@@ -4,6 +4,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "check-file/filename-naming-convention": "off"
+    "check-file/filename-naming-convention": "off",
+    "no-param-reassign": "warn"
   }
 }
