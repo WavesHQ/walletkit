@@ -22,7 +22,7 @@ const initialState: BlockState = {
   lastSuccessfulSync: undefined,
 };
 
-const block = createSlice({
+export const block = createSlice({
   name: "block",
   initialState,
   reducers: {
@@ -55,5 +55,3 @@ const block = createSlice({
     },
   },
 });
-
-export { block };
