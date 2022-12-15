@@ -9,9 +9,9 @@
   ],
   "dependencies": {
     "@birthdayresearch/sticky-jest": "^0.3.2",
-    "@waveshq/standard-web": "^0.18.0",
-    "@waveshq/standard-web-linter": "^0.18.0",
-    "@waveshq/standard-defichain-jellyfishsdk": "^0.18.0",
+    "@waveshq/standard-web": "^0.19.0",
+    "@waveshq/standard-web-linter": "^0.19.0",
+    "@waveshq/standard-defichain-jellyfishsdk": "^0.19.0",
     "@waveshq/walletkit-core": "workspace:*",
     "bignumber.js": "^9.1.1",
     "immer": "^9.0.16",
@@ -26,7 +26,8 @@
   "scripts": {
     "build": "tsc -b ./tsconfig.build.json",
     "test": "jest --maxWorkers=100%",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "clean": "rm -rf dist"
   },
   "jest": {
     "preset": "@birthdayresearch/sticky-jest",
