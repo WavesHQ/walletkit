@@ -9,21 +9,38 @@
   ],
   "dependencies": {
     "@birthdayresearch/sticky-jest": "^0.3.2",
-    "@waveshq/standard-web": "^0.17.0",
-    "@waveshq/standard-web-linter": "^0.17.0",
-    "@waveshq/standard-defichain-jellyfishsdk": "^0.17.0",
+    "@waveshq/standard-web": "^0.19.0",
+    "@waveshq/standard-web-linter": "^0.19.0",
+    "@waveshq/standard-defichain-jellyfishsdk": "^0.19.0",
     "@waveshq/walletkit-core": "workspace:*",
     "bignumber.js": "^9.1.1",
     "immer": "^9.0.16",
     "reselect": "^4.1.7",
     "smart-buffer": "^4.2.0"
   },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "jest-environment-jsdom": "^29.3.1"
+  },
   "scripts": {
     "build": "tsc -b ./tsconfig.build.json",
-    "test": "jest --maxWorkers=100% --passWithNoTests",
-    "lint": "eslint ."
+    "test": "jest --maxWorkers=100%",
+    "lint": "eslint .",
+    "clean": "rm -rf dist"
   },
   "jest": {
-    "preset": "@birthdayresearch/sticky-jest"
+    "preset": "@birthdayresearch/sticky-jest",
+    "testRegex": ".*.(unit|i9n|e2e|test).(ts|tsx)$",
+    "transform": {
+      "^.+\\.(ts|tsx)?$": "ts-jest",
+      "^.+\\.(js|jsx)$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ]
   }
 }

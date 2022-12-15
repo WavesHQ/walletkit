@@ -6,7 +6,7 @@ import {
 
 import { EnvironmentNetwork } from "./environment";
 
-export function newOceanOptions(
+export function newOceanOptions (
   network: EnvironmentNetwork
 ): WhaleApiClientOptions {
   switch (network) {
@@ -24,7 +24,7 @@ export function newOceanOptions(
       };
     case EnvironmentNetwork.TestNet:
       return {
-        url: "https://testnet.ocean.jellyfffishsdk.com",
+        url: "https://testnet.ocean.jellyfishsdk.com",
         network: "testnet",
         version: "v0",
       };
@@ -38,13 +38,13 @@ export function newOceanOptions(
   }
 }
 
-export function newWhaleAPIClient(
+export function newWhaleAPIClient (
   options: WhaleApiClientOptions
 ): WhaleApiClient {
   return new WhaleApiClient(options);
 }
 
-export function newWhaleRpcClient(
+export function newWhaleRpcClient (
   options: WhaleApiClientOptions
 ): WhaleRpcClient {
   return new WhaleRpcClient(
