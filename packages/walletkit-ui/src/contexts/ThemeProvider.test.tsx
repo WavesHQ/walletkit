@@ -12,7 +12,7 @@ const consoleLog = jest.spyOn(console, "log").mockImplementation(jest.fn);
 const consoleError = jest.spyOn(console, "error").mockImplementation(jest.fn);
 const logger = { error: () => consoleError, info: () => consoleLog };
 
-describe.skip("useTheme hook test", () => {
+describe("useTheme hook test", () => {
   it("should pass when theme is not set", async () => {
     const desiredTheme = "dark";
     const api = {
