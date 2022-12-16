@@ -1,5 +1,10 @@
 import { EnvironmentNetwork } from "./environment";
-import { newOceanOptions, newWhaleAPIClient, newWhaleRpcClient } from "./whale";
+import {
+  getDefaultDefiChainURL,
+  newOceanOptions,
+  newWhaleAPIClient,
+  newWhaleRpcClient,
+} from "./whale";
 
 describe("whale", () => {
   it("should match ocean options for local playground", () => {
@@ -48,5 +53,29 @@ describe("whale", () => {
     const oceanOptions = newOceanOptions(EnvironmentNetwork.TestNet);
     const whaleApiClient = newWhaleRpcClient(oceanOptions);
     expect(whaleApiClient).toBeDefined();
+  });
+
+  it("should match default ocean url for local playground", () => {
+    const defaultURL = getDefaultDefiChainURL(
+      EnvironmentNetwork.LocalPlayground
+    );
+    expect(defaultURL).toStrictEqual("http://localhost:19553");
+  });
+
+  it("should match default ocean url for remote playground", () => {
+    const defaultURL = getDefaultDefiChainURL(
+      EnvironmentNetwork.RemotePlayground
+    );
+    expect(defaultURL).toStrictEqual("https://playground.jellyfishsdk.com");
+  });
+
+  it("should match default ocean url for testnet", () => {
+    const defaultURL = getDefaultDefiChainURL(EnvironmentNetwork.TestNet);
+    expect(defaultURL).toStrictEqual("https://testnet.ocean.jellyfishsdk.com");
+  });
+
+  it("should match default ocean url for mainnet", () => {
+    const defaultURL = getDefaultDefiChainURL(EnvironmentNetwork.MainNet);
+    expect(defaultURL).toStrictEqual("https://ocean.defichain.com");
   });
 });

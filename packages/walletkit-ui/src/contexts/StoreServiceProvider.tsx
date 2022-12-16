@@ -1,4 +1,7 @@
-import { EnvironmentNetwork, newOceanOptions } from "@waveshq/walletkit-core";
+import {
+  EnvironmentNetwork,
+  getDefaultDefiChainURL,
+} from "@waveshq/walletkit-core";
 import React, {
   createContext,
   PropsWithChildren,
@@ -27,11 +30,6 @@ interface ServiceProviderLoader {
   isUrlLoaded: boolean;
   url: NonNullable<string>;
 }
-
-const getDefaultDefiChainURL = (network: EnvironmentNetwork): string => {
-  const { url } = newOceanOptions(network);
-  return url as string;
-};
 
 function useServiceProviderUrl({
   api,

@@ -51,3 +51,8 @@ export function newWhaleRpcClient(
     `${options.url}/${options.version}/${options.network}/rpc`
   );
 }
+
+export function getDefaultDefiChainURL(network: EnvironmentNetwork): string {
+  const { url } = newOceanOptions(network);
+  return url as string;
+}
