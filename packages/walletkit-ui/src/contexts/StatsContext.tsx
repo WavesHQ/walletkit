@@ -1,19 +1,19 @@
+import { isPlayground } from "@waveshq/walletkit-core";
 import React, { PropsWithChildren, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { block, BlockState } from "../store";
-import { isPlayground } from "../shared/environment";
+import { BaseLogger } from "./logger";
 import { useNetworkContext } from "./NetworkContext";
 import { useWhaleApiClient } from "./WhaleContext";
-import { BaseLogger } from "./logger";
 
 export interface StatsProviderProps extends PropsWithChildren<{}> {
   logger: BaseLogger;
 }
 
 export function StatsProvider(props: StatsProviderProps): JSX.Element | null {
-  const { children } = props;
+  const { logger, children } = props;
   const { network } = useNetworkContext();
-  const { logger } = props;
   const isPolling = useSelector((state: BlockState) => state.isPolling);
   const api = useWhaleApiClient();
   const interval: number = isPlayground(network) ? 3000 : 30000;
@@ -74,5 +74,6 @@ export function StatsProvider(props: StatsProviderProps): JSX.Element | null {
     };
   }, [api, interval, network, dispatch]);
 
-  return <>{props.children}</>;
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
 }
