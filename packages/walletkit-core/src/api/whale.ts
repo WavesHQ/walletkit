@@ -6,7 +6,7 @@ import {
 
 import { EnvironmentNetwork } from "./environment";
 
-export function newOceanOptions (
+export function newOceanOptions(
   network: EnvironmentNetwork
 ): WhaleApiClientOptions {
   switch (network) {
@@ -38,13 +38,13 @@ export function newOceanOptions (
   }
 }
 
-export function newWhaleAPIClient (
+export function newWhaleAPIClient(
   options: WhaleApiClientOptions
 ): WhaleApiClient {
   return new WhaleApiClient(options);
 }
 
-export function newWhaleRpcClient (
+export function newWhaleRpcClient(
   options: WhaleApiClientOptions
 ): WhaleRpcClient {
   return new WhaleRpcClient(
