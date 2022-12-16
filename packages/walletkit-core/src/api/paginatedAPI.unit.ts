@@ -1,4 +1,4 @@
-import { getPaginatedResponse } from "@waveshq/walletkit-core";
+import { getPaginatedResponse } from "./paginatedAPI";
 
 describe("Paginated API", () => {
   it("should receive correct value", async () => {
