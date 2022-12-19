@@ -8,9 +8,6 @@ interface IStoreProvider {
   initializeStore: () => EnhancedStore;
 }
 
-/**
- * Store that is memoized to network & wallets setting.
- */
 export function StoreProvider(
   props: PropsWithChildren<IStoreProvider>
 ): JSX.Element {
