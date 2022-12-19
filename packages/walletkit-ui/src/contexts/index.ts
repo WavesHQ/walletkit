@@ -5,7 +5,6 @@ export * from "./PlaygroundContext";
 export * from "./StoreProvider";
 export * from "./StoreServiceProvider";
 export * from "./ThemeProvider";
-export * from "./WalletDataProvider";
 export * from "./WalletNodeProvider";
 export * from "./WalletPersistenceContext";
 export * from "./WhaleContext";

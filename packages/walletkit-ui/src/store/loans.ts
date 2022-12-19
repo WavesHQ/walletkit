@@ -145,7 +145,7 @@ export const loans = createSlice({
   },
 });
 
-export const selectLoansState = (state): LoansState => state.loans;
+export const selectLoansState = (state: any): LoansState => state.loans;
 
 export const ascColRatioLoanScheme = createSelector(
   (state: LoansState) => state.loanSchemes,
