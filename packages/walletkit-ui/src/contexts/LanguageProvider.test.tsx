@@ -17,7 +17,7 @@ const consoleError = jest.spyOn(console, "error").mockImplementation(jest.fn);
 const logger = { error: () => consoleError, info: () => consoleLog };
 const onChangeLocale = jest.fn();
 
-describe.skip("useLanguage hook test", () => {
+describe("useLanguage hook test", () => {
   it("should pass when it uses users devices locale on first app install", async () => {
     const api = {
       set: jest.fn(),
