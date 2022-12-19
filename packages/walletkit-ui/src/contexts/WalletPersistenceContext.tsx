@@ -6,8 +6,8 @@ import React, {
   useState,
 } from "react";
 
+import { BaseLogger } from "./logger";
 import { useNetworkContext } from "./NetworkContext";
-import {BaseLogger} from "./logger";
 
 export enum WalletType {
   MNEMONIC_UNPROTECTED = "MNEMONIC_UNPROTECTED",
