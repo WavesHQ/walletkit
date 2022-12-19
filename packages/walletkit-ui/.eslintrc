@@ -5,6 +5,7 @@
   },
   "rules": {
     "check-file/filename-naming-convention": "off",
-    "no-param-reassign": "warn"
+    "no-param-reassign": "warn",
+    "import/prefer-default-export": "off"
   }
 }

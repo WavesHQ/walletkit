@@ -11,7 +11,7 @@ interface IStoreProvider {
 /**
  * Store that is memoized to network & wallets setting.
  */
-export default function StoreProvider(
+export function StoreProvider(
   props: PropsWithChildren<IStoreProvider>
 ): JSX.Element {
   const { children, initializeStore } = props;
