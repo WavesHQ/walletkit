@@ -2,8 +2,16 @@ import {
   WalletHdNode,
   WalletHdNodeProvider,
 } from "@defichain/jellyfish-wallet";
-import { EncryptedProviderData } from "@defichain/jellyfish-wallet-encrypted";
-import { MnemonicProviderData } from "@defichain/jellyfish-wallet-mnemonic";
+import {
+  EncryptedHdNodeProvider,
+  EncryptedProviderData,
+  PromptPassphrase,
+} from "@defichain/jellyfish-wallet-encrypted";
+import {
+  MnemonicHdNodeProvider,
+  MnemonicProviderData,
+} from "@defichain/jellyfish-wallet-mnemonic";
+import { EnvironmentNetwork } from "@waveshq/walletkit-core";
 import React, {
   createContext,
   PropsWithChildren,
@@ -13,6 +21,36 @@ import React, {
 
 import { useNetworkContext } from "./NetworkContext";
 import { WalletPersistenceDataI, WalletType } from "./WalletPersistenceContext";
+
+export interface PromptInterface {
+  prompt: PromptPassphrase;
+}
+
+export interface EncryptedMnemonicWalletI {
+  initProvider: (
+    data: WalletPersistenceDataI<EncryptedProviderData>,
+    network: EnvironmentNetwork,
+    promptInterface: PromptInterface
+  ) => EncryptedHdNodeProvider;
+  toData: (
+    mnemonic: string[],
+    network: EnvironmentNetwork,
+    passphrase: string
+  ) => Promise<WalletPersistenceDataI<EncryptedProviderData>>;
+  generateWords?: () => string[];
+}
+
+export interface UnencryptedMnemonicWalletI {
+  initProvider: (
+    data: WalletPersistenceDataI<MnemonicProviderData>,
+    network: EnvironmentNetwork
+  ) => MnemonicHdNodeProvider;
+  toData: (
+    mnemonic: string[],
+    network: EnvironmentNetwork
+  ) => Promise<WalletPersistenceDataI<MnemonicProviderData>>;
+  generateWords?: () => string[];
+}
 
 interface WalletNodeContextI {
   provider: WalletHdNodeProvider<WalletHdNode>;
@@ -78,6 +116,12 @@ export function useWalletNodeContext(): WalletNodeContextI {
 
 interface WalletNodeProviderProps<T> extends PropsWithChildren<any> {
   data: WalletPersistenceDataI<T>;
+
+  // eslint-disable-next-line react/no-unused-prop-types
+  MnemonicEncrypted: EncryptedMnemonicWalletI;
+
+  // eslint-disable-next-line react/no-unused-prop-types
+  MnemonicUnprotected: UnencryptedMnemonicWalletI;
 }
 
 /**
