@@ -123,6 +123,7 @@ export function LanguageProvider(
     await api.set(newLocale);
   };
 
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const context: Language = {
     language: currentLanguage,
     setLanguage,
