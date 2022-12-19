@@ -14,6 +14,7 @@
     "@waveshq/standard-defichain-jellyfishsdk": "^0.20.1",
     "@waveshq/walletkit-core": "workspace:*",
     "bignumber.js": "^9.1.1",
+    "dayjs": "^1.11.7",
     "immer": "^9.0.16",
     "reselect": "^4.1.7",
     "smart-buffer": "^4.2.0"
