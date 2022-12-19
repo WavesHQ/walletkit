@@ -1,3 +1,4 @@
+export * from "./DeFiScanContext";
 export * from "./LanguageProvider";
 export * from "./NetworkContext";
 export * from "./PlaygroundContext";
