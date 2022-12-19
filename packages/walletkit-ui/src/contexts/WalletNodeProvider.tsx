@@ -48,7 +48,7 @@ export interface UnencryptedMnemonicWalletI {
   toData: (
     mnemonic: string[],
     network: EnvironmentNetwork
-  ) => Promise<WalletPersistenceDataI<MnemonicProviderData>>;
+  ) => WalletPersistenceDataI<MnemonicProviderData>;
   generateWords?: () => string[];
 }
 
