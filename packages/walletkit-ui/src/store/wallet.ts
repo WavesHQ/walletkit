@@ -23,7 +23,7 @@ export interface SwappableTokens {
   [key: string]: AllSwappableTokensResult;
 }
 
-interface DexPricesProps {
+export interface DexPricesProps {
   [symbol: string]: DexPrice;
 }
 
