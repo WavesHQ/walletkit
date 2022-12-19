@@ -97,7 +97,7 @@ export const userPreferences = createSlice({
 });
 
 const prepopulateField = (addresses: LabeledAddress): LocalAddress[] => {
-  const _addresses: LabeledAddress = { ...addresses };
+  const addressesWithDefaults: LabeledAddress = { ...addresses };
 
   // pre-populate address and isFavourite flag for older app version, used for UI data model only
   for (const address in addresses) {
@@ -107,10 +107,10 @@ const prepopulateField = (addresses: LabeledAddress): LocalAddress[] => {
         address,
         isFavourite: false,
       };
-      _addresses[address] = _address;
+      addressesWithDefaults[address] = _address;
     }
   }
-  return Object.values(_addresses);
+  return Object.values(addressesWithDefaults);
 };
 
 export const selectAddressBookArray = createSelector(
