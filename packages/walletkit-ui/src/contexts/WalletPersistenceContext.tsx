@@ -7,6 +7,7 @@ import React, {
 } from "react";
 
 import { useNetworkContext } from "./NetworkContext";
+import {BaseLogger} from "./logger";
 
 export enum WalletType {
   MNEMONIC_UNPROTECTED = "MNEMONIC_UNPROTECTED",
@@ -52,6 +53,7 @@ interface WalletPersistenceProviderI {
     setLength: (count: number) => Promise<void>;
     setActive: (count: number) => Promise<void>;
   };
+  logger: BaseLogger;
 }
 
 export function WalletPersistenceProvider(
