@@ -1,4 +1,5 @@
 export * from "./addressValidator";
+export * from "./balance";
 export * from "./environment";
 export * from "./network";
 export * from "./paginatedAPI";

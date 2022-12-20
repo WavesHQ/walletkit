@@ -23,6 +23,9 @@ importers:
   packages/walletkit-core:
     specifiers:
       '@birthdayresearch/sticky-jest': ^0.3.2
+      bignumber.js: ^9.1.1
+    dependencies:
+      bignumber.js: 9.1.1
     devDependencies:
       '@birthdayresearch/sticky-jest': 0.3.2_3vm2xah52xviuhfzvoq2fyl7ve
 

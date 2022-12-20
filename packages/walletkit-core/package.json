@@ -18,5 +18,8 @@
   },
   "jest": {
     "preset": "@birthdayresearch/sticky-jest"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.1.1"
   }
 }
