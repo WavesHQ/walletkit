@@ -16,12 +16,12 @@ interface CheckBalanceProps {
  * @param {string} amount to check across available balance
  * @returns {boolean}
  */
-export const checkSufficientBalance = async ({
+export async function checkSufficientBalance({
   client,
   address,
   token,
   amount,
-}: CheckBalanceProps): Promise<boolean> => {
+}: CheckBalanceProps): Promise<boolean> {
   if (new BigNumber(amount).isNaN()) {
     throw new Error("amount should be a number");
   }
@@ -32,4 +32,4 @@ export const checkSufficientBalance = async ({
   const tokenInfo = tokens.find((t) => t.symbol === token);
   const availableAmount = new BigNumber(tokenInfo?.amount ?? 0);
   return availableAmount.gte(amount);
-};
+}
