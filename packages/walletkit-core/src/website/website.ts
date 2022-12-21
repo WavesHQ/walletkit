@@ -130,7 +130,8 @@ export type FeatureFlagID =
   | "remove_liquidity_v2"
   | "send_v2"
   | "composite_swap_v2"
-  | "unloop_dusd";
+  | "unloop_dusd"
+  | "ocg_cfp_dfip";
 
 // Stages of feature flag
 export type FeatureFlagStage = "alpha" | "beta" | "public";
