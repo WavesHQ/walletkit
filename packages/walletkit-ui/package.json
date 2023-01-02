@@ -15,7 +15,7 @@
     "@waveshq/walletkit-core": "workspace:*",
     "bignumber.js": "^9.1.1",
     "dayjs": "^1.11.7",
-    "immer": "^9.0.16",
+    "immer": "^9.0.17",
     "reselect": "^4.1.7",
     "smart-buffer": "^4.2.0"
   },

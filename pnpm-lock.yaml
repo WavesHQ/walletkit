@@ -41,7 +41,7 @@ importers:
       '@waveshq/walletkit-core': workspace:*
       bignumber.js: ^9.1.1
       dayjs: ^1.11.7
-      immer: ^9.0.16
+      immer: ^9.0.17
       jest-environment-jsdom: ^29.3.1
       reselect: ^4.1.7
       smart-buffer: ^4.2.0
@@ -53,7 +53,7 @@ importers:
       '@waveshq/walletkit-core': link:../walletkit-core
       bignumber.js: 9.1.1
       dayjs: 1.11.7
-      immer: 9.0.16
+      immer: 9.0.17
       reselect: 4.1.7
       smart-buffer: 4.2.0
     devDependencies:
@@ -1074,7 +1074,7 @@ packages:
       react-redux:
         optional: true
     dependencies:
-      immer: 9.0.16
+      immer: 9.0.17
       react: 18.2.0
       react-redux: 8.0.5_gm3gubmwja4o7q6fr6adx3fpz4
       redux: 4.2.0
@@ -3487,8 +3487,8 @@ packages:
     resolution: {integrity: sha512-+oXiHwOEPr1IE5zY0tcBLED/CYcre15J4nwL50x3o0jxWqEkyjrusiKP3YSU+tr9fvJp33ZcP5Gpj2295g3aEw==}
     engines: {node: '>=10.18.0'}
 
-  /immer/9.0.16:
-    resolution: {integrity: sha512-qenGE7CstVm1NrHQbMh8YaSzTZTFNP3zPqr3YU0S0UY441j4bJTg4A2Hh5KAhwgaiU6ZZ1Ar6y/2f4TblnMReQ==}
+  /immer/9.0.17:
+    resolution: {integrity: sha512-+hBruaLSQvkPfxRiTLK/mi4vLH+/VQS6z2KJahdoxlleFOI8ARqzOF17uy12eFDlqWmPoygwc5evgwcp+dlHhg==}
 
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
