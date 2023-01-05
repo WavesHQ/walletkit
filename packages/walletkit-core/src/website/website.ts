@@ -39,6 +39,7 @@ export interface FeatureFlag {
   networks: EnvironmentNetwork[];
   platforms: Platform[];
   app: App[];
+  toggleMessage?: string;
 }
 
 export interface DeFiChainStatus {
