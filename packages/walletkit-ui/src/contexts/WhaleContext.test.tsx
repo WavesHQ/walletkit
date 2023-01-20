@@ -33,6 +33,11 @@ describe("Whale Context test", () => {
       network: "regtest",
       name: EnvironmentNetwork.LocalPlayground,
     },
+    {
+      url: "http://35.241.191.23:3000",
+      network: "devnet",
+      name: EnvironmentNetwork.DevNet,
+    },
   ];
 
   networkDetails.forEach((networkDetail) => {

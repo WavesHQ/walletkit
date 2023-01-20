@@ -43,6 +43,15 @@ describe("whale", () => {
     });
   });
 
+  it("should match ocean options for devnet", () => {
+    const oceanOptions = newOceanOptions(EnvironmentNetwork.DevNet);
+    expect(oceanOptions).toMatchObject({
+      url: "http://35.241.191.23:3000",
+      network: "devnet",
+      version: "v0",
+    });
+  });
+
   it("should create new instance of whale api client", () => {
     const oceanOptions = newOceanOptions(EnvironmentNetwork.TestNet);
     const whaleApiClient = newWhaleAPIClient(oceanOptions);
@@ -77,5 +86,10 @@ describe("whale", () => {
   it("should match default ocean url for mainnet", () => {
     const defaultURL = getDefaultDefiChainURL(EnvironmentNetwork.MainNet);
     expect(defaultURL).toStrictEqual("https://ocean.defichain.com");
+  });
+
+  it("should match default ocean url for devnet", () => {
+    const defaultURL = getDefaultDefiChainURL(EnvironmentNetwork.DevNet);
+    expect(defaultURL).toStrictEqual("http://35.241.191.23:3000");
   });
 });
