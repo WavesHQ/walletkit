@@ -1,4 +1,5 @@
 import {
+  DevNet,
   MainNet,
   Network,
   RegTest,
@@ -14,6 +15,8 @@ export function getJellyfishNetwork(network: EnvironmentNetwork): Network {
       return MainNet;
     case EnvironmentNetwork.TestNet:
       return TestNet;
+    case EnvironmentNetwork.DevNet:
+      return DevNet;
     case EnvironmentNetwork.LocalPlayground:
     case EnvironmentNetwork.RemotePlayground:
       return RegTest;
