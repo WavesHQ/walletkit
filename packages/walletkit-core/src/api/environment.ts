@@ -6,6 +6,7 @@ export enum EnvironmentNetwork {
   RemotePlayground = "Playground",
   MainNet = "MainNet",
   TestNet = "TestNet",
+  DevNet = "DevNet",
 }
 
 export enum EnvironmentName {
@@ -27,6 +28,7 @@ export const environments: Record<EnvironmentName, Environment> = {
     networks: [
       EnvironmentNetwork.MainNet,
       EnvironmentNetwork.TestNet,
+      EnvironmentNetwork.DevNet,
       EnvironmentNetwork.RemotePlayground,
     ],
   },
@@ -35,6 +37,7 @@ export const environments: Record<EnvironmentName, Environment> = {
     debug: true,
     networks: [
       EnvironmentNetwork.RemotePlayground,
+      EnvironmentNetwork.DevNet,
       EnvironmentNetwork.TestNet,
       EnvironmentNetwork.MainNet,
     ],
@@ -45,6 +48,7 @@ export const environments: Record<EnvironmentName, Environment> = {
     networks: [
       EnvironmentNetwork.LocalPlayground,
       EnvironmentNetwork.RemotePlayground,
+      EnvironmentNetwork.DevNet,
       EnvironmentNetwork.TestNet,
       EnvironmentNetwork.MainNet,
     ],

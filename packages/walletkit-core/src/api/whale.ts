@@ -28,6 +28,12 @@ export function newOceanOptions(
         network: "testnet",
         version: "v0",
       };
+    case EnvironmentNetwork.DevNet:
+      return {
+        url: "http://35.241.191.23:3000",
+        network: "devnet",
+        version: "v0",
+      };
     case EnvironmentNetwork.MainNet:
     default:
       return {
