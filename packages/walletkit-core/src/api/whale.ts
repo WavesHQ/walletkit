@@ -30,7 +30,7 @@ export function newOceanOptions(
       };
     case EnvironmentNetwork.DevNet:
       return {
-        url: "http://35.241.191.23:3000",
+        url: "https://devnet.ocean.jellyfishsdk.com",
         network: "devnet",
         version: "v0",
       };
