@@ -95,3 +95,55 @@ describe("whale", () => {
     );
   });
 });
+
+describe("whale custom provider", () => {
+  const customProviderURL = "https://custom.provider.test.com";
+
+  it("should match custom provider URL for local playground", () => {
+    const oceanOptions = newOceanOptions(
+      EnvironmentNetwork.LocalPlayground,
+      customProviderURL
+    );
+    expect(oceanOptions).toMatchObject({
+      url: customProviderURL,
+      network: "regtest",
+      version: "v0",
+    });
+  });
+
+  it("should match custom provider URL for testnet", () => {
+    const oceanOptions = newOceanOptions(
+      EnvironmentNetwork.TestNet,
+      customProviderURL
+    );
+    expect(oceanOptions).toMatchObject({
+      url: customProviderURL,
+      network: "testnet",
+      version: "v0",
+    });
+  });
+
+  it("should match custom provider URL for mainnet", () => {
+    const oceanOptions = newOceanOptions(
+      EnvironmentNetwork.MainNet,
+      customProviderURL
+    );
+    expect(oceanOptions).toMatchObject({
+      url: customProviderURL,
+      network: "mainnet",
+      version: "v0",
+    });
+  });
+
+  it("should match custom provider URL for devnet", () => {
+    const oceanOptions = newOceanOptions(
+      EnvironmentNetwork.DevNet,
+      customProviderURL
+    );
+    expect(oceanOptions).toMatchObject({
+      url: customProviderURL,
+      network: "devnet",
+      version: "v0",
+    });
+  });
+});

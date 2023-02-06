@@ -7,6 +7,7 @@ import {
 import React, { createContext, useContext, useMemo } from "react";
 
 import { useNetworkContext } from "./NetworkContext";
+import { useServiceProviderContext } from "./StoreServiceProvider";
 
 const WhaleApiClientContext = createContext<{
   whaleAPI: WhaleApiClient;
@@ -25,12 +26,14 @@ export function WhaleProvider({
   children,
 }: React.PropsWithChildren<any>): JSX.Element | null {
   const { network } = useNetworkContext();
+  const { url } = useServiceProviderContext();
+
   const client = useMemo(
     () => ({
-      whaleAPI: newWhaleAPIClient(newOceanOptions(network)),
-      whaleRPC: newWhaleRpcClient(newOceanOptions(network)),
+      whaleAPI: newWhaleAPIClient(newOceanOptions(network, url)),
+      whaleRPC: newWhaleRpcClient(newOceanOptions(network, url)),
     }),
-    [network]
+    [network, url]
   );
 
   return (

@@ -7,37 +7,38 @@ import {
 import { EnvironmentNetwork } from "./environment";
 
 export function newOceanOptions(
-  network: EnvironmentNetwork
+  network: EnvironmentNetwork,
+  url?: string
 ): WhaleApiClientOptions {
   switch (network) {
     case EnvironmentNetwork.LocalPlayground:
       return {
-        url: "http://localhost:19553",
+        url: url ?? "http://localhost:19553",
         network: "regtest",
         version: "v0",
       };
     case EnvironmentNetwork.RemotePlayground:
       return {
-        url: "https://playground.jellyfishsdk.com",
+        url: url ?? "https://playground.jellyfishsdk.com",
         network: "regtest",
         version: "v0",
       };
     case EnvironmentNetwork.TestNet:
       return {
-        url: "https://testnet.ocean.jellyfishsdk.com",
+        url: url ?? "https://testnet.ocean.jellyfishsdk.com",
         network: "testnet",
         version: "v0",
       };
     case EnvironmentNetwork.DevNet:
       return {
-        url: "http://devnet.ocean.jellyfishsdk.com:3000",
+        url: url ?? "http://devnet.ocean.jellyfishsdk.com:3000",
         network: "devnet",
         version: "v0",
       };
     case EnvironmentNetwork.MainNet:
     default:
       return {
-        url: "https://ocean.defichain.com",
+        url: url ?? "https://ocean.defichain.com",
         network: "mainnet",
         version: "v0",
       };
