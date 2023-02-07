@@ -26,14 +26,16 @@ export function WhaleProvider({
   children,
 }: React.PropsWithChildren<any>): JSX.Element | null {
   const { network } = useNetworkContext();
-  const { url } = useServiceProviderContext();
+
+  // Do not destructure, some projects are not wrapped with ServiceProvider
+  const service = useServiceProviderContext();
 
   const client = useMemo(
     () => ({
-      whaleAPI: newWhaleAPIClient(newOceanOptions(network, url)),
-      whaleRPC: newWhaleRpcClient(newOceanOptions(network, url)),
+      whaleAPI: newWhaleAPIClient(newOceanOptions(network, service?.url)),
+      whaleRPC: newWhaleRpcClient(newOceanOptions(network, service?.url)),
     }),
-    [network, url]
+    [network, service?.url]
   );
 
   return (
