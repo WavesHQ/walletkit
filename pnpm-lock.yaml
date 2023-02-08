@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      '@birthdayresearch/eslint-config': ^0.3.8
+      '@birthdayresearch/eslint-config': ^0.4.0
       '@birthdayresearch/sticky-turbo': ^0.4.0
       '@waveshq/standard-defichain-jellyfishsdk': ^0.42.0
       '@waveshq/standard-prettier': ^0.42.0
@@ -12,7 +12,7 @@ importers:
       '@waveshq/standard-web-linter': ^0.42.0
       '@waveshq/walletkit-core': workspace:*
     devDependencies:
-      '@birthdayresearch/eslint-config': 0.3.8_typescript@4.9.5
+      '@birthdayresearch/eslint-config': 0.4.0_typescript@4.9.5
       '@birthdayresearch/sticky-turbo': 0.4.0
       '@waveshq/standard-defichain-jellyfishsdk': 0.42.0_@types+tar-fs@2.0.1
       '@waveshq/standard-prettier': 0.42.0_j4jkrcpzibaulwjhzfpnat3yla
@@ -379,8 +379,8 @@ packages:
   /@bcoe/v8-coverage/0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  /@birthdayresearch/eslint-config/0.3.8_typescript@4.9.5:
-    resolution: {integrity: sha512-SvN8vHIlPuL5vicqWzr0XR4biNLhSfPhEtAqYXh6Ht+fLdDzX9f9tCxNuch7T/P7l9sKWe//yhdWzxuCIOxrjA==}
+  /@birthdayresearch/eslint-config/0.4.0_typescript@4.9.5:
+    resolution: {integrity: sha512-1s/3leyMEJeW0RUf78p+lbX/zBwzpYaeo+nXustO5VZRoKzEb0Pj8B/RW0Qi/I5mJZVAGY496wOIo3ZDSWvlCA==}
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.50.0_go4drrxstycfikanvu45pi4vgq
       '@typescript-eslint/parser': 5.50.0_4vsywjlpuriuw3tl5oq6zy5a64
