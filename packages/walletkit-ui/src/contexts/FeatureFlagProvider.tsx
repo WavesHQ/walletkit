@@ -1,22 +1,24 @@
 import {
-  getEnvironment,
   FeatureFlag,
   FeatureFlagID,
+  getEnvironment,
   Platform,
 } from "@waveshq/walletkit-core";
 import React, {
   createContext,
+  PropsWithChildren,
   ReactElement,
   useContext,
   useEffect,
+  useMemo,
   useState,
-  PropsWithChildren,
 } from "react";
 import { satisfies } from "semver";
-import { useNetworkContext } from "./NetworkContext";
-import { useServiceProviderContext } from "./StoreServiceProvider";
+
 import { useGetFeatureFlagsQuery, usePrefetch } from "../store";
 import { BaseLogger } from "./logger";
+import { useNetworkContext } from "./NetworkContext";
+import { useServiceProviderContext } from "./StoreServiceProvider";
 
 const MAX_RETRY = 3;
 export interface FeatureFlagContextI {
@@ -48,8 +50,14 @@ export interface FeatureFlagProviderProps extends PropsWithChildren<{}> {
 export function FeatureFlagProvider(
   props: FeatureFlagProviderProps
 ): JSX.Element | null {
-  const { logger, api, releaseChannel, platformOS, nativeApplicationVersion } =
-    props;
+  const {
+    logger,
+    api,
+    releaseChannel,
+    platformOS,
+    nativeApplicationVersion,
+    children,
+  } = props;
   const { network } = useNetworkContext();
   const { url, isCustomUrl } = useServiceProviderContext();
   const {
@@ -89,6 +97,19 @@ export function FeatureFlagProvider(
     );
   }
 
+  function checkFeatureStage(feature: FeatureFlag): boolean {
+    switch (feature.stage) {
+      case "alpha":
+        return getEnvironment(releaseChannel).debug;
+      case "beta":
+        return enabledFeatures.includes(feature.id);
+      case "public":
+        return true;
+      default:
+        return false;
+    }
+  }
+
   function isFeatureAvailable(featureId: FeatureFlagID): boolean {
     return featureFlags.some((flag: FeatureFlag) => {
       if (
@@ -109,19 +130,6 @@ export function FeatureFlagProvider(
     });
   }
 
-  function checkFeatureStage(feature: FeatureFlag): boolean {
-    switch (feature.stage) {
-      case "alpha":
-        return getEnvironment(releaseChannel).debug;
-      case "beta":
-        return enabledFeatures.includes(feature.id);
-      case "public":
-        return true;
-      default:
-        return false;
-    }
-  }
-
   const updateEnabledFeatures = async (
     flags: FeatureFlagID[]
   ): Promise<void> => {
@@ -138,6 +146,24 @@ export function FeatureFlagProvider(
       .catch((err) => logger.error(err));
   }, []);
 
+  const context: FeatureFlagContextI = useMemo(
+    () => ({
+      featureFlags,
+      enabledFeatures,
+      updateEnabledFeatures,
+      isFeatureAvailable,
+      isBetaFeature,
+      hasBetaFeatures: featureFlags.some(
+        (flag) =>
+          satisfies(appVersion, flag.version) &&
+          flag.networks?.includes(network) &&
+          flag.platforms?.includes(platformOS) &&
+          flag.stage === "beta"
+      ),
+    }),
+    [featureFlags, appVersion, network, platformOS]
+  );
+
   /*
       If service provider === custom, we keep showing the app regardless if feature flags loaded to ensure app won't be stuck on white screen
       Note: return null === app will be stuck at white screen until the feature flags API are applied
@@ -146,28 +172,14 @@ export function FeatureFlagProvider(
     return null;
   }
 
-  const context: FeatureFlagContextI = {
-    featureFlags,
-    enabledFeatures,
-    updateEnabledFeatures,
-    isFeatureAvailable,
-    isBetaFeature,
-    hasBetaFeatures: featureFlags.some(
-      (flag) =>
-        satisfies(appVersion, flag.version) &&
-        flag.networks?.includes(network) &&
-        flag.platforms?.includes(platformOS) &&
-        flag.stage === "beta"
-    ),
-  };
-
   if (isError && !isLoading && retries < MAX_RETRY) {
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <></>;
   }
 
   return (
     <FeatureFlagContext.Provider value={context}>
-      {props.children}
+      {children}
     </FeatureFlagContext.Provider>
   );
 }
