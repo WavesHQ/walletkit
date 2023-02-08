@@ -6,18 +6,18 @@ importers:
     specifiers:
       '@birthdayresearch/eslint-config': ^0.3.8
       '@birthdayresearch/sticky-turbo': ^0.4.0
-      '@waveshq/standard-defichain-jellyfishsdk': ^0.41.1
-      '@waveshq/standard-prettier': ^0.41.1
-      '@waveshq/standard-web': ^0.41.1
-      '@waveshq/standard-web-linter': ^0.41.1
+      '@waveshq/standard-defichain-jellyfishsdk': ^0.42.0
+      '@waveshq/standard-prettier': ^0.42.0
+      '@waveshq/standard-web': ^0.42.0
+      '@waveshq/standard-web-linter': ^0.42.0
       '@waveshq/walletkit-core': workspace:*
     devDependencies:
       '@birthdayresearch/eslint-config': 0.3.8_typescript@4.9.5
       '@birthdayresearch/sticky-turbo': 0.4.0
-      '@waveshq/standard-defichain-jellyfishsdk': 0.41.1_@types+tar-fs@2.0.1
-      '@waveshq/standard-prettier': 0.41.1_j4jkrcpzibaulwjhzfpnat3yla
-      '@waveshq/standard-web': 0.41.1_fb5j462q7gyr7xnxlgj4il242a
-      '@waveshq/standard-web-linter': 0.41.1_khst7zht7iiineqp5us24cpvku
+      '@waveshq/standard-defichain-jellyfishsdk': 0.42.0_@types+tar-fs@2.0.1
+      '@waveshq/standard-prettier': 0.42.0_j4jkrcpzibaulwjhzfpnat3yla
+      '@waveshq/standard-web': 0.42.0_fb5j462q7gyr7xnxlgj4il242a
+      '@waveshq/standard-web-linter': 0.42.0_khst7zht7iiineqp5us24cpvku
       '@waveshq/walletkit-core': link:packages/walletkit-core
 
   packages/walletkit-core:
@@ -35,9 +35,9 @@ importers:
       '@testing-library/jest-dom': ^5.16.5
       '@testing-library/react': ^13.4.0
       '@testing-library/react-hooks': ^8.0.1
-      '@waveshq/standard-defichain-jellyfishsdk': ^0.41.1
-      '@waveshq/standard-web': ^0.41.1
-      '@waveshq/standard-web-linter': ^0.41.1
+      '@waveshq/standard-defichain-jellyfishsdk': ^0.42.0
+      '@waveshq/standard-web': ^0.42.0
+      '@waveshq/standard-web-linter': ^0.42.0
       '@waveshq/walletkit-core': workspace:*
       bignumber.js: ^9.1.1
       dayjs: ^1.11.7
@@ -47,9 +47,9 @@ importers:
       smart-buffer: ^4.2.0
     dependencies:
       '@birthdayresearch/sticky-jest': 0.4.0_56pcy4vhlzcrxrntyrevcrzjiy
-      '@waveshq/standard-defichain-jellyfishsdk': 0.41.1_@types+tar-fs@2.0.1
-      '@waveshq/standard-web': 0.41.1_tbfw2kvdqnmuhhkpjha3bebax4
-      '@waveshq/standard-web-linter': 0.41.1_coqdgedq5gvp6efm42czj6qsr4
+      '@waveshq/standard-defichain-jellyfishsdk': 0.42.0_@types+tar-fs@2.0.1
+      '@waveshq/standard-web': 0.42.0_tbfw2kvdqnmuhhkpjha3bebax4
+      '@waveshq/standard-web-linter': 0.42.0_coqdgedq5gvp6efm42czj6qsr4
       '@waveshq/walletkit-core': link:../walletkit-core
       bignumber.js: 9.1.1
       dayjs: 1.11.7
@@ -1515,8 +1515,8 @@ packages:
       '@typescript-eslint/types': 5.50.0
       eslint-visitor-keys: 3.3.0
 
-  /@waveshq/standard-defichain-jellyfishsdk/0.41.1_@types+tar-fs@2.0.1:
-    resolution: {integrity: sha512-SwFuXDCsZb6mMf1/kTAmLvz32zcFPFVre1wtC+z8aqWnxoU20avG4IiFPA5iLh5URhK+4z0rmmxm7TUiKM2RtQ==}
+  /@waveshq/standard-defichain-jellyfishsdk/0.42.0_@types+tar-fs@2.0.1:
+    resolution: {integrity: sha512-74YDvMllNrFY/gEgOaBSNKAV953paLnPvZk44NwzxBwslT6Adh0sRYVJeIEPrdMwXUhhVvRhyzwXzyAGHOnjcA==}
     dependencies:
       '@defichain/jellyfish-address': 3.28.1_defichain@3.28.1
       '@defichain/jellyfish-api-core': 3.28.1_defichain@3.28.1
@@ -1537,18 +1537,18 @@ packages:
       - encoding
       - supports-color
 
-  /@waveshq/standard-prettier/0.41.1_j4jkrcpzibaulwjhzfpnat3yla:
-    resolution: {integrity: sha512-mg/pGNT+Hx3e1mYk3Y9XKy/pgfNbd90bsS+f/yTDcDMbWUMabCP4acICHoVJiOWVJShWZqfrs06RDEm7H1veKg==}
+  /@waveshq/standard-prettier/0.42.0_j4jkrcpzibaulwjhzfpnat3yla:
+    resolution: {integrity: sha512-XQqaU6B+wqJ5cUdtj1PCxWI5qyeXKYn+XG4FBdekf88lRUrznV4+PP4qXqJLBHlpDejYGJAeLMNas7fP8id4/w==}
     dependencies:
       eslint: 8.33.0
       eslint-config-airbnb: 19.0.4_uhus6rimx3ujvztlky4xaizltu
       eslint-config-airbnb-typescript: 17.0.0_kh22gsft6r4fkunxdzqyqzlvzy
       eslint-config-prettier: 8.6.0_eslint@8.33.0
-      eslint-plugin-prettier: 4.2.1_jqplj6qf3uqpxpu4gdyhwwasnq
+      eslint-plugin-prettier: 4.2.1_qa2thblfovmfepmgrc7z2owbo4
       eslint-plugin-simple-import-sort: 9.0.0_eslint@8.33.0
       husky: 8.0.3
       lint-staged: 13.1.0
-      prettier: 2.8.3
+      prettier: 2.8.4
       typescript: 4.9.5
     transitivePeerDependencies:
       - '@typescript-eslint/eslint-plugin'
@@ -1561,8 +1561,8 @@ packages:
       - supports-color
     dev: true
 
-  /@waveshq/standard-web-linter/0.41.1_coqdgedq5gvp6efm42czj6qsr4:
-    resolution: {integrity: sha512-2Uow36XVN6diYHUk3dTo0a1EbX+A2baUWqODmiIcS1L2+bY2I8ByMsijS8QKfPYthhjRAcOu0mORkHKCqZC5Hg==}
+  /@waveshq/standard-web-linter/0.42.0_coqdgedq5gvp6efm42czj6qsr4:
+    resolution: {integrity: sha512-wWcv+CgOiGTRnqwQL1LcWqk92NVEtny/bkdaPsfQmbyJuYzlHj5fCX0MOSi4UAHBZucyCvDAnunfDW1zEVJJeA==}
     dependencies:
       eslint: 8.33.0
       eslint-config-airbnb: 19.0.4_uhus6rimx3ujvztlky4xaizltu
@@ -1573,14 +1573,14 @@ packages:
       eslint-plugin-import: 2.27.5_ufewo3pl5nnmz6lltvjrdi2hii
       eslint-plugin-jsx-a11y: 6.7.1_eslint@8.33.0
       eslint-plugin-node: 11.1.0_eslint@8.33.0
-      eslint-plugin-prettier: 4.2.1_jqplj6qf3uqpxpu4gdyhwwasnq
+      eslint-plugin-prettier: 4.2.1_qa2thblfovmfepmgrc7z2owbo4
       eslint-plugin-react: 7.32.2_eslint@8.33.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.33.0
       eslint-plugin-simple-import-sort: 9.0.0_eslint@8.33.0
       husky: 8.0.3
       lint-staged: 13.1.0
       next: 13.1.6_pjwopsidmaokadturxaafygjp4
-      prettier: 2.8.3
+      prettier: 2.8.4
       typescript: 4.9.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -1598,8 +1598,8 @@ packages:
       - supports-color
     dev: false
 
-  /@waveshq/standard-web-linter/0.41.1_khst7zht7iiineqp5us24cpvku:
-    resolution: {integrity: sha512-2Uow36XVN6diYHUk3dTo0a1EbX+A2baUWqODmiIcS1L2+bY2I8ByMsijS8QKfPYthhjRAcOu0mORkHKCqZC5Hg==}
+  /@waveshq/standard-web-linter/0.42.0_khst7zht7iiineqp5us24cpvku:
+    resolution: {integrity: sha512-wWcv+CgOiGTRnqwQL1LcWqk92NVEtny/bkdaPsfQmbyJuYzlHj5fCX0MOSi4UAHBZucyCvDAnunfDW1zEVJJeA==}
     dependencies:
       eslint: 8.33.0
       eslint-config-airbnb: 19.0.4_uhus6rimx3ujvztlky4xaizltu
@@ -1610,14 +1610,14 @@ packages:
       eslint-plugin-import: 2.27.5_ufewo3pl5nnmz6lltvjrdi2hii
       eslint-plugin-jsx-a11y: 6.7.1_eslint@8.33.0
       eslint-plugin-node: 11.1.0_eslint@8.33.0
-      eslint-plugin-prettier: 4.2.1_jqplj6qf3uqpxpu4gdyhwwasnq
+      eslint-plugin-prettier: 4.2.1_qa2thblfovmfepmgrc7z2owbo4
       eslint-plugin-react: 7.32.2_eslint@8.33.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.33.0
       eslint-plugin-simple-import-sort: 9.0.0_eslint@8.33.0
       husky: 8.0.3
       lint-staged: 13.1.0
       next: 13.1.6_biqbaboplfbrettd7655fr4n2y
-      prettier: 2.8.3
+      prettier: 2.8.4
       typescript: 4.9.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -1635,8 +1635,8 @@ packages:
       - supports-color
     dev: true
 
-  /@waveshq/standard-web/0.41.1_fb5j462q7gyr7xnxlgj4il242a:
-    resolution: {integrity: sha512-wwHLkhxKNJIK8RAV3U/ArkT1JlCEjXVIPEpIlBErPsvL4c7Bc4DTtV3BFNzJRhRBDqi3zsXhjyZpl4/N01Xc0Q==}
+  /@waveshq/standard-web/0.42.0_fb5j462q7gyr7xnxlgj4il242a:
+    resolution: {integrity: sha512-AFDqk4LQUca8l08LyP75OK9ybfbfit0Qh8L1oZIwIaJj15sDlWtq0c5fs/Vdb1ZFYAHZ6vu8CLB1lf2HW/Wm3w==}
     dependencies:
       '@netlify/ipx': 1.3.3
       '@reduxjs/toolkit': 1.9.2_k4ae6lp43ej6mezo3ztvx6pykq
@@ -1644,7 +1644,7 @@ packages:
       '@types/react-dom': 18.0.10
       follow-redirects: 1.15.2
       next: 13.1.6_biqbaboplfbrettd7655fr4n2y
-      next-sitemap: 3.1.49_dlcnecpznf2wc36zwuq5m2ie5q
+      next-sitemap: 3.1.50_dlcnecpznf2wc36zwuq5m2ie5q
       nextjs-progressbar: 0.0.16_next@13.1.6+react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -1668,8 +1668,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@waveshq/standard-web/0.41.1_tbfw2kvdqnmuhhkpjha3bebax4:
-    resolution: {integrity: sha512-wwHLkhxKNJIK8RAV3U/ArkT1JlCEjXVIPEpIlBErPsvL4c7Bc4DTtV3BFNzJRhRBDqi3zsXhjyZpl4/N01Xc0Q==}
+  /@waveshq/standard-web/0.42.0_tbfw2kvdqnmuhhkpjha3bebax4:
+    resolution: {integrity: sha512-AFDqk4LQUca8l08LyP75OK9ybfbfit0Qh8L1oZIwIaJj15sDlWtq0c5fs/Vdb1ZFYAHZ6vu8CLB1lf2HW/Wm3w==}
     dependencies:
       '@netlify/ipx': 1.3.3
       '@reduxjs/toolkit': 1.9.2_k4ae6lp43ej6mezo3ztvx6pykq
@@ -1677,7 +1677,7 @@ packages:
       '@types/react-dom': 18.0.10
       follow-redirects: 1.15.2
       next: 13.1.6_pjwopsidmaokadturxaafygjp4
-      next-sitemap: 3.1.49_dlcnecpznf2wc36zwuq5m2ie5q
+      next-sitemap: 3.1.50_dlcnecpznf2wc36zwuq5m2ie5q
       nextjs-progressbar: 0.0.16_next@13.1.6+react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -3063,7 +3063,7 @@ packages:
       resolve: 1.22.1
       semver: 6.3.0
 
-  /eslint-plugin-prettier/4.2.1_jqplj6qf3uqpxpu4gdyhwwasnq:
+  /eslint-plugin-prettier/4.2.1_qa2thblfovmfepmgrc7z2owbo4:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -3076,7 +3076,7 @@ packages:
     dependencies:
       eslint: 8.33.0
       eslint-config-prettier: 8.6.0_eslint@8.33.0
-      prettier: 2.8.3
+      prettier: 2.8.4
       prettier-linter-helpers: 1.0.0
 
   /eslint-plugin-react-hooks/4.6.0_eslint@8.33.0:
@@ -4878,8 +4878,8 @@ packages:
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  /next-sitemap/3.1.49_dlcnecpznf2wc36zwuq5m2ie5q:
-    resolution: {integrity: sha512-bxBq+MQdi580PKn/8ert4X0RL8Kp9scvyiq6TmIpkCQC3bd4DResTyxHY2AuCGKz83ut2udHwKMZu3ztj3aq3w==}
+  /next-sitemap/3.1.50_dlcnecpznf2wc36zwuq5m2ie5q:
+    resolution: {integrity: sha512-BnxAbjOK1zVcYvpZ4sYfhPXcL3ajLh/AIJLR39YKrhFxrD92KkiAGuVaKhfpoQLUf+ldsGBkGpdml2N5Qdd1KA==}
     engines: {node: '>=14.18'}
     hasBin: true
     peerDependencies:
@@ -5334,8 +5334,8 @@ packages:
     dependencies:
       fast-diff: 1.2.0
 
-  /prettier/2.8.3:
-    resolution: {integrity: sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==}
+  /prettier/2.8.4:
+    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
 
