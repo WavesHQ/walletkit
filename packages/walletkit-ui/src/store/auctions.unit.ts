@@ -226,7 +226,7 @@ describe("auctions reducer", () => {
     expect(actual.bidHistory).toStrictEqual(bidHistory);
   });
 
-  it.only("should be able to return loan batches", () => {
+  it("should be able to return loan batches", () => {
     const state = {
       ...initialState,
       auctions: liquidatedVaults,
