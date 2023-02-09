@@ -181,7 +181,7 @@ describe("auctions reducer", () => {
       id: "a40dca4568cb17bbcf93cffe25e25a65b028a843ae43c26c33472eb5f5cdd404-0-61913320d0bfd8e10ddeab6d19a68c79394d46aa3f8748d1152687ecee687b43",
       key: "a40dca4568cb17bbcf93cffe25e25a65b028a843ae43c26c33472eb5f5cdd404-0",
       sort: "0000132a-61913320d0bfd8e10ddeab6d19a68c79394d46aa3f8748d1152687ecee687b43",
-      address:"mswsMVsyGMj1FzDMbbxw2QW3KvQAv2FKiy",
+      address: "mswsMVsyGMj1FzDMbbxw2QW3KvQAv2FKiy",
       vaultId:
         "a40dca4568cb17bbcf93cffe25e25a65b028a843ae43c26c33472eb5f5cdd404",
       index: 0,
@@ -226,7 +226,7 @@ describe("auctions reducer", () => {
     expect(actual.bidHistory).toStrictEqual(bidHistory);
   });
 
-  it("should be able to return loan batches", () => {
+  it.only("should be able to return loan batches", () => {
     const state = {
       ...initialState,
       auctions: liquidatedVaults,
@@ -250,5 +250,4 @@ describe("auctions reducer", () => {
       },
     ]);
   });
-
 });

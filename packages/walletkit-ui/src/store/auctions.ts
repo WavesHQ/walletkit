@@ -30,24 +30,26 @@ const initialState: AuctionsState = {
 
 export const fetchAuctions = createAsyncThunk(
   "wallet/fetchAuctions",
-  async ({ size = 200, client }: { size?: number; client: WhaleApiClient }) => client.loan.listAuction(size)
+  async ({ size = 200, client }: { size?: number; client: WhaleApiClient }) =>
+    client.loan.listAuction(size)
 );
 
 export const fetchBidHistory = createAsyncThunk(
   "wallet/fetchBidHistory",
   async ({
-           vaultId,
-           liquidationHeight,
-           batchIndex,
-           client,
-           size = 200,
-         }: {
+    vaultId,
+    liquidationHeight,
+    batchIndex,
+    client,
+    size = 200,
+  }: {
     vaultId: string;
     liquidationHeight: number;
     batchIndex: number;
     client: WhaleApiClient;
     size: number;
-  }) => client.loan.listVaultAuctionHistory(
+  }) =>
+    client.loan.listVaultAuctionHistory(
       vaultId,
       liquidationHeight,
       batchIndex,
@@ -86,7 +88,8 @@ export const auctions = createSlice({
  */
 export const getAuctionBatches = createSelector(
   [(state: AuctionsState) => state.auctions],
-  (auctions) => auctions.reduce<AuctionBatchProps[]>(
+  (auctionsState) =>
+    auctionsState.reduce<AuctionBatchProps[]>(
       (auctionBatches, auction): AuctionBatchProps[] => {
         const filteredAuctionBatches = auctionBatches;
         auction.batches.forEach((batch) => {
