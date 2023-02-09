@@ -20,7 +20,8 @@
     "@waveshq/standard-prettier": "^0.42.0",
     "@waveshq/standard-web": "^0.42.0",
     "@waveshq/standard-web-linter": "^0.42.0",
-    "@waveshq/walletkit-core": "workspace:*"
+    "@waveshq/walletkit-core": "workspace:*",
+    "testcontainers": "^9.1.2"
   },
   "eslintConfig": {
     "extends": [
