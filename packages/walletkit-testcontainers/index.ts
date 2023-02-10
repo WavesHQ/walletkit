@@ -1,1 +1,1 @@
-export * from "./../walletkit-testcontainers/src";
+export * from "../walletkit-testcontainers/src";
