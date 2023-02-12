@@ -1,6 +1,4 @@
-import {
-  GetFutureInfo,
-} from "@defichain/jellyfish-api-core/dist/category/account";
+import { GetFutureInfo } from "@defichain/jellyfish-api-core/dist/category/account";
 
 import {
   fetchExecutionBlock,
