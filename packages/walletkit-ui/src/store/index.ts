@@ -7,3 +7,4 @@ export * from "./types";
 export * from "./userPreferences";
 export * from "./wallet";
 export * from "./website";
+export * from "./futureSwap";
