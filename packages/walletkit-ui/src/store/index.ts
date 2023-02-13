@@ -1,5 +1,6 @@
 export * from "./auctions";
 export * from "./block";
+export * from "./futureSwap";
 export * from "./loans";
 export * from "./ocean";
 export * from "./transaction_queue";
@@ -7,4 +8,3 @@ export * from "./types";
 export * from "./userPreferences";
 export * from "./wallet";
 export * from "./website";
-export * from "./futureSwap";
