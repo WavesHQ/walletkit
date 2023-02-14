@@ -110,7 +110,7 @@ export interface DeFiChainStatus {
 
 export type Platform = "ios" | "android" | "windows" | "macos" | "web";
 
-export type App = "MOBILE_LW" | "DESKTOP_LW" | "SCAN";
+export type App = "MOBILE_LW" | "DESKTOP_LW" | "SCAN" | "BRIDGE";
 
 export type FeatureFlagID =
   | "loan"
@@ -131,7 +131,8 @@ export type FeatureFlagID =
   | "send_v2"
   | "composite_swap_v2"
   | "unloop_dusd"
-  | "ocg_cfp_dfip";
+  | "ocg_cfp_dfip"
+  | "maintenance";
 
 // Stages of feature flag
 export type FeatureFlagStage = "alpha" | "beta" | "public";
