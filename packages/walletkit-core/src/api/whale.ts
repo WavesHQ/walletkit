@@ -31,7 +31,7 @@ export function newOceanOptions(
       };
     case EnvironmentNetwork.DevNet:
       return {
-        url: url ?? "http://devnet.ocean.jellyfishsdk.com:3000",
+        url: url ?? "http://devnet.ocean.jellyfishsdk.com",
         network: "devnet",
         version: "v0",
       };

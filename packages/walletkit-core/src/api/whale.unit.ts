@@ -46,7 +46,7 @@ describe("whale", () => {
   it("should match ocean options for devnet", () => {
     const oceanOptions = newOceanOptions(EnvironmentNetwork.DevNet);
     expect(oceanOptions).toMatchObject({
-      url: "http://devnet.ocean.jellyfishsdk.com:3000",
+      url: "http://devnet.ocean.jellyfishsdk.com",
       network: "devnet",
       version: "v0",
     });
@@ -90,9 +90,7 @@ describe("whale", () => {
 
   it("should match default ocean url for devnet", () => {
     const defaultURL = getDefaultDefiChainURL(EnvironmentNetwork.DevNet);
-    expect(defaultURL).toStrictEqual(
-      "http://devnet.ocean.jellyfishsdk.com:3000"
-    );
+    expect(defaultURL).toStrictEqual("http://devnet.ocean.jellyfishsdk.com");
   });
 });
 
