@@ -7,7 +7,7 @@ exports[`Whale Context test Whale Context test for DevNet should match snapshot 
     <div>
       <div>
         <span>
-          {"url":"http://devnet.ocean.jellyfishsdk.com:3000","timeout":60000,"version":"v0","network":"devnet"}
+          {"url":"http://devnet.ocean.jellyfishsdk.com","timeout":60000,"version":"v0","network":"devnet"}
         </span>
       </div>
     </div>
@@ -15,7 +15,7 @@ exports[`Whale Context test Whale Context test for DevNet should match snapshot 
   "container": <div>
     <div>
       <span>
-        {"url":"http://devnet.ocean.jellyfishsdk.com:3000","timeout":60000,"version":"v0","network":"devnet"}
+        {"url":"http://devnet.ocean.jellyfishsdk.com","timeout":60000,"version":"v0","network":"devnet"}
       </span>
     </div>
   </div>,

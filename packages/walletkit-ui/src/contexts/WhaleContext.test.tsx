@@ -39,7 +39,7 @@ describe("Whale Context test", () => {
       name: EnvironmentNetwork.LocalPlayground,
     },
     {
-      url: "http://devnet.ocean.jellyfishsdk.com:3000",
+      url: "http://devnet.ocean.jellyfishsdk.com",
       network: "devnet",
       name: EnvironmentNetwork.DevNet,
     },
