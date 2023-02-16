@@ -11,7 +11,7 @@ importers:
       '@waveshq/standard-web': ^0.42.1
       '@waveshq/standard-web-linter': ^0.42.1
       '@waveshq/walletkit-core': workspace:*
-      testcontainers: ^9.1.2
+      testcontainers: ^9.1.3
     devDependencies:
       '@birthdayresearch/eslint-config': 0.4.1_typescript@4.9.5
       '@birthdayresearch/sticky-turbo': 0.4.1
@@ -20,7 +20,7 @@ importers:
       '@waveshq/standard-web': 0.42.1_s6ledeskmjndx4uesdfehjwvbm
       '@waveshq/standard-web-linter': 0.42.1_nmva3srz7zwwwp3bofu5kymhte
       '@waveshq/walletkit-core': link:packages/walletkit-core
-      testcontainers: 9.1.2
+      testcontainers: 9.1.3
 
   packages/walletkit-core:
     specifiers:
@@ -627,7 +627,7 @@ packages:
       defichain: 3.28.2
       dockerode: 3.3.4
       tar-fs: 2.1.1
-      testcontainers: 9.1.2
+      testcontainers: 9.1.3
       uuid: 9.0.0
     transitivePeerDependencies:
       - encoding
@@ -1912,6 +1912,9 @@ packages:
   /astral-regex/2.0.0:
     resolution: {integrity: sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==}
     engines: {node: '>=8'}
+
+  /async-lock/1.4.0:
+    resolution: {integrity: sha512-coglx5yIWuetakm3/1dsX9hxCNox22h7+V80RQOu2XUUMidtArxKoZoOtHUPuR84SycKTXzgGzAUR5hJxujyJQ==}
 
   /async/3.2.4:
     resolution: {integrity: sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==}
@@ -6106,14 +6109,15 @@ packages:
       glob: 7.2.3
       minimatch: 3.1.2
 
-  /testcontainers/9.1.2:
-    resolution: {integrity: sha512-a4VbUUntbrnTsxD20u8TBhFRpdHufGbBQ3ZlPHsROK7JXh9mLDsx7qk272bt+jBm6yUf0SBBhBynC+B6uxb9Mg==}
+  /testcontainers/9.1.3:
+    resolution: {integrity: sha512-Kw7GZC8nD84Uuq2oxa2Ln9F5vIALWIZoQHywOGuiiVthSHzOVl4CtebO25whMf3CrVICwy8CBUimvSdVgU9N7g==}
     engines: {node: '>= 10.16'}
     dependencies:
       '@balena/dockerignore': 1.0.2
       '@types/archiver': 5.3.1
       '@types/dockerode': 3.3.14
       archiver: 5.3.1
+      async-lock: 1.4.0
       byline: 5.0.0
       debug: 4.3.4
       docker-compose: 0.23.19
