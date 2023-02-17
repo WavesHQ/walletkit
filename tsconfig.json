@@ -4,13 +4,21 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "@waveshq/*": ["packages/*/src"]
+      "@waveshq/*": ["packages/*/src"],
+      "@assets/*": ["./src/assets"]
+
     },
     "target": "esnext",
     "experimentalDecorators": true,
     "incremental": true,
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    // "typeRoots": [
+    //   "./src/assets/images/exchanges"
+    // ],
+    // "include": [
+    //   "./src/assets/images/exchanges/*.png"
+    // ]
   }
 }
