@@ -6,19 +6,19 @@ importers:
     specifiers:
       '@birthdayresearch/eslint-config': ^0.4.1
       '@birthdayresearch/sticky-turbo': ^0.4.1
-      '@waveshq/standard-defichain-jellyfishsdk': ^0.42.1
-      '@waveshq/standard-prettier': ^0.42.1
-      '@waveshq/standard-web': ^0.42.1
-      '@waveshq/standard-web-linter': ^0.42.1
+      '@waveshq/standard-defichain-jellyfishsdk': ^0.43.0
+      '@waveshq/standard-prettier': ^0.43.0
+      '@waveshq/standard-web': ^0.43.0
+      '@waveshq/standard-web-linter': ^0.43.0
       '@waveshq/walletkit-core': workspace:*
       testcontainers: ^9.1.2
     devDependencies:
       '@birthdayresearch/eslint-config': 0.4.1_typescript@4.9.5
       '@birthdayresearch/sticky-turbo': 0.4.1
-      '@waveshq/standard-defichain-jellyfishsdk': 0.42.1_@types+tar-fs@2.0.1
-      '@waveshq/standard-prettier': 0.42.1_ap7oz5wdp54uq6o5l26tmgkfny
-      '@waveshq/standard-web': 0.42.1_s6ledeskmjndx4uesdfehjwvbm
-      '@waveshq/standard-web-linter': 0.42.1_nmva3srz7zwwwp3bofu5kymhte
+      '@waveshq/standard-defichain-jellyfishsdk': 0.43.0_@types+tar-fs@2.0.1
+      '@waveshq/standard-prettier': 0.43.0_ap7oz5wdp54uq6o5l26tmgkfny
+      '@waveshq/standard-web': 0.43.0_s6ledeskmjndx4uesdfehjwvbm
+      '@waveshq/standard-web-linter': 0.43.0_nmva3srz7zwwwp3bofu5kymhte
       '@waveshq/walletkit-core': link:packages/walletkit-core
       testcontainers: 9.1.2
 
@@ -46,9 +46,9 @@ importers:
       '@testing-library/jest-dom': ^5.16.5
       '@testing-library/react': ^13.4.0
       '@testing-library/react-hooks': ^8.0.1
-      '@waveshq/standard-defichain-jellyfishsdk': ^0.42.1
-      '@waveshq/standard-web': ^0.42.1
-      '@waveshq/standard-web-linter': ^0.42.1
+      '@waveshq/standard-defichain-jellyfishsdk': ^0.43.0
+      '@waveshq/standard-web': ^0.43.0
+      '@waveshq/standard-web-linter': ^0.43.0
       '@waveshq/walletkit-core': workspace:*
       bignumber.js: ^9.1.1
       dayjs: ^1.11.7
@@ -58,9 +58,9 @@ importers:
       smart-buffer: ^4.2.0
     dependencies:
       '@birthdayresearch/sticky-jest': 0.4.1_56pcy4vhlzcrxrntyrevcrzjiy
-      '@waveshq/standard-defichain-jellyfishsdk': 0.42.1_@types+tar-fs@2.0.1
-      '@waveshq/standard-web': 0.42.1_bnajf7fdzfzqzjxfekg2ii76nu
-      '@waveshq/standard-web-linter': 0.42.1_welo7wvizfb27iumkgoncycpce
+      '@waveshq/standard-defichain-jellyfishsdk': 0.43.0_@types+tar-fs@2.0.1
+      '@waveshq/standard-web': 0.43.0_bnajf7fdzfzqzjxfekg2ii76nu
+      '@waveshq/standard-web-linter': 0.43.0_welo7wvizfb27iumkgoncycpce
       '@waveshq/walletkit-core': link:../walletkit-core
       bignumber.js: 9.1.1
       dayjs: 1.11.7
@@ -1125,7 +1125,7 @@ packages:
     dependencies:
       immer: 9.0.19
       react: 18.2.0
-      react-redux: 8.0.5_qmyu3kwrze6bme4knmllmgnriq
+      react-redux: 8.0.5_ctrls2ti7t7iutxbwkm5ipogyy
       redux: 4.2.1
       redux-thunk: 2.4.2_redux@4.2.1
       reselect: 4.1.7
@@ -1345,6 +1345,12 @@ packages:
     resolution: {integrity: sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg==}
     dependencies:
       '@types/react': 18.0.28
+    dev: true
+
+  /@types/react-dom/18.0.11:
+    resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
+    dependencies:
+      '@types/react': 18.0.28
 
   /@types/react/18.0.28:
     resolution: {integrity: sha512-RD0ivG1kEztNBdoAK7lekI9M+azSnitIn85h4iOiaLjaTrMjzslhaqCGaI4IyCJ1RljWiLCEu4jyrLLgqxBTew==}
@@ -1532,8 +1538,8 @@ packages:
       '@typescript-eslint/types': 5.51.0
       eslint-visitor-keys: 3.3.0
 
-  /@waveshq/standard-defichain-jellyfishsdk/0.42.1_@types+tar-fs@2.0.1:
-    resolution: {integrity: sha512-II9LLUbC5p99igpPtT6+615yvsTCuUeW6h3D8b394i7pjU1/Y9acepfn/F6UOtc2y5+lu3J+/1W5m7mldAJQEQ==}
+  /@waveshq/standard-defichain-jellyfishsdk/0.43.0_@types+tar-fs@2.0.1:
+    resolution: {integrity: sha512-kaHuhZ7sEVka6KMLem0QQR2keOkF/Eh5tDZ3Ol7aE55lWSqJveEpYI3isSUGIGx10sHOOe3myrEUmQWZugY9gQ==}
     dependencies:
       '@defichain/jellyfish-address': 3.28.2_defichain@3.28.2
       '@defichain/jellyfish-api-core': 3.28.2_defichain@3.28.2
@@ -1554,8 +1560,8 @@ packages:
       - encoding
       - supports-color
 
-  /@waveshq/standard-prettier/0.42.1_ap7oz5wdp54uq6o5l26tmgkfny:
-    resolution: {integrity: sha512-G02PhAhc/l2AUYAMOuXZL8u38C0Q+mqjN2ajy96RJj0fJVqFBQ0Tbh78JmucQtrjW2RGKIpcHFysigBtnRjW3w==}
+  /@waveshq/standard-prettier/0.43.0_ap7oz5wdp54uq6o5l26tmgkfny:
+    resolution: {integrity: sha512-v9xq4CUfjdaoN/7qOavT497KEMfYXxoTqwdUyuUXSPTJlESt8VhrSqMNkaAMjIu9nQQXhk+MfZgaCIx2eXXetA==}
     dependencies:
       eslint: 8.34.0
       eslint-config-airbnb: 19.0.4_hbw3smywoiafix46yjc35xsaqq
@@ -1564,7 +1570,7 @@ packages:
       eslint-plugin-prettier: 4.2.1_u5wnrdwibbfomslmnramz52buy
       eslint-plugin-simple-import-sort: 9.0.0_eslint@8.34.0
       husky: 8.0.3
-      lint-staged: 13.1.1
+      lint-staged: 13.1.2
       prettier: 2.8.4
       typescript: 4.9.5
     transitivePeerDependencies:
@@ -1578,8 +1584,8 @@ packages:
       - supports-color
     dev: true
 
-  /@waveshq/standard-web-linter/0.42.1_nmva3srz7zwwwp3bofu5kymhte:
-    resolution: {integrity: sha512-RNL5i9Yb9m+t60AR2awAcCU72CTogQ2Zi0RJXLHCZbV1zXi8uoeFoOZOreBCPTS4/Zh3CzEEBrR/axry4Obu9Q==}
+  /@waveshq/standard-web-linter/0.43.0_nmva3srz7zwwwp3bofu5kymhte:
+    resolution: {integrity: sha512-u9aV9nMP6CYOw0l/Bd8+hVdknnDD5T/K3QZMbX60z//9V/pYpoAvtMW+JHOPWJKUHRoLhfI9TXdJfSoAR5MhJw==}
     dependencies:
       eslint: 8.34.0
       eslint-config-airbnb: 19.0.4_hbw3smywoiafix46yjc35xsaqq
@@ -1595,7 +1601,7 @@ packages:
       eslint-plugin-react-hooks: 4.6.0_eslint@8.34.0
       eslint-plugin-simple-import-sort: 9.0.0_eslint@8.34.0
       husky: 8.0.3
-      lint-staged: 13.1.1
+      lint-staged: 13.1.2
       next: 13.1.6_biqbaboplfbrettd7655fr4n2y
       prettier: 2.8.4
       typescript: 4.9.5
@@ -1615,8 +1621,8 @@ packages:
       - supports-color
     dev: true
 
-  /@waveshq/standard-web-linter/0.42.1_welo7wvizfb27iumkgoncycpce:
-    resolution: {integrity: sha512-RNL5i9Yb9m+t60AR2awAcCU72CTogQ2Zi0RJXLHCZbV1zXi8uoeFoOZOreBCPTS4/Zh3CzEEBrR/axry4Obu9Q==}
+  /@waveshq/standard-web-linter/0.43.0_welo7wvizfb27iumkgoncycpce:
+    resolution: {integrity: sha512-u9aV9nMP6CYOw0l/Bd8+hVdknnDD5T/K3QZMbX60z//9V/pYpoAvtMW+JHOPWJKUHRoLhfI9TXdJfSoAR5MhJw==}
     dependencies:
       eslint: 8.34.0
       eslint-config-airbnb: 19.0.4_hbw3smywoiafix46yjc35xsaqq
@@ -1632,7 +1638,7 @@ packages:
       eslint-plugin-react-hooks: 4.6.0_eslint@8.34.0
       eslint-plugin-simple-import-sort: 9.0.0_eslint@8.34.0
       husky: 8.0.3
-      lint-staged: 13.1.1
+      lint-staged: 13.1.2
       next: 13.1.6_pjwopsidmaokadturxaafygjp4
       prettier: 2.8.4
       typescript: 4.9.5
@@ -1652,13 +1658,13 @@ packages:
       - supports-color
     dev: false
 
-  /@waveshq/standard-web/0.42.1_bnajf7fdzfzqzjxfekg2ii76nu:
-    resolution: {integrity: sha512-lsAV3MriGTRwn9Wnpy67n0kJieDxUdkFjlSBWPmD1+2mfn4J7gRYcOKb5puXDiOxr/tsbwUUTL8hVZAmhyQl5Q==}
+  /@waveshq/standard-web/0.43.0_bnajf7fdzfzqzjxfekg2ii76nu:
+    resolution: {integrity: sha512-lH6ghFBynB2/8JjV1/pn86nIIlFj89z77rK4zZa/UtKj7RuciEL5RMan/rpJP4j5IntPpahDupRk0FpkRtQixw==}
     dependencies:
       '@netlify/ipx': 1.3.3
       '@reduxjs/toolkit': 1.9.2_k4ae6lp43ej6mezo3ztvx6pykq
       '@types/react': 18.0.28
-      '@types/react-dom': 18.0.10
+      '@types/react-dom': 18.0.11
       follow-redirects: 1.15.2
       next: 13.1.6_pjwopsidmaokadturxaafygjp4
       next-sitemap: 3.1.52_dlcnecpznf2wc36zwuq5m2ie5q
@@ -1666,7 +1672,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-icons: 4.7.1_react@18.2.0
-      react-redux: 8.0.5_qmyu3kwrze6bme4knmllmgnriq
+      react-redux: 8.0.5_ctrls2ti7t7iutxbwkm5ipogyy
       react-responsive: 9.0.2_react@18.2.0
       typescript: 4.9.5
     transitivePeerDependencies:
@@ -1685,13 +1691,13 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@waveshq/standard-web/0.42.1_s6ledeskmjndx4uesdfehjwvbm:
-    resolution: {integrity: sha512-lsAV3MriGTRwn9Wnpy67n0kJieDxUdkFjlSBWPmD1+2mfn4J7gRYcOKb5puXDiOxr/tsbwUUTL8hVZAmhyQl5Q==}
+  /@waveshq/standard-web/0.43.0_s6ledeskmjndx4uesdfehjwvbm:
+    resolution: {integrity: sha512-lH6ghFBynB2/8JjV1/pn86nIIlFj89z77rK4zZa/UtKj7RuciEL5RMan/rpJP4j5IntPpahDupRk0FpkRtQixw==}
     dependencies:
       '@netlify/ipx': 1.3.3
       '@reduxjs/toolkit': 1.9.2_k4ae6lp43ej6mezo3ztvx6pykq
       '@types/react': 18.0.28
-      '@types/react-dom': 18.0.10
+      '@types/react-dom': 18.0.11
       follow-redirects: 1.15.2
       next: 13.1.6_biqbaboplfbrettd7655fr4n2y
       next-sitemap: 3.1.52_dlcnecpznf2wc36zwuq5m2ie5q
@@ -1699,7 +1705,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-icons: 4.7.1_react@18.2.0
-      react-redux: 8.0.5_qmyu3kwrze6bme4knmllmgnriq
+      react-redux: 8.0.5_ctrls2ti7t7iutxbwkm5ipogyy
       react-responsive: 9.0.2_react@18.2.0
       typescript: 4.9.5
     transitivePeerDependencies:
@@ -4635,8 +4641,8 @@ packages:
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  /lint-staged/13.1.1:
-    resolution: {integrity: sha512-LLJLO0Kdbcv2a+CvSF4p1M7jBZOajKSMpBUvyR8+bXccsqPER0/NxTFQSpNHjqwV9kM3tkHczYerTB5wI+bksQ==}
+  /lint-staged/13.1.2:
+    resolution: {integrity: sha512-K9b4FPbWkpnupvK3WXZLbgu9pchUJ6N7TtVZjbaPsoizkqFUDkUReUL25xdrCljJs7uLUF3tZ7nVPeo/6lp+6w==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -5482,7 +5488,7 @@ packages:
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
 
-  /react-redux/8.0.5_qmyu3kwrze6bme4knmllmgnriq:
+  /react-redux/8.0.5_ctrls2ti7t7iutxbwkm5ipogyy:
     resolution: {integrity: sha512-Q2f6fCKxPFpkXt1qNRZdEDLlScsDWyrgSj0mliK59qU6W5gvBiKkdMEG2lJzhd1rCctf0hb6EtePPLZ2e0m1uw==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -5506,7 +5512,7 @@ packages:
       '@babel/runtime': 7.20.13
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 18.0.28
-      '@types/react-dom': 18.0.10
+      '@types/react-dom': 18.0.11
       '@types/use-sync-external-store': 0.0.3
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
