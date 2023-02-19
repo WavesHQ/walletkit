@@ -8,7 +8,7 @@
     "dist"
   ],
   "dependencies": {
-    "@birthdayresearch/sticky-jest": "^0.4.1",
+    "@birthdayresearch/sticky-jest": "^0.5.0",
     "@waveshq/standard-web": "^0.43.0",
     "@waveshq/standard-web-linter": "^0.43.0",
     "@waveshq/standard-defichain-jellyfishsdk": "^0.43.0",
