@@ -8,7 +8,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@birthdayresearch/sticky-jest": "^0.5.2"
+    "@birthdayresearch/sticky-jest": "^0.5.3"
   },
   "scripts": {
     "build": "tsc -b ./tsconfig.build.json",
