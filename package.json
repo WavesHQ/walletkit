@@ -14,12 +14,12 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@birthdayresearch/eslint-config": "^0.5.4",
+    "@birthdayresearch/eslint-config": "^0.5.5",
     "@birthdayresearch/sticky-turbo": "^0.5.5",
-    "@waveshq/standard-defichain-jellyfishsdk": "^0.44.3",
-    "@waveshq/standard-prettier": "^0.44.3",
-    "@waveshq/standard-web": "^0.44.3",
-    "@waveshq/standard-web-linter": "^0.44.3",
+    "@waveshq/standard-defichain-jellyfishsdk": "^0.44.5",
+    "@waveshq/standard-prettier": "^0.44.5",
+    "@waveshq/standard-web": "^0.44.5",
+    "@waveshq/standard-web-linter": "^0.44.5",
     "@waveshq/walletkit-core": "workspace:*",
     "testcontainers": "^9.1.3"
   },
@@ -40,6 +40,6 @@
   "prettier": "@waveshq/standard-prettier",
   "engines": {
     "node": ">=16.6.0",
-    "pnpm": ">=7.18.0"
+    "pnpm": ">=7.29.1"
   }
 }
