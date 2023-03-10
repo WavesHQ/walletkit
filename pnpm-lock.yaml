@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      '@birthdayresearch/eslint-config': ^0.5.4
+      '@birthdayresearch/eslint-config': ^0.5.5
       '@birthdayresearch/sticky-turbo': ^0.5.5
       '@waveshq/standard-defichain-jellyfishsdk': ^0.44.3
       '@waveshq/standard-prettier': ^0.44.3
@@ -13,7 +13,7 @@ importers:
       '@waveshq/walletkit-core': workspace:*
       testcontainers: ^9.1.3
     devDependencies:
-      '@birthdayresearch/eslint-config': 0.5.4_typescript@4.9.5
+      '@birthdayresearch/eslint-config': 0.5.5_typescript@4.9.5
       '@birthdayresearch/sticky-turbo': 0.5.5
       '@waveshq/standard-defichain-jellyfishsdk': 0.44.3_@types+tar-fs@2.0.1
       '@waveshq/standard-prettier': 0.44.3_5aq5fq4jeeaiwvhzf6f6ipwjuq
@@ -698,8 +698,8 @@ packages:
   /@bcoe/v8-coverage/0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  /@birthdayresearch/eslint-config/0.5.4_typescript@4.9.5:
-    resolution: {integrity: sha512-mbqNtx9SMR3gNzRzw2tyMNvSjJEMkkyCZn4bcn6q9zwnuDW1n2gtYoUNMQM5v4U56/c25ZsME5l1ZH5bmR7G0Q==}
+  /@birthdayresearch/eslint-config/0.5.5_typescript@4.9.5:
+    resolution: {integrity: sha512-SCQp4vq6xt0phQ+4PTBRHqDMYbbuQ6ulAF7V6Lf7S9bpCkVkTlZvffTd16yVIYbfd/jNFyNIK4LZDp966+b8Iw==}
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.54.1_mlk7dnz565t663n4razh6a6v6i
       '@typescript-eslint/parser': 5.54.1_ycpbpc6yetojsgtrx3mwntkhsu
@@ -707,9 +707,9 @@ packages:
       eslint-config-airbnb-base: 15.0.0_yckic57kx266ph64dhq6ozvb54
       eslint-config-airbnb-typescript: 17.0.0_gnnf2grdq7gywvy33vl2lfcipa
       eslint-config-prettier: 8.7.0_eslint@8.35.0
-      eslint-plugin-check-file: 1.3.1_eslint@8.35.0
+      eslint-plugin-check-file: 2.0.0_eslint@8.35.0
       eslint-plugin-import: 2.27.5_uyiasnnzcqrxqkfvjklwnmwcha
-      eslint-plugin-simple-import-sort: 9.0.0_eslint@8.35.0
+      eslint-plugin-simple-import-sort: 10.0.0_eslint@8.35.0
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
@@ -3281,9 +3281,9 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /eslint-plugin-check-file/1.3.1_eslint@8.35.0:
-    resolution: {integrity: sha512-KdFTf+hzqCV4W496xT5rZYemZUY0To1Bzcaef75ugYBw+P2THAsiOrq5oLkngpTRNWJrJlfuKaXVMZiAwCPIjg==}
-    engines: {node: 12.x || 14.x || >= 16}
+  /eslint-plugin-check-file/2.0.0_eslint@8.35.0:
+    resolution: {integrity: sha512-FBbhFXZErDw3AQar4kjw/4Pe0GqBXdXuHmCVedrMND6Ujc08XsjzuYmJ1/bcUI7I0Zf1hm5PXHlv0ClEgl55oA==}
+    engines: {node: 14.x || >= 16}
     peerDependencies:
       eslint: '>=7.28.0'
     dependencies:
@@ -3459,6 +3459,14 @@ packages:
       resolve: 2.0.0-next.4
       semver: 6.3.0
       string.prototype.matchall: 4.0.8
+
+  /eslint-plugin-simple-import-sort/10.0.0_eslint@8.35.0:
+    resolution: {integrity: sha512-AeTvO9UCMSNzIHRkg8S6c3RPy5YEwKWSQPx3DYghLedo2ZQxowPFLGDN1AZ2evfg6r6mjBSZSLxLFsWSu3acsw==}
+    peerDependencies:
+      eslint: '>=5.0.0'
+    dependencies:
+      eslint: 8.35.0
+    dev: true
 
   /eslint-plugin-simple-import-sort/9.0.0_eslint@8.35.0:
     resolution: {integrity: sha512-PtrLjyXP8kjRneWT1n0b99y/2Fyup37we7FVoWsI61/O7x4ztLohzhep/pxI/cYlECr/cQ2j6utckdvWpVwXNA==}
