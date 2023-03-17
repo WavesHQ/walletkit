@@ -4,10 +4,6 @@ import {
   TransactionSegWit,
 } from "@defichain/jellyfish-transaction";
 import { WhaleWalletAccount } from "@defichain/whale-api-wallet";
-// import {
-//   EnvironmentNetwork,
-//   getJellyfishNetwork,
-// } from "@waveshq/walletkit-core";
 import { BigNumber } from "bignumber.js";
 
 import { EnvironmentNetwork, getJellyfishNetwork } from "../index";
@@ -17,22 +13,13 @@ import {
   getWhaleClient,
 } from "./DeFiChainCore";
 
-// create own wallet to test the UTXO topupupuup
-// Playground
-// const DEFICHAIN_PRIVATE_KEY =
-//   "cube term kiwi basic narrow mutual develop shoot theory roast gesture rose nominee seek swear drink source lamp income chef dentist hammer race debate";
-
-// Testnet
-const DEFICHAIN_PRIVATE_KEY =
-  "witness grief typical dirt sudden impact unknown carpet opera correct there local obvious slow replace outdoor symptom cabin whale material ski stem stem cannon erosion";
-
-// DB args that are required for the user to get their refunds
 interface RequiredPropsFromDB {
-  index: number;
+  index: number; // wallet address' index from the DB
   refundAddress: string;
   claimAmount: string; // the amount that the user has sent
-  tokenSymbol: string; // index of token will be different in different network  // this is returning a string from the DB - must check with JJ
-  urlNetwork: string; // network could be on Mainnet, Testnet
+  tokenSymbol: string; // index of token is dependent on the network
+  urlNetwork: string;
+  envNetwork: EnvironmentNetwork;
   privateKey: string;
 }
 
@@ -44,28 +31,25 @@ export async function handler(props: RequiredPropsFromDB): Promise<void> {
     tokenSymbol,
     urlNetwork,
     privateKey,
+    envNetwork,
   } = props;
-  const client = getWhaleClient(urlNetwork);
-  const network = getJellyfishNetwork(EnvironmentNetwork.TestNet);
-  // requires index from DB
+  const client = getWhaleClient(urlNetwork, envNetwork);
+  const network = getJellyfishNetwork(envNetwork);
   const account = new WhaleWalletAccount(
     client,
-    createWallet(urlNetwork, privateKey, index),
+    createWallet(urlNetwork, envNetwork, privateKey, index),
     network
   );
-  const address = await account.getAddress(); // get dfi address
-  console.log(address);
 
-  const tokenId = (await account.client.tokens.list()).map((token) => {
-    if (token.symbol === tokenSymbol) {
-      return token.id;
-    }
-    return 0;
-  });
+  // gives back the id of the sent token symbol
+  const tokenId = (await account.client.tokens.list()).find(
+    (token) => token.symbol === tokenSymbol
+  )?.id;
 
-  // TO SEND = df1qc6zgqvt400t6n9kcnqg8wnngltw5r29d48vshp - address that the user wants to get refunds to
+  console.log("tokenId", Number(tokenId));
+
   const from = await account.getScript();
-  const to = getAddressScript(refundAddress);
+  const to = getAddressScript(refundAddress, envNetwork);
   // Allows support for UTXO transactions
   const builder = await account.withTransactionBuilder();
 
@@ -77,7 +61,7 @@ export async function handler(props: RequiredPropsFromDB): Promise<void> {
           script: to,
           balances: [
             {
-              token: Number(tokenId), // should get the tokenID based on the token symbol - reliant on the network that you're in
+              token: Number(tokenId),
               amount: new BigNumber(claimAmount),
             },
           ],
@@ -96,15 +80,3 @@ export async function handler(props: RequiredPropsFromDB): Promise<void> {
   }
   await broadcast(txn);
 }
-
-const arr = {
-  id: 322,
-  index: 303,
-  refundAddress: "tf1qm5hf2lhrsyfzeu0mnnzl3zllznfveua5rprhr4",
-  claimAmount: "0.1994",
-  tokenSymbol: "ETH",
-  urlNetwork: "https://ocean.defichain.com", // testnet
-  privateKey: DEFICHAIN_PRIVATE_KEY,
-};
-
-handler(arr);

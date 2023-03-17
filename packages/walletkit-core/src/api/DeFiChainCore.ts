@@ -37,9 +37,10 @@ interface WalletPersistenceDataI<T> {
 }
 
 export function toData(
-  mnemonic: string[]
+  mnemonic: string[],
+  envNetwork: EnvironmentNetwork
 ): WalletPersistenceDataI<MnemonicProviderData> {
-  const options = getBip32Option(EnvironmentNetwork.TestNet);
+  const options = getBip32Option(envNetwork);
   const data = MnemonicHdNodeProvider.wordsToData(mnemonic, options);
 
   return {
@@ -50,32 +51,33 @@ export function toData(
 }
 
 export function initProvider(
-  data: WalletPersistenceDataI<MnemonicProviderData>
-  // urlNetwork: string
+  data: WalletPersistenceDataI<MnemonicProviderData>,
+  envNetwork: EnvironmentNetwork
 ): MnemonicHdNodeProvider {
   if (data.type !== WalletType.MNEMONIC_UNPROTECTED || data.version !== "v1") {
     throw new Error("Unexpected WalletPersistenceDataI");
   }
 
-  const options = getBip32Option(EnvironmentNetwork.TestNet);
+  const options = getBip32Option(envNetwork);
   return MnemonicHdNodeProvider.fromData(data.raw, options);
 }
 
 export function initJellyfishWallet<HdNode extends WalletHdNode>(
   provider: WalletHdNodeProvider<HdNode>,
-  urlNetwork: string
+  urlNetwork: string,
+  envNetwork: EnvironmentNetwork
 ): JellyfishWallet<WhaleWalletAccount, HdNode> {
-  const client = getWhaleClient(urlNetwork);
+  const client = getWhaleClient(urlNetwork, envNetwork);
   const accountProvider = new WhaleWalletAccountProvider(
     client,
-    getJellyfishNetwork(EnvironmentNetwork.TestNet)
+    getJellyfishNetwork(envNetwork)
   );
   return new JellyfishWallet(provider, accountProvider);
 }
 
-// 0 = hot wallet
 export function createWallet(
   urlNetwork: string,
+  envNetwork: EnvironmentNetwork,
   privateKey: string,
   index: number = 0
 ): WhaleWalletAccount {
@@ -84,27 +86,30 @@ export function createWallet(
   if (!validateMnemonicSentence(mnemonic)) {
     throw new Error("Invalid DeFiChain private keys!");
   }
-  const data = toData(mnemonic.split(" "));
-  const provider = initProvider(data);
-  return initJellyfishWallet(provider, urlNetwork).get(index);
+  const data = toData(mnemonic.split(" "), envNetwork);
+  const provider = initProvider(data, envNetwork);
+  return initJellyfishWallet(provider, urlNetwork, envNetwork).get(index);
 }
 
-export function getWhaleClient(urlNetwork: string): WhaleApiClient {
+export function getWhaleClient(
+  urlNetwork: string,
+  envNetwork: EnvironmentNetwork
+): WhaleApiClient {
   return new WhaleApiClient({
     url: urlNetwork,
     version: "v0",
-    network: getJellyfishNetwork(EnvironmentNetwork.TestNet).name,
+    network: getJellyfishNetwork(envNetwork).name,
   });
 }
 
-export function getAddressScript(address: string): Script {
-  console.log("getAddressScript address", address);
-
+export function getAddressScript(
+  address: string,
+  envNetwork: EnvironmentNetwork
+): Script {
   const decodedAddress = fromAddress(
     address,
-    getJellyfishNetwork(EnvironmentNetwork.TestNet).name
+    getJellyfishNetwork(envNetwork).name
   );
-  console.log("decodedAddress", decodedAddress);
   if (decodedAddress === undefined) {
     throw new Error(`Unable to decode Address - ${address}`);
   }
