@@ -46,8 +46,6 @@ export async function handler(props: RequiredPropsFromDB): Promise<void> {
     (token) => token.symbol === tokenSymbol
   )?.id;
 
-  console.log("tokenId", Number(tokenId));
-
   const from = await account.getScript();
   const to = getAddressScript(refundAddress, envNetwork);
   // Allows support for UTXO transactions
