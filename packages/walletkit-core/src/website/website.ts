@@ -109,10 +109,10 @@ export interface DeFiChainStatus {
 }
 
 export interface PoolpairWithStabInfo {
+  pairDisplaySymbol: string;
   tokenADisplaySymbol: string;
   tokenBDisplaySymbol: string;
   dexStabilizationFee: string;
-  highFeeScanUrl: string;
 }
 
 export type Platform = "ios" | "android" | "windows" | "macos" | "web";
