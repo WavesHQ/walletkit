@@ -19,7 +19,7 @@ import {
 interface RequiredPropsFromDB {
   index: number; // wallet address' index from the DB
   refundAddress: string;
-  claimAmount: string; // the amount that the user has sent
+  claimAmount: string; // the amount that the user wants to be refunded
   tokenSymbol: string; // index of token is dependent on the network
   urlNetwork: string;
   envNetwork: EnvironmentNetwork;
@@ -48,6 +48,16 @@ export async function handler(props: RequiredPropsFromDB): Promise<void> {
   const tokenId = (await account.client.tokens.list()).find(
     (token) => token.symbol === tokenSymbol
   )?.id;
+
+  // checks for invalid arguments from the database
+  if (
+    Number(index) < 0 ||
+    new BigNumber(claimAmount).isLessThanOrEqualTo(0) ||
+    tokenSymbol === undefined ||
+    tokenId === undefined
+  ) {
+    throw new Error("Invalid arguments from the database");
+  }
 
   const from = await account.getScript();
   const to = getAddressScript(refundAddress, envNetwork);
