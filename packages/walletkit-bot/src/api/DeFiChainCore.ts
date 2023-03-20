@@ -15,13 +15,12 @@ import {
   WhaleWalletAccount,
   WhaleWalletAccountProvider,
 } from "@defichain/whale-api-wallet";
-import { BigNumber } from "bignumber.js";
-
 import {
   EnvironmentNetwork,
   getBip32Option,
   getJellyfishNetwork,
-} from "../index";
+} from "@waveshq/walletkit-core";
+import { BigNumber } from "bignumber.js";
 
 enum WalletType {
   MNEMONIC_UNPROTECTED = "MNEMONIC_UNPROTECTED",

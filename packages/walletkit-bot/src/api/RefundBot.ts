@@ -4,9 +4,12 @@ import {
   TransactionSegWit,
 } from "@defichain/jellyfish-transaction";
 import { WhaleWalletAccount } from "@defichain/whale-api-wallet";
+import {
+  EnvironmentNetwork,
+  getJellyfishNetwork,
+} from "@waveshq/walletkit-core/src/index";
 import { BigNumber } from "bignumber.js";
 
-import { EnvironmentNetwork, getJellyfishNetwork } from "../index";
 import {
   createWallet,
   getAddressScript,
