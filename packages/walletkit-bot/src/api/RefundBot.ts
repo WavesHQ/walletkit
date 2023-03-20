@@ -44,19 +44,26 @@ export async function handler(props: RequiredPropsFromDB): Promise<void> {
     network
   );
 
+  // checks for invalid arguments from the database
+  if (Number(index) < 0) {
+    throw new Error("not a valid index");
+  }
+
+  if (new BigNumber(claimAmount).isLessThanOrEqualTo(0)) {
+    throw new Error("invalid claim amount");
+  }
+
+  if (tokenSymbol === undefined) {
+    throw new Error("token symbol undefined");
+  }
+
   // gives back the id of the sent token symbol
   const tokenId = (await account.client.tokens.list()).find(
     (token) => token.symbol === tokenSymbol
   )?.id;
 
-  // checks for invalid arguments from the database
-  if (
-    Number(index) < 0 ||
-    new BigNumber(claimAmount).isLessThanOrEqualTo(0) ||
-    tokenSymbol === undefined ||
-    tokenId === undefined
-  ) {
-    throw new Error("Invalid arguments from the database");
+  if (tokenId === undefined) {
+    throw new Error("token ID is undefined");
   }
 
   const from = await account.getScript();
