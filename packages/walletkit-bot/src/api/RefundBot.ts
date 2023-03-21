@@ -71,23 +71,32 @@ export async function handler(props: RequiredPropsFromDB): Promise<void> {
   // Allows support for UTXO transactions
   const builder = await account.withTransactionBuilder();
 
-  const txn: TransactionSegWit = await builder.account.accountToAccount(
-    {
-      from,
-      to: [
-        {
-          script: to,
-          balances: [
-            {
-              token: Number(tokenId),
-              amount: new BigNumber(claimAmount),
-            },
-          ],
-        },
-      ],
-    },
-    from
-  );
+  const isDFI = tokenId === "0"; // Assumed DFI UTXO
+
+  let txn: TransactionSegWit;
+  if (isDFI) {
+    // sends DFI UTXO, not Tokens back to refundAddress
+    txn = await builder.utxo.send(new BigNumber(claimAmount), to, from);
+  } else {
+    // only sends Tokens
+    txn = await builder.account.accountToAccount(
+      {
+        from,
+        to: [
+          {
+            script: to,
+            balances: [
+              {
+                token: Number(tokenId),
+                amount: new BigNumber(claimAmount),
+              },
+            ],
+          },
+        ],
+      },
+      from
+    );
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-shadow
   async function broadcast(txn: TransactionSegWit): Promise<void> {
