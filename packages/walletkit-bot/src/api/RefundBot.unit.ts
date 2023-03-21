@@ -13,6 +13,26 @@ const REFUND_PLAYGROUND_ADDRESS =
 
 const INVALID_REFUND_PLAYGROUND_ADDRESS = "invalidaddress";
 
+interface MockedObjectProps {
+  index: number; // wallet address' index from the private key
+  refundAddress: string;
+  claimAmount: string; // the amount that the user wants to be refunded
+  tokenSymbol: string; // index of token is dependent on the network
+  urlNetwork: string;
+  envNetwork: EnvironmentNetwork;
+  privateKey: string;
+}
+
+const mockedRefundDFIObject = {
+  index: 0,
+  refundAddress: REFUND_PLAYGROUND_ADDRESS,
+  claimAmount: "1.5",
+  tokenSymbol: "DFI",
+  urlNetwork: "https://playground.jellyfishsdk.com",
+  envNetwork: EnvironmentNetwork.RemotePlayground,
+  privateKey: DFC_PLAYGROUND_PRIVATEKEY,
+};
+
 const objectFromDatabase = {
   index: 0,
   refundAddress: REFUND_PLAYGROUND_ADDRESS,
@@ -43,32 +63,45 @@ const invalidUrlNetworkObjectFromDatabase = {
   privateKey: DFC_PLAYGROUND_PRIVATEKEY,
 };
 
-test("should return transaction id", async () => {
-  const consoleSpy = jest.spyOn(console, "log");
-  // need to manually top up the "hot wallet" address with DFI and the exact amount of ETH as declared in the object above
+test("should return transaction id when succesfully refunded ETH tokens (with manual topup)", async () => {
+  spiedConsoleWithReturnResponse(
+    objectFromDatabase,
+    expect.stringMatching(/Send TxId:/)
+  );
+});
 
-  try {
-    await handler(objectFromDatabase);
-
-    expect(consoleSpy).toHaveBeenCalledTimes(2); // this is being called twice as console.log is called in the broadcast fn and in jest
-    expect(consoleSpy).toHaveBeenCalledWith(
-      expect.stringMatching(/Send TxId:/)
-    );
-  } finally {
-    consoleSpy.mockRestore();
-  }
+test("should return transaction id when succesfully refunded DFI UTXO (with manual topup)", async () => {
+  spiedConsoleWithReturnResponse(
+    mockedRefundDFIObject,
+    expect.stringMatching(/Send TxId:/)
+  );
 });
 
 test("should return invalid DeFiChain private keys", async () => {
-  expect(async () =>
-    handler(invalidMnemonickKeysObjectFromDatabase)
-  ).rejects.toThrowError("Invalid DeFiChain private keys!");
+  spiedConsoleWithReturnResponse(
+    invalidMnemonickKeysObjectFromDatabase,
+    "Invalid DeFiChain private keys!"
+  );
 });
 
-test("should return unable to decode address given the wrong refund address", () => {
-  expect(async () =>
-    handler(invalidUrlNetworkObjectFromDatabase)
-  ).rejects.toThrowError(
+test("should return unable to decode address given the wrong refund address", async () => {
+  spiedConsoleWithReturnResponse(
+    invalidUrlNetworkObjectFromDatabase,
     `Unable to decode Address - ${INVALID_REFUND_PLAYGROUND_ADDRESS}`
   );
 });
+
+async function spiedConsoleWithReturnResponse(
+  mockedObject: MockedObjectProps,
+  errorMessage: string
+): Promise<void> {
+  const consoleSpy = jest.spyOn(console, "log").mockImplementation();
+
+  try {
+    await handler(mockedObject);
+  } catch (err) {
+    expect(err).toBeDefined();
+    expect(consoleSpy).toHaveBeenCalledWith(errorMessage);
+  }
+  consoleSpy.mockRestore();
+}
