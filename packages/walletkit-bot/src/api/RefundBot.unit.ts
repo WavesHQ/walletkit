@@ -1,6 +1,6 @@
-import { EnvironmentNetwork } from "@waveshq/walletkit-core";
+import { EnvironmentNetwork } from "@waveshq/walletkit-core/src";
 
-import { handler } from "./RefundBot";
+import { handler, HandlerProps } from "./RefundBot";
 
 const DFC_PLAYGROUND_PRIVATEKEY =
   "decorate unable decide notice wear unusual detail frost tissue debate opera luggage change chest broom attract divert fine quantum citizen veteran carbon draft matter";
@@ -12,16 +12,6 @@ const REFUND_PLAYGROUND_ADDRESS =
   "bcrt1qlmvmz3wvfm945txx3hsyresqep4ywylpwvqa0w";
 
 const INVALID_REFUND_PLAYGROUND_ADDRESS = "invalidaddress";
-
-interface MockedObjectProps {
-  index: number; // index of the hot wallet based on the private key
-  refundAddress: string;
-  claimAmount: string; // the amount that the user wants to be refunded
-  tokenSymbol: string; // index of token is dependent on the network
-  urlNetwork: string;
-  envNetwork: EnvironmentNetwork;
-  privateKey: string;
-}
 
 const mockedRefundDFIObject = {
   index: 0,
@@ -70,6 +60,7 @@ test("should return transaction id when succesfully refunded ETH tokens (with ma
   );
 });
 
+// Received: [Error: 400 - BadRequest (/v0/regtest/rawtx/send): txn-mempool-conflict (code 18)]
 test("should return transaction id when succesfully refunded DFI UTXO (with manual topup of UTXO)", async () => {
   await spiedConsoleWithReturnResponse(
     mockedRefundDFIObject,
@@ -92,7 +83,7 @@ test("should return unable to decode address given the wrong refund address", as
 });
 
 async function spiedConsoleWithReturnResponse(
-  mockedObject: MockedObjectProps,
+  mockedObject: HandlerProps,
   errorMessage: string
 ): Promise<void> {
   const consoleSpy = jest.spyOn(console, "log");
@@ -104,7 +95,7 @@ async function spiedConsoleWithReturnResponse(
   }
 }
 async function spiedConsoleWithReturnErrorResponse(
-  mockedObject: MockedObjectProps,
+  mockedObject: HandlerProps,
   errorMessage: string
 ): Promise<void> {
   const consoleSpy = jest.spyOn(console, "log").mockImplementation();

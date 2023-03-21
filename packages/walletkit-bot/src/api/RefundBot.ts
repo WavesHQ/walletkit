@@ -16,7 +16,7 @@ import {
   getWhaleClient,
 } from "./DeFiChainCore";
 
-interface RequiredPropsFromDB {
+export interface HandlerProps {
   index: number; // index of the hot wallet based on the private key
   refundAddress: string;
   claimAmount: string; // the amount that the user wants to be refunded
@@ -26,7 +26,7 @@ interface RequiredPropsFromDB {
   privateKey: string;
 }
 
-export async function handler(props: RequiredPropsFromDB): Promise<void> {
+export async function handler(props: HandlerProps): Promise<void> {
   try {
     const {
       index,
