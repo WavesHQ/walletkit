@@ -45,7 +45,7 @@ const objectFromDatabase = {
 
 const invalidMnemonickKeysObjectFromDatabase = {
   index: 0,
-  refundAddress: DFC_PLAYGROUND_PRIVATEKEY,
+  refundAddress: REFUND_PLAYGROUND_ADDRESS,
   claimAmount: "0.1994",
   tokenSymbol: "ETH",
   urlNetwork: "https://playground.jellyfishsdk.com",
@@ -64,38 +64,28 @@ const invalidUrlNetworkObjectFromDatabase = {
 };
 
 test("should return transaction id when succesfully refunded ETH tokens (with manual topup of UTXO)", async () => {
-  // const consoleSpy = jest.spyOn(console, "log");
-  // try {
-  //   await handler(objectFromDatabase);
-  //   expect(consoleSpy).toHaveBeenCalledWith(
-  //     expect.stringMatching(/Send TxId:/)
-  //   );
-  // } finally {
-  //   consoleSpy.mockRestore();
-  // }
-
-  spiedConsoleWithReturnResponse(
+  await spiedConsoleWithReturnResponse(
     objectFromDatabase,
     expect.stringMatching(/Send TxId:/)
   );
 });
 
 test("should return transaction id when succesfully refunded DFI UTXO (with manual topup of UTXO)", async () => {
-  spiedConsoleWithReturnResponse(
+  await spiedConsoleWithReturnResponse(
     mockedRefundDFIObject,
     expect.stringMatching(/Send TxId:/)
   );
 });
 
 test("should return invalid DeFiChain private keys", async () => {
-  spiedConsoleWithReturnErrorResponse(
+  await spiedConsoleWithReturnErrorResponse(
     invalidMnemonickKeysObjectFromDatabase,
     "Invalid DeFiChain private keys!"
   );
 });
 
 test("should return unable to decode address given the wrong refund address", async () => {
-  spiedConsoleWithReturnErrorResponse(
+  await spiedConsoleWithReturnErrorResponse(
     invalidUrlNetworkObjectFromDatabase,
     `Unable to decode Address - ${INVALID_REFUND_PLAYGROUND_ADDRESS}`
   );
