@@ -17,7 +17,7 @@ import {
 } from "./DeFiChainCore";
 
 interface RequiredPropsFromDB {
-  index: number; // wallet address' index from the private key
+  index: number; // index of the hot wallet based on the private key
   refundAddress: string;
   claimAmount: string; // the amount that the user wants to be refunded
   tokenSymbol: string; // index of token is dependent on the network
@@ -46,7 +46,7 @@ export async function handler(props: RequiredPropsFromDB): Promise<void> {
       network
     );
 
-    // checks for invalid arguments from the database
+    // Checks for invalid arguments from the database
     if (Number(index) < 0) {
       throw new Error("not a valid index");
     }
@@ -59,7 +59,7 @@ export async function handler(props: RequiredPropsFromDB): Promise<void> {
       throw new Error("token symbol undefined");
     }
 
-    // gives back the id of the sent token symbol
+    // Gives back the id of the tokenSymbol
     const tokenId = (await account.client.tokens.list()).find(
       (token) => token.symbol === tokenSymbol
     )?.id;
@@ -77,10 +77,10 @@ export async function handler(props: RequiredPropsFromDB): Promise<void> {
 
     let txn: TransactionSegWit;
     if (isDFI) {
-      // sends DFI UTXO, not Tokens back to refundAddress
+      // Sends DFI UTXO, not Tokens back to refundAddress
       txn = await builder.utxo.send(new BigNumber(claimAmount), to, from);
     } else {
-      // only sends Tokens
+      // Only sends Tokens
       txn = await builder.account.accountToAccount(
         {
           from,
