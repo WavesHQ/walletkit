@@ -108,6 +108,13 @@ export interface DeFiChainStatus {
   }>;
 }
 
+export interface PoolpairWithStabInfo {
+  pairDisplaySymbol: string;
+  tokenADisplaySymbol: string;
+  tokenBDisplaySymbol: string;
+  dexStabilizationFee: string;
+}
+
 export type Platform = "ios" | "android" | "windows" | "macos" | "web";
 
 export type App = "MOBILE_LW" | "DESKTOP_LW" | "SCAN";

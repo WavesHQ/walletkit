@@ -3,6 +3,7 @@ import {
   AnnouncementData,
   DeFiChainStatus,
   FeatureFlag,
+  PoolpairWithStabInfo,
 } from "@waveshq/walletkit-core";
 
 export const statusWebsiteSlice = createApi({
@@ -53,18 +54,33 @@ export const announcementWebsiteSlice = createApi({
         },
       }),
     }),
+    getPairsWithStabilizationFee: builder.query<PoolpairWithStabInfo[], any>({
+      query: (reqParams) => ({
+        url: "/wallet/pairs-with-stab-info",
+        params: reqParams,
+        method: "GET",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          mode: "no-cors",
+        },
+      }),
+    }),
   }),
 });
 
 const { useGetBlockchainStatusQuery, useGetOceanStatusQuery } =
   statusWebsiteSlice;
-const { useGetAnnouncementsQuery, useGetFeatureFlagsQuery, usePrefetch } =
-  announcementWebsiteSlice;
-
+const {
+  useGetAnnouncementsQuery,
+  useGetFeatureFlagsQuery,
+  usePrefetch,
+  useGetPairsWithStabilizationFeeQuery,
+} = announcementWebsiteSlice;
 export {
   useGetAnnouncementsQuery,
   useGetBlockchainStatusQuery,
   useGetFeatureFlagsQuery,
   useGetOceanStatusQuery,
+  useGetPairsWithStabilizationFeeQuery,
   usePrefetch,
 };
