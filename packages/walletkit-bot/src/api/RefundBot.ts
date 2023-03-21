@@ -7,7 +7,7 @@ import { WhaleWalletAccount } from "@defichain/whale-api-wallet";
 import {
   EnvironmentNetwork,
   getJellyfishNetwork,
-} from "@waveshq/walletkit-core";
+} from "@waveshq/walletkit-core/src";
 import { BigNumber } from "bignumber.js";
 
 import {
