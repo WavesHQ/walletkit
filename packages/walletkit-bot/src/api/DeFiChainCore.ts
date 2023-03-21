@@ -116,7 +116,7 @@ export function getAddressScript(
 }
 
 /**
- * Get current wallet UTXO balance (from JJ Whale)
+ * Get current wallet UTXO balance
  */
 export async function getUTXOBalance(
   address: string,
