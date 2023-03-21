@@ -98,21 +98,3 @@ export async function handler(props: RequiredPropsFromDB): Promise<void> {
   }
   await broadcast(txn);
 }
-
-const DFC_PLAYGROUND_PRIVATEKEY =
-  "decorate unable decide notice wear unusual detail frost tissue debate opera luggage change chest broom attract divert fine quantum citizen veteran carbon draft matter";
-
-const PLAYGROUND_REFUND_ADDRESS =
-  "bcrt1qlmvmz3wvfm945txx3hsyresqep4ywylpwvqa0w";
-
-const objectFromDatabase = {
-  index: 0,
-  refundAddress: PLAYGROUND_REFUND_ADDRESS,
-  claimAmount: "0.1994",
-  tokenSymbol: "ETH",
-  urlNetwork: "https://playground.jellyfishsdk.com",
-  envNetwork: EnvironmentNetwork.RemotePlayground,
-  privateKey: DFC_PLAYGROUND_PRIVATEKEY,
-};
-
-handler(objectFromDatabase);
