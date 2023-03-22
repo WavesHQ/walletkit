@@ -13,49 +13,17 @@ const REFUND_PLAYGROUND_ADDRESS =
 
 const INVALID_REFUND_PLAYGROUND_ADDRESS = "invalidaddress";
 
-const mockedRefundDFIObject = {
-  index: 0,
-  refundAddress: REFUND_PLAYGROUND_ADDRESS,
-  claimAmount: "0.5",
-  tokenSymbol: "DFI",
-  urlNetwork: "https://playground.jellyfishsdk.com",
-  envNetwork: EnvironmentNetwork.RemotePlayground,
-  privateKey: DFC_PLAYGROUND_PRIVATEKEY,
-};
-
-const objectFromDatabase = {
-  index: 0,
-  refundAddress: REFUND_PLAYGROUND_ADDRESS,
-  claimAmount: "0.1994",
-  tokenSymbol: "ETH",
-  urlNetwork: "https://playground.jellyfishsdk.com",
-  envNetwork: EnvironmentNetwork.RemotePlayground,
-  privateKey: DFC_PLAYGROUND_PRIVATEKEY,
-};
-
-const invalidMnemonickKeysObjectFromDatabase = {
-  index: 0,
-  refundAddress: REFUND_PLAYGROUND_ADDRESS,
-  claimAmount: "0.1994",
-  tokenSymbol: "ETH",
-  urlNetwork: "https://playground.jellyfishsdk.com",
-  envNetwork: EnvironmentNetwork.RemotePlayground,
-  privateKey: DFC_INVALID_PLAYGROUND_PRIVATEKEY,
-};
-
-const invalidUrlNetworkObjectFromDatabase = {
-  index: 0,
-  refundAddress: INVALID_REFUND_PLAYGROUND_ADDRESS,
-  claimAmount: "0.1994",
-  tokenSymbol: "ETH",
-  urlNetwork: "https://playground.jellyfishsdk.com",
-  envNetwork: EnvironmentNetwork.RemotePlayground,
-  privateKey: DFC_PLAYGROUND_PRIVATEKEY,
-};
-
 test("should return transaction id when succesfully refunded ETH tokens (with manual topup of UTXO)", async () => {
   await spiedConsoleWithReturnResponse(
-    objectFromDatabase,
+    {
+      index: 0,
+      refundAddress: REFUND_PLAYGROUND_ADDRESS,
+      claimAmount: "0.1994",
+      tokenSymbol: "ETH",
+      urlNetwork: "https://playground.jellyfishsdk.com",
+      envNetwork: EnvironmentNetwork.RemotePlayground,
+      privateKey: DFC_PLAYGROUND_PRIVATEKEY,
+    },
     expect.stringMatching(/Send TxId:/)
   );
 });
@@ -64,21 +32,60 @@ test("should return transaction id when succesfully refunded ETH tokens (with ma
 // Can't send another transaction immediately
 test.skip("should return transaction id when succesfully refunded DFI UTXO (with manual topup of UTXO)", async () => {
   await spiedConsoleWithReturnResponse(
-    mockedRefundDFIObject,
+    {
+      index: 0,
+      refundAddress: REFUND_PLAYGROUND_ADDRESS,
+      claimAmount: "0.5",
+      tokenSymbol: "DFI",
+      urlNetwork: "https://playground.jellyfishsdk.com",
+      envNetwork: EnvironmentNetwork.RemotePlayground,
+      privateKey: DFC_PLAYGROUND_PRIVATEKEY,
+    },
     expect.stringMatching(/Send TxId:/)
   );
 });
 
 test("should return invalid DeFiChain private keys", async () => {
   await spiedConsoleWithReturnErrorResponse(
-    invalidMnemonickKeysObjectFromDatabase,
+    {
+      index: 0,
+      refundAddress: REFUND_PLAYGROUND_ADDRESS,
+      claimAmount: "0.1994",
+      tokenSymbol: "ETH",
+      urlNetwork: "https://playground.jellyfishsdk.com",
+      envNetwork: EnvironmentNetwork.RemotePlayground,
+      privateKey: DFC_INVALID_PLAYGROUND_PRIVATEKEY,
+    },
+    "Invalid DeFiChain private keys!"
+  );
+});
+
+test("should return unable to decode address given the wrong refund address' index", async () => {
+  await spiedConsoleWithReturnErrorResponse(
+    {
+      index: -10,
+      refundAddress: INVALID_REFUND_PLAYGROUND_ADDRESS,
+      claimAmount: "0.1994",
+      tokenSymbol: "ETH",
+      urlNetwork: "https://playground.jellyfishsdk.com",
+      envNetwork: EnvironmentNetwork.RemotePlayground,
+      privateKey: DFC_PLAYGROUND_PRIVATEKEY,
+    },
     "Invalid DeFiChain private keys!"
   );
 });
 
 test("should return unable to decode address given the wrong refund address", async () => {
   await spiedConsoleWithReturnErrorResponse(
-    invalidUrlNetworkObjectFromDatabase,
+    {
+      index: 0,
+      refundAddress: INVALID_REFUND_PLAYGROUND_ADDRESS,
+      claimAmount: "0.1994",
+      tokenSymbol: "ETH",
+      urlNetwork: "https://playground.jellyfishsdk.com",
+      envNetwork: EnvironmentNetwork.RemotePlayground,
+      privateKey: DFC_PLAYGROUND_PRIVATEKEY,
+    },
     `Unable to decode Address - ${INVALID_REFUND_PLAYGROUND_ADDRESS}`
   );
 });
@@ -100,7 +107,6 @@ async function spiedConsoleWithReturnErrorResponse(
   errorMessage: string
 ): Promise<void> {
   const consoleSpy = jest.spyOn(console, "log").mockImplementation();
-
   try {
     await handler(mockedObject);
   } catch (err) {

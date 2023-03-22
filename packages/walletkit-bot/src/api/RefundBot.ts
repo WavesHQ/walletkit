@@ -17,7 +17,7 @@ import {
 } from "./DeFiChainCore";
 
 export interface HandlerProps {
-  index: number; // index of any address where refund is coming from
+  index: number; // index of wallet's derived from parent private keys
   refundAddress: string;
   claimAmount: string; // the amount that the user wants to be refunded
   tokenSymbol: string;
@@ -46,6 +46,7 @@ export async function handler(props: HandlerProps): Promise<void> {
       network
     );
 
+    // Not needed as long as index does not match the refund address,
     // Checks for invalid arguments from the database
     if (Number(index) < 0) {
       throw new Error("not a valid index");
