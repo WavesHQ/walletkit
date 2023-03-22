@@ -46,7 +46,6 @@ export async function handler(props: HandlerProps): Promise<void> {
       network
     );
 
-    // Not needed as long as index does not match the refund address,
     // Checks for invalid arguments from the database
     if (Number(index) < 0) {
       throw new Error(`${index} not a valid index`);
