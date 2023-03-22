@@ -23,7 +23,7 @@ export interface HandlerProps {
   tokenSymbol: string;
   urlNetwork: string;
   envNetwork: EnvironmentNetwork;
-  privateKey: string;
+  mnemonic: string;
 }
 
 export async function handler(props: HandlerProps): Promise<void> {
@@ -34,7 +34,7 @@ export async function handler(props: HandlerProps): Promise<void> {
       claimAmount,
       tokenSymbol,
       urlNetwork,
-      privateKey,
+      mnemonic,
       envNetwork,
     } = props;
 
@@ -42,7 +42,7 @@ export async function handler(props: HandlerProps): Promise<void> {
     const network = getJellyfishNetwork(envNetwork);
     const account = new WhaleWalletAccount(
       client,
-      createWallet(urlNetwork, envNetwork, privateKey, index),
+      createWallet(urlNetwork, envNetwork, mnemonic, index),
       network
     );
 

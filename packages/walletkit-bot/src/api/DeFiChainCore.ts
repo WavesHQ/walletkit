@@ -77,13 +77,11 @@ export function initJellyfishWallet<HdNode extends WalletHdNode>(
 export function createWallet(
   urlNetwork: string,
   envNetwork: EnvironmentNetwork,
-  privateKey: string,
+  mnemonic: string,
   index: number = 0
 ): WhaleWalletAccount {
-  const mnemonic = privateKey as string;
-
   if (!validateMnemonicSentence(mnemonic)) {
-    throw new Error("Invalid DeFiChain private keys!");
+    throw new Error("Invalid DeFiChain mnemonic!");
   }
   const data = toData(mnemonic.split(" "), envNetwork);
   const provider = initProvider(data, envNetwork);
