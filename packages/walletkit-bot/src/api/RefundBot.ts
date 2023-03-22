@@ -115,20 +115,3 @@ export async function handler(props: HandlerProps): Promise<void> {
     console.log((error as Error).message);
   }
 }
-const DFC_PLAYGROUND_PRIVATEKEY =
-  "decorate unable decide notice wear unusual detail frost tissue debate opera luggage change chest broom attract divert fine quantum citizen veteran carbon draft matter";
-const DFC_INVALID_PLAYGROUND_PRIVATEKEY =
-  "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon";
-
-const REFUND_PLAYGROUND_ADDRESS =
-  "bcrt1qlmvmz3wvfm945txx3hsyresqep4ywylpwvqa0w";
-const invalidMnemonickKeysObjectFromDatabase = {
-  index: 0,
-  refundAddress: REFUND_PLAYGROUND_ADDRESS,
-  claimAmount: "10",
-  tokenSymbol: "",
-  urlNetwork: "https://playground.jellyfishsdk.com",
-  envNetwork: EnvironmentNetwork.RemotePlayground,
-  privateKey: DFC_PLAYGROUND_PRIVATEKEY,
-};
-handler(invalidMnemonickKeysObjectFromDatabase);
