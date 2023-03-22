@@ -40,6 +40,6 @@
   "prettier": "@waveshq/standard-prettier",
   "engines": {
     "node": ">=16.6.0",
-    "pnpm": ">=7.29.1"
+    "pnpm": ">=7.30.0"
   }
 }
