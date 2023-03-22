@@ -49,27 +49,27 @@ export async function handler(props: HandlerProps): Promise<void> {
     // Not needed as long as index does not match the refund address,
     // Checks for invalid arguments from the database
     if (Number(index) < 0) {
-      throw new Error("not a valid index");
+      throw new Error(`${index} not a valid index`);
     }
 
     if (
       new BigNumber(claimAmount).isLessThanOrEqualTo(0) ||
       new BigNumber(claimAmount).isNaN()
     ) {
-      throw new Error("invalid claim amount");
+      throw new Error(`Invalid claim amount of ${claimAmount}`);
     }
 
     if (tokenSymbol === undefined) {
-      throw new Error("token symbol undefined");
+      throw new Error(`Token symbol: ${tokenSymbol} undefined`);
     }
 
     // Gives back the id of the tokenSymbol
     const tokenId = (await account.client.tokens.list()).find(
-      (token) => token.symbol === tokenSymbol
+      (token) => token.symbol === tokenSymbol && token.isDAT // to ensure that its DeFiChain's official token
     )?.id;
 
     if (tokenId === undefined) {
-      throw new Error("token ID is undefined");
+      throw new Error(`Token ID: ${tokenId} is undefined`);
     }
 
     const from = await account.getScript();
