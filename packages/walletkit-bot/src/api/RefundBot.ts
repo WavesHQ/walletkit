@@ -17,10 +17,10 @@ import {
 } from "./DeFiChainCore";
 
 export interface HandlerProps {
-  index: number; // index of the hot wallet based on the private key
+  index: number; // index of any address where refund is coming from
   refundAddress: string;
   claimAmount: string; // the amount that the user wants to be refunded
-  tokenSymbol: string; // index of token is dependent on the network
+  tokenSymbol: string;
   urlNetwork: string;
   envNetwork: EnvironmentNetwork;
   privateKey: string;
@@ -51,7 +51,10 @@ export async function handler(props: HandlerProps): Promise<void> {
       throw new Error("not a valid index");
     }
 
-    if (new BigNumber(claimAmount).isLessThanOrEqualTo(0)) {
+    if (
+      new BigNumber(claimAmount).isLessThanOrEqualTo(0) ||
+      new BigNumber(claimAmount).isNaN()
+    ) {
       throw new Error("invalid claim amount");
     }
 
@@ -73,7 +76,7 @@ export async function handler(props: HandlerProps): Promise<void> {
     // Allows support for UTXO transactions
     const builder = await account.withTransactionBuilder();
 
-    const isDFI = tokenId === "0"; // Assumed DFI UTXO
+    const isDFI = tokenSymbol === "DFI"; // Assumed DFI UTXO
 
     let txn: TransactionSegWit;
     if (isDFI) {
@@ -109,6 +112,6 @@ export async function handler(props: HandlerProps): Promise<void> {
     }
     await broadcast(txn);
   } catch (error) {
-    console.log(error);
+    console.log((error as Error).message);
   }
 }
