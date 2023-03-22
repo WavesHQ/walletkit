@@ -24,7 +24,7 @@ importers:
 
   packages/walletkit-bot:
     specifiers:
-      '@birthdayresearch/sticky-jest': ^0.5.5
+      '@birthdayresearch/sticky-jest': ^0.5.6
       bignumber.js: ^9.1.1
     dependencies:
       bignumber.js: 9.1.1
