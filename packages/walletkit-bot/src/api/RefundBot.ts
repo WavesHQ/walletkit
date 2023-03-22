@@ -55,11 +55,11 @@ export async function handler(props: HandlerProps): Promise<void> {
       new BigNumber(claimAmount).isLessThanOrEqualTo(0) ||
       new BigNumber(claimAmount).isNaN()
     ) {
-      throw new Error(`Invalid claim amount of ${claimAmount}`);
+      throw new Error(`Invalid claim amount: ${new BigNumber(claimAmount)}`);
     }
 
-    if (tokenSymbol === undefined) {
-      throw new Error(`Token symbol: ${tokenSymbol} undefined`);
+    if (tokenSymbol === undefined || tokenSymbol === "") {
+      throw new Error(`Token symbol is undefined`);
     }
 
     // Gives back the id of the tokenSymbol
@@ -68,7 +68,7 @@ export async function handler(props: HandlerProps): Promise<void> {
     )?.id;
 
     if (tokenId === undefined) {
-      throw new Error(`Token ID: ${tokenId} is undefined`);
+      throw new Error("tokenId is undefined");
     }
 
     const from = await account.getScript();
@@ -115,3 +115,20 @@ export async function handler(props: HandlerProps): Promise<void> {
     console.log((error as Error).message);
   }
 }
+const DFC_PLAYGROUND_PRIVATEKEY =
+  "decorate unable decide notice wear unusual detail frost tissue debate opera luggage change chest broom attract divert fine quantum citizen veteran carbon draft matter";
+const DFC_INVALID_PLAYGROUND_PRIVATEKEY =
+  "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon";
+
+const REFUND_PLAYGROUND_ADDRESS =
+  "bcrt1qlmvmz3wvfm945txx3hsyresqep4ywylpwvqa0w";
+const invalidMnemonickKeysObjectFromDatabase = {
+  index: 0,
+  refundAddress: REFUND_PLAYGROUND_ADDRESS,
+  claimAmount: "10",
+  tokenSymbol: "",
+  urlNetwork: "https://playground.jellyfishsdk.com",
+  envNetwork: EnvironmentNetwork.RemotePlayground,
+  privateKey: DFC_PLAYGROUND_PRIVATEKEY,
+};
+handler(invalidMnemonickKeysObjectFromDatabase);
