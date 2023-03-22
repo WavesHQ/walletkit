@@ -2,10 +2,10 @@ import { EnvironmentNetwork } from "@waveshq/walletkit-core/src";
 
 import { handler, HandlerProps } from "./RefundBot";
 
-const DFC_PLAYGROUND_PRIVATEKEY =
+const DFC_PLAYGROUND_MNEMONIC =
   "decorate unable decide notice wear unusual detail frost tissue debate opera luggage change chest broom attract divert fine quantum citizen veteran carbon draft matter";
 
-const DFC_INVALID_PLAYGROUND_PRIVATEKEY =
+const DFC_INVALID_PLAYGROUND_MNEMONIC =
   "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon";
 
 const REFUND_PLAYGROUND_ADDRESS =
@@ -22,7 +22,7 @@ test("should return transaction id when succesfully refunded ETH tokens (with ma
       tokenSymbol: "ETH",
       urlNetwork: "https://playground.jellyfishsdk.com",
       envNetwork: EnvironmentNetwork.RemotePlayground,
-      privateKey: DFC_PLAYGROUND_PRIVATEKEY,
+      mnemonic: DFC_PLAYGROUND_MNEMONIC,
     },
     expect.stringMatching(/Send TxId:/)
   );
@@ -39,7 +39,7 @@ test.skip("should return transaction id when succesfully refunded DFI UTXO (with
       tokenSymbol: "DFI",
       urlNetwork: "https://playground.jellyfishsdk.com",
       envNetwork: EnvironmentNetwork.RemotePlayground,
-      privateKey: DFC_PLAYGROUND_PRIVATEKEY,
+      mnemonic: DFC_PLAYGROUND_MNEMONIC,
     },
     expect.stringMatching(/Send TxId:/)
   );
@@ -54,7 +54,7 @@ test("should return invalid DeFiChain private keys", async () => {
       tokenSymbol: "ETH",
       urlNetwork: "https://playground.jellyfishsdk.com",
       envNetwork: EnvironmentNetwork.RemotePlayground,
-      privateKey: DFC_INVALID_PLAYGROUND_PRIVATEKEY,
+      mnemonic: DFC_INVALID_PLAYGROUND_MNEMONIC,
     },
     "Invalid DeFiChain private keys!"
   );
@@ -69,7 +69,7 @@ test("should return unable to decode address given the wrong refund address' ind
       tokenSymbol: "ETH",
       urlNetwork: "https://playground.jellyfishsdk.com",
       envNetwork: EnvironmentNetwork.RemotePlayground,
-      privateKey: DFC_PLAYGROUND_PRIVATEKEY,
+      mnemonic: DFC_PLAYGROUND_MNEMONIC,
     },
     "Invalid DeFiChain private keys!"
   );
@@ -84,7 +84,7 @@ test("should return unable to decode address given the wrong refund address", as
       tokenSymbol: "ETH",
       urlNetwork: "https://playground.jellyfishsdk.com",
       envNetwork: EnvironmentNetwork.RemotePlayground,
-      privateKey: DFC_PLAYGROUND_PRIVATEKEY,
+      mnemonic: DFC_PLAYGROUND_MNEMONIC,
     },
     `Unable to decode Address - ${INVALID_REFUND_PLAYGROUND_ADDRESS}`
   );
