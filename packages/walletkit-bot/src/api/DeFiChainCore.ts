@@ -19,7 +19,7 @@ import {
   EnvironmentNetwork,
   getBip32Option,
   getJellyfishNetwork,
-} from "@waveshq/walletkit-core/src";
+} from "@waveshq/walletkit-core";
 import { BigNumber } from "bignumber.js";
 
 enum WalletType {
