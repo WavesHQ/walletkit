@@ -81,11 +81,19 @@ export async function handler(props: HandlerProps): Promise<void> {
     let txn: TransactionSegWit;
     if (isDFI) {
       // Sends DFI UTXO, not Tokens back to refundAddress
-      txn = await builder.utxo.send(
-        new BigNumber(claimAmount).minus(0.001),
-        to,
-        from
-      );
+      const fees = 0.001
+      const amountToClaim = new BigNumber(claimAmount)
+
+      if(amountToClaim.isLessThan(fees)){
+        console.log(`Not enough amount to cover txn fees`)
+      } else {
+        txn = await builder.utxo.send(
+          amountToClaim.minus(fees),
+          to,
+          from
+        );
+      }
+
     } else {
       // Only sends Tokens
       txn = await builder.account.accountToAccount(
