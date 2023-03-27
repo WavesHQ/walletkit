@@ -78,7 +78,7 @@ export async function handler(props: HandlerProps): Promise<void> {
 
     const isDFI = tokenSymbol === "DFI"; // Assumed DFI UTXO
 
-    let txn: TransactionSegWit;
+    let txn: TransactionSegWit | undefined
     if (isDFI) {
       // Sends DFI UTXO, not Tokens back to refundAddress
       const fees = 0.001
@@ -122,7 +122,10 @@ export async function handler(props: HandlerProps): Promise<void> {
 
       return console.log(`Send TxId: ${txId}`); // added return for unit testing
     }
-    await broadcast(txn);
+    if(txn) {
+      await broadcast(txn);
+    }
+
   } catch (error) {
     console.log((error as Error).message);
   }
