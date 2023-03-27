@@ -85,7 +85,7 @@ export async function handler(props: HandlerProps): Promise<void> {
       const fees = 0.001;
       const amountToClaim = new BigNumber(claimAmount);
 
-      if (amountToClaim.isLessThan(fees)) {
+      if (amountToClaim.isLessThanOrEqualTo(fees)) {
         throw new Error(`Not enough amount to cover txn fees`);
       } else {
         txn = await builder.utxo.send(amountToClaim.minus(fees), to, from);
