@@ -9,9 +9,9 @@
   ],
   "dependencies": {
     "@birthdayresearch/sticky-jest": "^0.5.7",
-    "@waveshq/standard-web": "^0.47.0",
-    "@waveshq/standard-web-linter": "^0.47.0",
-    "@waveshq/standard-defichain-jellyfishsdk": "^0.47.0",
+    "@waveshq/standard-web": "^0.48.0",
+    "@waveshq/standard-web-linter": "^0.48.0",
+    "@waveshq/standard-defichain-jellyfishsdk": "^0.48.0",
     "@waveshq/walletkit-core": "workspace:*",
     "bignumber.js": "^9.1.1",
     "dayjs": "^1.11.7",
