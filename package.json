@@ -16,10 +16,10 @@
   "devDependencies": {
     "@birthdayresearch/eslint-config": "^0.5.9",
     "@birthdayresearch/sticky-turbo": "^0.5.9",
-    "@waveshq/standard-defichain-jellyfishsdk": "^0.49.0",
-    "@waveshq/standard-prettier": "^0.49.0",
-    "@waveshq/standard-web": "^0.49.0",
-    "@waveshq/standard-web-linter": "^0.49.0",
+    "@waveshq/standard-defichain-jellyfishsdk": "^0.49.1",
+    "@waveshq/standard-prettier": "^0.49.1",
+    "@waveshq/standard-web": "^0.49.1",
+    "@waveshq/standard-web-linter": "^0.49.1",
     "@waveshq/walletkit-core": "workspace:*",
     "testcontainers": "^9.1.3"
   },
