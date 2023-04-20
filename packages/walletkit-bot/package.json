@@ -20,7 +20,7 @@
     "preset": "@birthdayresearch/sticky-jest"
   },
   "dependencies": {
-    "bignumber.js": "^9.1.1",
-    "@waveshq/walletkit-core": "workspace:*"
+    "@waveshq/walletkit-core": "workspace:*",
+    "bignumber.js": "^9.1.1"
   }
 }
