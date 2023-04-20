@@ -8,19 +8,17 @@ import {
 } from "../utils/oceanMockedData";
 import { handler } from "./StateRelayerBot";
 
-jest.mock("@defichain/whale-api-client", () => {
-  return {
-    WhaleApiClient: jest.fn().mockImplementation(() => ({
-      stats: {
-        get: () => mockedStatsData,
-      },
-      poolpairs: {
-        list: () => mockedPoolPairData,
-        listDexPrices: () => mockedDexPricesData,
-      },
-    })),
-  };
-});
+jest.mock("@defichain/whale-api-client", () => ({
+  WhaleApiClient: jest.fn().mockImplementation(() => ({
+    stats: {
+      get: () => mockedStatsData,
+    },
+    poolpairs: {
+      list: () => mockedPoolPairData,
+      listDexPrices: () => mockedDexPricesData,
+    },
+  })),
+}));
 
 describe("State Relayer Bot Tests", () => {
   test("should check block height difference is more than 30", () => {});
