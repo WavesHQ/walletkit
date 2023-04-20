@@ -31,12 +31,11 @@ export async function handler(
   props: StateRelayerHandlerProps
 ): Promise<DataStore | undefined> {
   const { urlNetwork, envNetwork } = props;
-  const client = getWhaleClient(urlNetwork, envNetwork);
   const dataStore = {} as DataStore;
   try {
     // TODO: Check if Function should run (blockHeight > 30 from previous)
     // Get Data from OCEAN API
-    // TODO: Get Data from /dex
+    const client = getWhaleClient(urlNetwork, envNetwork);
     const statsData = await client.stats.get();
     const rawPoolpairData = await client.poolpairs.list(200);
     const dexPriceData = await client.poolpairs.listDexPrices(DENOMINATION);
@@ -46,6 +45,7 @@ export async function handler(
       (pair: any) => !pair.displaySymbol.includes("/")
     );
 
+    /* ------------ Data from /dex ----------- */
     // totalValueLockInPoolPair
     dataStore.totalValueLockInPoolPair = statsData.tvl.dex.toString();
 
@@ -80,7 +80,6 @@ export async function handler(
       } as PairData;
     }, {} as PairData);
     dataStore.pair = pair;
-    console.dir(dataStore);
     // TODO: Get Data from /dex/[pool-pair]
     // TODO: Get Data from /vaults
     // TODO: Get Data from /masternodes
