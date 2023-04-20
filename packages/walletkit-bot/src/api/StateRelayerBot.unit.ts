@@ -1,4 +1,4 @@
-import axios from "axios";
+import { EnvironmentNetwork } from "@waveshq/walletkit-core";
 
 import {
   expectedPairData,
@@ -6,31 +6,32 @@ import {
   mockedPoolPairData,
   mockedStatsData,
 } from "../utils/oceanMockedData";
-import {
-  DEXPRICE_URL,
-  handler,
-  POOLPAIR_URL,
-  STATS_URL,
-} from "./StateRelayerBot";
+import { handler } from "./StateRelayerBot";
 
-jest.mock("axios");
+jest.mock("@defichain/whale-api-client", () => {
+  return {
+    WhaleApiClient: jest.fn().mockImplementation(() => ({
+      stats: {
+        get: () => mockedStatsData,
+      },
+      poolpairs: {
+        list: () => mockedPoolPairData,
+        listDexPrices: () => mockedDexPricesData,
+      },
+    })),
+  };
+});
 
 describe("State Relayer Bot Tests", () => {
   test("should check block height difference is more than 30", () => {});
   test("should check that data is parsed correctly", async () => {
-    axios.get = jest.fn().mockImplementation((url) => {
-      if (url === STATS_URL) return mockedStatsData;
-      if (url === POOLPAIR_URL) return mockedPoolPairData;
-      if (url === DEXPRICE_URL) return mockedDexPricesData;
-      return {};
-    });
     const response = await runHandler();
     expect(response).toBeDefined();
 
     // should check data from /dex is parsed correctly
     expect(response).toHaveProperty(
       "totalValueLockInPoolPair",
-      "282144133.3567614"
+      "272281685.3262795"
     );
     expect(response).toHaveProperty("total24HVolume", "60010");
     expect(response).toHaveProperty("pair", expectedPairData);
@@ -46,5 +47,8 @@ describe("State Relayer Bot Tests", () => {
 });
 
 async function runHandler() {
-  return handler();
+  return handler({
+    envNetwork: EnvironmentNetwork.LocalPlayground,
+    urlNetwork: "",
+  });
 }

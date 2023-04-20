@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
-import axios from "axios";
+import { EnvironmentNetwork } from "@waveshq/walletkit-core";
 import { BigNumber } from "bignumber.js";
-// import { BigNumber } from "bignumber.js";
+
+import { getWhaleClient } from "./DeFiChainCore";
 
 type PairData = {
   [pairSymbol: string]: {
@@ -19,27 +20,26 @@ type DataStore = {
   pair: PairData;
 };
 
-export const STATS_URL = "https://ocean.defichain.com/v0/mainnet/stats";
-export const POOLPAIR_URL =
-  "https://ocean.defichain.com/v0/mainnet/poolpairs?size=200"; // return paginated res might have to handle pagination
-export const DEXPRICE_URL =
-  "https://ocean.defichain.com/v0/mainnet/poolpairs/dexprices?denomination=USDT";
+type StateRelayerHandlerProps = {
+  urlNetwork: string;
+  envNetwork: EnvironmentNetwork;
+};
 
-export async function handler(): Promise<DataStore | undefined> {
+const DENOMINATION = "USDT";
+
+export async function handler(
+  props: StateRelayerHandlerProps
+): Promise<DataStore | undefined> {
+  const { urlNetwork, envNetwork } = props;
+  const client = getWhaleClient(urlNetwork, envNetwork);
   const dataStore = {} as DataStore;
   try {
     // TODO: Check if Function should run (blockHeight > 30 from previous)
     // Get Data from OCEAN API
     // TODO: Get Data from /dex
-    const {
-      data: { data: statsData },
-    } = await axios.get(STATS_URL);
-    const {
-      data: { data: rawPoolpairData },
-    } = await axios.get(POOLPAIR_URL);
-    const {
-      data: { data: dexPriceData },
-    } = await axios.get(DEXPRICE_URL);
+    const statsData = await client.stats.get();
+    const rawPoolpairData = await client.poolpairs.list(200);
+    const dexPriceData = await client.poolpairs.listDexPrices(DENOMINATION);
 
     // sanitise response data
     const poolpairData = rawPoolpairData.filter(
@@ -51,38 +51,34 @@ export async function handler(): Promise<DataStore | undefined> {
 
     // total24HVolume
     const total24HVolume = poolpairData.reduce(
-      (acc: any, currPair: { volume: { h24: any } }) =>
-        acc + (currPair.volume?.h24 ?? 0),
+      (acc, currPair) => acc + (currPair.volume?.h24 ?? 0),
       0
     );
     dataStore.total24HVolume = total24HVolume.toString();
 
     // pair
-    const pair: PairData = poolpairData.reduce(
-      (acc: PairData, currPair: any) => {
-        let tokenPrice = new BigNumber(0);
-        const priceRatio = currPair.priceRatio.ba;
-        const { symbol } = currPair.tokenB;
-        if (symbol === "USDT" || new BigNumber(priceRatio).isZero()) {
-          tokenPrice = new BigNumber(0);
-        } else {
-          const dexPricePerToken = new BigNumber(
-            dexPriceData.dexPrices[symbol].denominationPrice ?? 0
-          );
-          tokenPrice = dexPricePerToken.multipliedBy(currPair.priceRatio.ba);
-        }
-        return {
-          ...acc,
-          [currPair.displaySymbol]: {
-            primaryTokenPrice: tokenPrice.toString(),
-            volume24H: currPair.volume.h24.toString() ?? "0",
-            totalLiquidity: currPair.totalLiquidity.usd ?? "0",
-            apr: currPair.apr.total.toString(),
-          },
-        };
-      },
-      {} as PairData
-    );
+    const pair = poolpairData.reduce<PairData>((acc, currPair) => {
+      let tokenPrice = new BigNumber(0);
+      const priceRatio = currPair.priceRatio.ba;
+      const { symbol } = currPair.tokenB;
+      if (symbol === DENOMINATION || new BigNumber(priceRatio).isZero()) {
+        tokenPrice = new BigNumber(0);
+      } else {
+        const dexPricePerToken = new BigNumber(
+          dexPriceData.dexPrices[symbol].denominationPrice ?? 0
+        );
+        tokenPrice = dexPricePerToken.multipliedBy(currPair.priceRatio.ba);
+      }
+      return {
+        ...acc,
+        [currPair.displaySymbol]: {
+          primaryTokenPrice: tokenPrice.toString(),
+          volume24H: currPair?.volume?.h24.toString() ?? "0",
+          totalLiquidity: currPair.totalLiquidity.usd ?? "0",
+          apr: currPair?.apr?.total.toString(),
+        },
+      } as PairData;
+    }, {} as PairData);
     dataStore.pair = pair;
     console.dir(dataStore);
     // TODO: Get Data from /dex/[pool-pair]

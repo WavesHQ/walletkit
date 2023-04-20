@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "@waveshq/walletkit-core": "workspace:*",
-    "axios": "^1.3.5",
     "bignumber.js": "^9.1.1"
   }
 }
