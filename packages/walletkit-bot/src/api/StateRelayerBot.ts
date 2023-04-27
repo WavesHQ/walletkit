@@ -50,7 +50,7 @@ type DataStore = {
   pair: PairData;
   vaults: VaultData;
   masternodes: MasternodesData;
-  burns: BurnData;
+  burned: BurnData;
 };
 
 type StateRelayerHandlerProps = {
@@ -159,13 +159,13 @@ export async function handler(
     dataStore.masternodes = masternodes;
 
     // Get Data from all burns in ecosystem
-    dataStore.burns = {
-      address: dataStore.burns.address.toString(),
-      fee: dataStore.burns.fee.toString(),
-      auction: dataStore.burns.auction.toString(),
-      payback: dataStore.burns.address.toString(),
-      emission: dataStore.burns.emission.toString(),
-      total: dataStore.burns.total.toString(),
+    dataStore.burned = {
+      address: statsData.burned.address.toString(),
+      fee: statsData.burned.fee.toString(),
+      auction: statsData.burned.auction.toString(),
+      payback: statsData.burned.address.toString(),
+      emission: statsData.burned.emission.toString(),
+      total: statsData.burned.total.toString(),
     };
 
     // Interfacing with SC
