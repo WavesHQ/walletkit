@@ -20,22 +20,27 @@ type PairData = {
 };
 
 type VaultData = {
-  totalVaults: number;
-  totalLoanValue: number;
-  totalCollateralValue: number;
-  totalCollateralizationRatio: number;
-  activeAuctions: number;
+  totalVaults: string;
+  totalLoanValue: string;
+  totalCollateralValue: string;
+  totalCollateralizationRatio: string;
+  activeAuctions: string;
 };
 
 type MasternodesData = {
-  totalValueLocked: number;
-  zeroYearLocked: number;
-  fiveYearsLocked: number;
-  tenYearsLocked: number;
+  totalValueLocked: string;
+  zeroYearLocked: string;
+  fiveYearsLocked: string;
+  tenYearsLocked: string;
 };
 
 type BurnData = {
-  totalDFIburned: number;
+  address: string;
+  fee: string;
+  auction: string;
+  payback: string;
+  emission: string;
+  total: string;
 };
 
 type DataStore = {
@@ -51,7 +56,6 @@ type DataStore = {
 type StateRelayerHandlerProps = {
   urlNetwork: string;
   envNetwork: EnvironmentNetwork;
-  previousBlockHeight?: number;
 };
 
 const DENOMINATION = "USDT";
@@ -59,21 +63,12 @@ const DENOMINATION = "USDT";
 export async function handler(
   props: StateRelayerHandlerProps
 ): Promise<DataStore | undefined> {
-  const { urlNetwork, envNetwork, previousBlockHeight } = props;
+  const { urlNetwork, envNetwork } = props;
   const dataStore = {} as DataStore;
   try {
     // Get Data from OCEAN API
     const client = getWhaleClient(urlNetwork, envNetwork);
     const statsData = await client.stats.get();
-
-    // Check if Function should run (blockHeight > 30 from previous)
-    if (
-      previousBlockHeight &&
-      statsData.count.blocks - previousBlockHeight <= 30
-    ) {
-      throw new Error("Less than 30 blocks have passed since last query");
-      return; // Do we want to return nothing, cached data or an error?
-    }
 
     const rawPoolpairData = await client.poolpairs.list(200);
 
@@ -89,10 +84,10 @@ export async function handler(
     dataStore.totalValueLockInPoolPair = statsData.tvl.dex.toString();
 
     // total24HVolume
-    const total24HVolume = poolpairData.reduce(
-      (acc, currPair) => acc + (currPair.volume?.h24 ?? 0), // This is not accurate due to rounding, is it fine for volume?
-      0
-    );
+    const total24HVolume = poolpairData.reduce((acc, currPair) => {
+      const volume = new BigNumber(currPair.volume?.h24 ?? 0);
+      return acc.plus(volume);
+    }, new BigNumber(0));
     dataStore.total24HVolume = total24HVolume.toString();
 
     // pair
@@ -126,11 +121,11 @@ export async function handler(
             [currPair.tokenB.displaySymbol]: currPair.priceRatio.ba,
           },
           rewards: (currPair.apr?.reward
-            ? currPair.apr.reward * 100
+            ? currPair.apr.reward
             : 0
           ).toString(),
           commission: (currPair.apr?.commission
-            ? currPair.apr.commission * 100
+            ? currPair.apr.commission
             : 0
           ).toString(),
         },
@@ -141,12 +136,12 @@ export async function handler(
     const loanData = statsData.loan;
     // Get Data from /vaults
     const vaults = {
-      totalVaults: loanData.count.openVaults,
-      totalLoanValue: loanData.value.loan,
-      totalCollateralValue: loanData.value.collateral,
+      totalVaults: loanData.count.openVaults.toString(),
+      totalLoanValue: loanData.value.loan.toString(),
+      totalCollateralValue: loanData.value.collateral.toString(),
       totalCollateralizationRatio:
-        (loanData.value.collateral / loanData.value.loan) * 100,
-      activeAuctions: loanData.count.openAuctions,
+        ((loanData.value.collateral / loanData.value.loan) * 100).toString(),
+      activeAuctions: loanData.count.openAuctions.toString(),
     };
     dataStore.vaults = vaults;
 
@@ -154,22 +149,24 @@ export async function handler(
     const lockedMasternodes = statsData.masternodes.locked;
 
     const masternodes = {
-      totalValueLocked: statsData.tvl.masternodes, // Alternatively, can reduce lockedMasternodes to derive this data
-      zeroYearLocked: lockedMasternodes.find((m) => m.weeks === 0)?.count ?? 0, // Can technically access element at 0 index for speed
+      totalValueLocked: statsData.tvl.masternodes.toString(), // Alternatively, can reduce lockedMasternodes to derive this data
+      zeroYearLocked: (lockedMasternodes.find((m) => m.weeks === 0)?.count ?? 0).toString(), // Can technically access element at 0 index for speed
       fiveYearsLocked:
-        lockedMasternodes.find((m) => m.weeks === 260)?.count ?? 0,
+        (lockedMasternodes.find((m) => m.weeks === 260)?.count ?? 0).toString(),
       tenYearsLocked:
-        lockedMasternodes.find((m) => m.weeks === 520)?.count ?? 0,
+        (lockedMasternodes.find((m) => m.weeks === 520)?.count ?? 0).toString(),
     };
     dataStore.masternodes = masternodes;
 
     // Get Data from all burns in ecosystem
-    const burns = {
-      // Other keys in burned such as address, auction, emission,
-      // fee, and payback do not seem to be used in scan.
-      totalDFIburned: statsData.burned.total,
+    dataStore.burns = {
+      address: dataStore.burns.address.toString(),
+      fee: dataStore.burns.fee.toString(),
+      auction: dataStore.burns.auction.toString(),
+      payback: dataStore.burns.address.toString(),
+      emission: dataStore.burns.emission.toString(),
+      total: dataStore.burns.total.toString(),
     };
-    dataStore.burns = burns;
 
     // Interfacing with SC
     // TODO: Connect with SC
