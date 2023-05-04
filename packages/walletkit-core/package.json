@@ -8,6 +8,7 @@
     "dist"
   ],
   "devDependencies": {
+    "@types/react": "18.2.0",
     "@birthdayresearch/sticky-jest": "^0.5.11"
   },
   "scripts": {

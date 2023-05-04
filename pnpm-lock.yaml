@@ -51,6 +51,9 @@ importers:
       '@birthdayresearch/sticky-jest':
         specifier: ^0.5.11
         version: 0.5.11(@babel/core@7.21.8)(typescript@5.0.4)
+      '@types/react':
+        specifier: 18.2.0
+        version: 18.2.0
 
   packages/walletkit-testcontainers:
     dependencies:
@@ -1356,7 +1359,7 @@ packages:
   /@types/react-dom@18.2.3:
     resolution: {integrity: sha512-hxXEXWxFJXbY0LMj/T69mznqOZJXNtQMqVxIiirVAZnnpeYiD4zt+lPsgcr/cfWg2VLsxZ1y26vigG03prYB+Q==}
     dependencies:
-      '@types/react': 18.2.2
+      '@types/react': 18.2.0
     dev: true
 
   /@types/react@18.2.0:
@@ -1365,14 +1368,6 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
-
-  /@types/react@18.2.2:
-    resolution: {integrity: sha512-4GZH3GLuqdZbDvOW5Pqqe7jgsDrKwkJfZMZLwFcgoz3CVDSvnMeG/Ihe44IbZ5Mqhh1fyTh5e44z6pNjIzzV8g==}
-    dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.3
-      csstype: 3.1.2
-    dev: true
 
   /@types/readdir-glob@1.1.1:
     resolution: {integrity: sha512-ImM6TmoF8bgOwvehGviEj3tRdRBbQujr1N+0ypaln/GWjaerOB26jb93vsRHmdMtvVQZQebOlqt2HROark87mQ==}
