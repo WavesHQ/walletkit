@@ -1,6 +1,6 @@
 import { fromAddress } from "@defichain/jellyfish-address";
 import { NetworkName } from "@defichain/jellyfish-network";
-import {ethers} from "ethers";
+import { ethers } from "ethers";
 
 export const validateAddress = (
   address: string,
@@ -11,8 +11,5 @@ export const validateAddress = (
   return isValid;
 };
 
-export const validateEthAddress = (
-  address: string,
-): boolean =>
-   ethers.isAddress(address)
-;
+export const validateEthAddress = (address: string): boolean =>
+  ethers.isAddress(address);

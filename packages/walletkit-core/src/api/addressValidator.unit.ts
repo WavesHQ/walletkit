@@ -1,4 +1,4 @@
-import {validateAddress, validateEthAddress} from "./addressValidator";
+import { validateAddress, validateEthAddress } from "./addressValidator";
 
 const WALLET_ADDRESS = {
   mainnet: "df1qldycdkvqaacwsf4gmgl29mt686mh95kattran0",
@@ -11,8 +11,8 @@ const ETH_ADDRESS = {
   validICAP: "XE65GB6LDNXYOFTX0NSV3FUWKOWIXAMJK36",
   invalid: "0x8Ba1f109551bD432803012645Ac136ddd64DBa72",
   invalidICAP: "0x8Ba1f109551bD432803012645Ac136ddd64DBA72",
-  random: "testing invalid eth address"
-}
+  random: "testing invalid eth address",
+};
 
 describe("Address validator", () => {
   it("should be valid DFC address for Mainnet network", () => {
@@ -47,27 +47,27 @@ describe("Address validator", () => {
 
   // eth addresses
   it("should be valid ETH address", () => {
-    const isValidAddress = validateEthAddress(ETH_ADDRESS.valid)
+    const isValidAddress = validateEthAddress(ETH_ADDRESS.valid);
     expect(isValidAddress).toBeTruthy();
-  })
+  });
 
   it("should be valid ETH ICAP address", () => {
-    const isValidAddress = validateEthAddress(ETH_ADDRESS.validICAP)
+    const isValidAddress = validateEthAddress(ETH_ADDRESS.validICAP);
     expect(isValidAddress).toBeTruthy();
-  })
+  });
 
   it("should be invalid ETH address", () => {
-    const isValidAddress = validateEthAddress(ETH_ADDRESS.invalid)
+    const isValidAddress = validateEthAddress(ETH_ADDRESS.invalid);
     expect(isValidAddress).toBeFalsy();
-  })
+  });
 
   it("should be invalid ETH ICAP address", () => {
-    const isValidAddress = validateEthAddress(ETH_ADDRESS.invalidICAP)
+    const isValidAddress = validateEthAddress(ETH_ADDRESS.invalidICAP);
     expect(isValidAddress).toBeFalsy();
-  })
+  });
 
   it("should be invalid random address", () => {
-    const isValidAddress = validateEthAddress(ETH_ADDRESS.random)
+    const isValidAddress = validateEthAddress(ETH_ADDRESS.random);
     expect(isValidAddress).toBeFalsy();
-  })
+  });
 });
