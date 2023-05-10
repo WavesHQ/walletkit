@@ -12,4 +12,4 @@ export const validateAddress = (
 };
 
 export const validateEthAddress = (address: string): boolean =>
-  ethers.isAddress(address);
+  ethers.utils.isAddress(address);
