@@ -8,22 +8,22 @@
     "dist"
   ],
   "dependencies": {
-    "@birthdayresearch/sticky-jest": "^0.4.1",
-    "@waveshq/standard-web": "^0.42.1",
-    "@waveshq/standard-web-linter": "^0.42.1",
-    "@waveshq/standard-defichain-jellyfishsdk": "^0.42.1",
+    "@birthdayresearch/sticky-jest": "^0.5.11",
+    "@waveshq/standard-defichain-jellyfishsdk": "^0.49.3",
+    "@waveshq/standard-web": "^0.49.3",
+    "@waveshq/standard-web-linter": "^0.49.3",
     "@waveshq/walletkit-core": "workspace:*",
     "bignumber.js": "^9.1.1",
     "dayjs": "^1.11.7",
-    "immer": "^9.0.19",
-    "reselect": "^4.1.7",
+    "immer": "^9.0.21",
+    "reselect": "^4.1.8",
     "smart-buffer": "^4.2.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/react-hooks": "^8.0.1",
-    "jest-environment-jsdom": "^29.4.2"
+    "jest-environment-jsdom": "^29.5.0"
   },
   "scripts": {
     "build": "tsc -b ./tsconfig.build.json",

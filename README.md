@@ -14,6 +14,7 @@ same version tag.
 | @waveshq/walletkit-core           | Core Functions   | Contains common core functionalities when building DeFiChain Wallet. |
 | @waveshq/walletkit-ui             | React Components | React components for building DeFiChain Wallet.                      |
 | @waveshq/walletkit-testcontainers | Test Containers  | Test containers functionalities for testing and debugging in docker  |
+| @waveshq/walletkit-bot            | Scripts          | Common scripts                                                       |
 
 ## License & Disclaimer
 

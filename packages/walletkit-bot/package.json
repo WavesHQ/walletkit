@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "@waveshq/walletkit-core",
+  "name": "@waveshq/walletkit-bot",
   "version": "0.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,6 @@
     "dist"
   ],
   "devDependencies": {
-    "@types/react": "18.2.0",
     "@birthdayresearch/sticky-jest": "^0.5.11"
   },
   "scripts": {
@@ -21,7 +20,7 @@
     "preset": "@birthdayresearch/sticky-jest"
   },
   "dependencies": {
-    "bignumber.js": "^9.1.1",
-    "ethers": "^6.3.0"
+    "@waveshq/walletkit-core": "workspace:*",
+    "bignumber.js": "^9.1.1"
   }
 }
