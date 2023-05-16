@@ -1,5 +1,6 @@
-import { OP_CODES, Script } from "@defichain/jellyfish-transaction";
 import { AddressType, DecodedAddress } from "@defichain/jellyfish-address";
+import { OP_CODES, Script } from "@defichain/jellyfish-transaction";
+
 import { EthDecodedAddress, getDecodedAddress } from "./address";
 
 /* detailed `fromScript()` test cases are done in @defichain/jellyfish-address */
