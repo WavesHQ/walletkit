@@ -1,7 +1,6 @@
-import { AddressType, DecodedAddress } from "@defichain/jellyfish-address";
 import { OP_CODES, Script } from "@defichain/jellyfish-transaction";
 
-import { EthDecodedAddress, getDecodedAddress } from "./address";
+import { AddressType, EthDecodedAddress, getDecodedAddress } from "./address";
 
 /* detailed `fromScript()` test cases are done in @defichain/jellyfish-address */
 describe("Address Decoder", () => {
@@ -15,7 +14,7 @@ describe("Address Decoder", () => {
       ],
     };
 
-    const expected: DecodedAddress = {
+    const expected: EthDecodedAddress = {
       type: AddressType.P2WSH,
       address: "tf1qncd7qa2cafwv3cpw68vqczg3qj904k2f4lard4wrj50rzkwmagvsemeex5",
       script,
@@ -34,7 +33,7 @@ describe("Address Decoder", () => {
     };
 
     const expected: EthDecodedAddress = {
-      type: "ETH",
+      type: AddressType.ETH,
       address: "0x98bd4c07F8eddf293f81E511921106d0C7f2839D",
       script,
       network: "testnet",
