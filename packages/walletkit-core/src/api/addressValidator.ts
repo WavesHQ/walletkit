@@ -6,6 +6,5 @@ export const validateAddress = (
   network: NetworkName
 ): boolean => {
   const decodedAddress = fromAddress(address, network);
-  const isValid = decodedAddress !== undefined;
-  return isValid;
+  return decodedAddress !== undefined;
 };

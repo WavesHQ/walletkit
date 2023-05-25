@@ -1,3 +1,4 @@
+export * from "./address";
 export * from "./addressValidator";
 export * from "./balance";
 export * from "./environment";
