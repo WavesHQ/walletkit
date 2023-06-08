@@ -20,7 +20,7 @@
     "smart-buffer": "^4.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.9",
+    "@types/react": "18.2.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/react-hooks": "^8.0.1",

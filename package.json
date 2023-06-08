@@ -29,7 +29,7 @@
     }
   },
   "devDependencies": {
-    "@types/react": "^18.2.9",
+    "@types/react": "18.2.8",
     "@birthdayresearch/eslint-config": "^0.6.2",
     "@birthdayresearch/sticky-turbo": "^0.6.2",
     "@waveshq/standard-defichain-jellyfishsdk": "^0.52.1",
