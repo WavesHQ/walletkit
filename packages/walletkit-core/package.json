@@ -7,10 +7,6 @@
   "files": [
     "dist"
   ],
-  "devDependencies": {
-    "@types/react": "18.2.0",
-    "@birthdayresearch/sticky-jest": "^0.5.11"
-  },
   "scripts": {
     "build": "tsc -b ./tsconfig.build.json",
     "test": "jest --maxWorkers=100%",
@@ -23,5 +19,9 @@
   "dependencies": {
     "bignumber.js": "^9.1.1",
     "ethers": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.0",
+    "@birthdayresearch/sticky-jest": "^0.6.2"
   }
 }

@@ -1,45 +1,45 @@
 {
   "name": "@waveshq/walletkit",
-  "description": "Collection of components to be used for developing Wallet applications for DeFiChain.",
   "version": "0.0.0",
   "private": true,
+  "description": "Collection of components to be used for developing Wallet applications for DeFiChain.",
   "files": [],
   "scripts": {
-    "prepare": "husky install",
-    "write": "turbo run write",
-    "clean": "turbo run clean",
     "build": "turbo run build",
-    "test": "turbo run test",
+    "clean": "turbo run clean",
+    "format": "prettier --write .",
     "lint": "turbo run lint -- --fix",
-    "format": "prettier --write ."
-  },
-  "devDependencies": {
-    "@birthdayresearch/eslint-config": "^0.5.11",
-    "@birthdayresearch/sticky-turbo": "^0.5.11",
-    "@waveshq/standard-defichain-jellyfishsdk": "^0.49.3",
-    "@waveshq/standard-prettier": "^0.49.3",
-    "@waveshq/standard-web": "^0.49.3",
-    "@waveshq/standard-web-linter": "^0.49.3",
-    "@waveshq/walletkit-core": "workspace:*",
-    "testcontainers": "9.1.3"
-  },
-  "eslintConfig": {
-    "extends": [
-      "@birthdayresearch"
-    ],
-    "parserOptions": {
-      "project": "./tsconfig.json"
-    },
-    "rules": {
-      "check-file/filename-naming-convention": "off"
-    }
+    "prepare": "husky install",
+    "test": "turbo run test",
+    "write": "turbo run write"
   },
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
   },
   "prettier": "@waveshq/standard-prettier",
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "extends": [
+      "@birthdayresearch"
+    ],
+    "rules": {
+      "check-file/filename-naming-convention": "off"
+    }
+  },
+  "devDependencies": {
+    "@birthdayresearch/eslint-config": "^0.6.2",
+    "@birthdayresearch/sticky-turbo": "^0.6.2",
+    "@waveshq/standard-defichain-jellyfishsdk": "^0.52.1",
+    "@waveshq/standard-prettier": "^0.52.1",
+    "@waveshq/standard-web": "^0.52.1",
+    "@waveshq/standard-web-linter": "^0.52.1",
+    "@waveshq/walletkit-core": "workspace:*",
+    "testcontainers": "9.1.3"
+  },
   "engines": {
     "node": ">=16.6.0",
-    "pnpm": ">=8.4.0"
+    "pnpm": ">=8.6.1"
   }
 }
