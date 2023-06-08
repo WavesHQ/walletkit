@@ -21,7 +21,7 @@
     "ethers": "^5.7.2"
   },
   "devDependencies": {
-    "@types/react": "18.2.0",
+    "@types/react": "^18.2.9",
     "@birthdayresearch/sticky-jest": "^0.6.2"
   }
 }
