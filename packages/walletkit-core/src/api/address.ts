@@ -1,7 +1,7 @@
 import { fromScript } from "@defichain/jellyfish-address";
 import { NetworkName } from "@defichain/jellyfish-network";
 import { OP_PUSHDATA, Script } from "@defichain/jellyfish-transaction";
-import { ethers } from "ethers";
+import { getAddress } from "viem";
 
 /**
  * Known Address Types from jellyfish-address
@@ -68,7 +68,7 @@ export function getDecodedAddress(
 
     // extract script OPCodes and Hex
     const hash = script.stack[1] as OP_PUSHDATA;
-    const address = ethers.utils.getAddress(hash.hex);
+    const address = getAddress(hash.hex);
 
     return {
       type: AddressType.ETH,

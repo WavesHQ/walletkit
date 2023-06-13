@@ -18,10 +18,10 @@
   },
   "dependencies": {
     "bignumber.js": "^9.1.1",
-    "ethers": "^5.7.2"
+    "viem": "^1.0.6"
   },
   "devDependencies": {
-    "@types/react": "18.2.8",
-    "@birthdayresearch/sticky-jest": "^0.6.2"
+    "@birthdayresearch/sticky-jest": "^0.8.5",
+    "@types/react": "18.2.12"
   }
 }
