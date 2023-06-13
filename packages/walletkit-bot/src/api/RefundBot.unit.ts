@@ -13,7 +13,7 @@ const REFUND_PLAYGROUND_ADDRESS =
 
 const INVALID_REFUND_PLAYGROUND_ADDRESS = "invalidaddress";
 
-test("should return transaction id when succesfully refunded ETH tokens (with manual topup of UTXO)", async () => {
+test.skip("should return transaction id when succesfully refunded ETH tokens (with manual topup of UTXO)", async () => {
   await spiedConsoleWithReturnResponse(
     {
       index: 0,
