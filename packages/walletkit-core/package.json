@@ -14,14 +14,14 @@
     "clean": "rm -rf dist"
   },
   "jest": {
-    "preset": "@birthdayresearch/sticky-jest"
+    "preset": "@stickyjs/jest"
   },
   "dependencies": {
     "bignumber.js": "^9.1.1",
     "ethers": "^5.7.2"
   },
   "devDependencies": {
-    "@birthdayresearch/sticky-jest": "^0.8.5",
-    "@types/react": "18.2.12"
+    "@stickyjs/jest": "^1.1.1",
+    "@types/react": "18.2.13"
   }
 }

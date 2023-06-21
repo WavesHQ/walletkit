@@ -8,10 +8,10 @@
     "dist"
   ],
   "dependencies": {
-    "@birthdayresearch/sticky-jest": "^0.8.5",
-    "@waveshq/standard-defichain-jellyfishsdk": "^0.54.0",
-    "@waveshq/standard-web": "^0.54.0",
-    "@waveshq/standard-web-linter": "^0.54.0",
+    "@stickyjs/jest": "^1.1.1",
+    "@waveshq/standard-defichain-jellyfishsdk": "^1.0.2",
+    "@waveshq/standard-web": "^1.0.2",
+    "@waveshq/standard-web-linter": "^1.0.2",
     "@waveshq/walletkit-core": "workspace:*",
     "bignumber.js": "^9.1.1",
     "dayjs": "^1.11.8",
@@ -23,7 +23,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
-    "@types/react": "18.2.12",
+    "@types/react": "18.2.13",
     "jest-environment-jsdom": "^29.5.0"
   },
   "scripts": {
@@ -33,7 +33,7 @@
     "clean": "rm -rf dist"
   },
   "jest": {
-    "preset": "@birthdayresearch/sticky-jest",
+    "preset": "@stickyjs/jest",
     "testRegex": ".*.(unit|i9n|e2e|test).(ts|tsx)$",
     "transform": {
       "^.+\\.(ts|tsx)?$": "ts-jest",

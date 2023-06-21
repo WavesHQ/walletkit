@@ -22,25 +22,25 @@
       "project": "./tsconfig.json"
     },
     "extends": [
-      "@birthdayresearch"
+      "@stickyjs"
     ],
     "rules": {
       "check-file/filename-naming-convention": "off"
     }
   },
   "devDependencies": {
-    "@birthdayresearch/eslint-config": "^0.8.5",
-    "@birthdayresearch/sticky-turbo": "^0.8.5",
-    "@types/react": "18.2.12",
-    "@waveshq/standard-defichain-jellyfishsdk": "^0.54.0",
-    "@waveshq/standard-prettier": "^0.54.0",
-    "@waveshq/standard-web": "^0.54.0",
-    "@waveshq/standard-web-linter": "^0.54.0",
+    "@stickyjs/eslint-config": "^1.1.1",
+    "@stickyjs/turbo": "^1.1.1",
+    "@types/react": "18.2.13",
+    "@waveshq/standard-defichain-jellyfishsdk": "^1.0.2",
+    "@waveshq/standard-prettier": "^1.0.2",
+    "@waveshq/standard-web": "^1.0.2",
+    "@waveshq/standard-web-linter": "^1.0.2",
     "@waveshq/walletkit-core": "workspace:*",
-    "testcontainers": "9.1.3"
+    "testcontainers": "^9.9.1"
   },
   "engines": {
     "node": ">=16.6.0",
-    "pnpm": ">=8.6.1"
+    "pnpm": ">=8.6.3"
   }
 }
