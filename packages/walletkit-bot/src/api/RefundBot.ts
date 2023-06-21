@@ -63,6 +63,7 @@ export async function handler(props: HandlerProps): Promise<void> {
     }
 
     // Gives back the id of the tokenSymbol
+    // eslint-disable-next-line no-restricted-properties
     const tokenId = (await account.client.tokens.list()).find(
       (token) => token.symbol === tokenSymbol && token.isDAT // to ensure that its DeFiChain's official token
     )?.id;
