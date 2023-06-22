@@ -32,15 +32,15 @@
     "@stickyjs/eslint-config": "^1.1.1",
     "@stickyjs/turbo": "^1.1.1",
     "@types/react": "18.2.13",
-    "@waveshq/standard-defichain-jellyfishsdk": "^1.0.3",
-    "@waveshq/standard-prettier": "^1.0.3",
-    "@waveshq/standard-web": "^1.0.3",
-    "@waveshq/standard-web-linter": "^1.0.3",
+    "@waveshq/standard-defichain-jellyfishsdk": "^1.0.4",
+    "@waveshq/standard-prettier": "^1.0.4",
+    "@waveshq/standard-web": "^1.0.4",
+    "@waveshq/standard-web-linter": "^1.0.4",
     "@waveshq/walletkit-core": "workspace:*",
     "testcontainers": "^9.9.1"
   },
   "engines": {
-    "node": ">=16.6.0",
+    "node": ">=18.0.0",
     "pnpm": ">=8.6.3"
   }
 }
