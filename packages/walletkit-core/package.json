@@ -21,7 +21,7 @@
     "ethers": "^5.7.2"
   },
   "devDependencies": {
-    "@stickyjs/jest": "^1.1.1",
+    "@stickyjs/jest": "^1.1.2",
     "@types/react": "18.2.13"
   }
 }

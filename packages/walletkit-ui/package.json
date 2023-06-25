@@ -8,7 +8,7 @@
     "dist"
   ],
   "dependencies": {
-    "@stickyjs/jest": "^1.1.1",
+    "@stickyjs/jest": "^1.1.2",
     "@waveshq/standard-defichain-jellyfishsdk": "^1.0.4",
     "@waveshq/standard-web": "^1.0.4",
     "@waveshq/standard-web-linter": "^1.0.4",

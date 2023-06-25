@@ -29,8 +29,8 @@
     }
   },
   "devDependencies": {
-    "@stickyjs/eslint-config": "^1.1.1",
-    "@stickyjs/turbo": "^1.1.1",
+    "@stickyjs/eslint-config": "^1.1.2",
+    "@stickyjs/turbo": "^1.1.2",
     "@types/react": "18.2.13",
     "@waveshq/standard-defichain-jellyfishsdk": "^1.0.4",
     "@waveshq/standard-prettier": "^1.0.4",
