@@ -1,4 +1,4 @@
-import { fromScript } from "@defichain/jellyfish-address";
+import { fromScript, fromAddress } from "@defichain/jellyfish-address";
 import { NetworkName } from "@defichain/jellyfish-network";
 import { OP_PUSHDATA, Script } from "@defichain/jellyfish-transaction";
 import { ethers } from "ethers";
@@ -76,6 +76,28 @@ export function getDecodedAddress(
       script,
       network,
     };
+  } catch (e) {
+    return undefined;
+  }
+}
+
+export function getAddressType ( 
+  address: string,
+  network: NetworkName
+): AddressType | undefined {
+  try {
+    // check if is dfc address first
+    const decodedAddress = fromAddress(address, network);
+    if (decodedAddress !== undefined) {
+      return decodedAddress.type;
+    }
+
+    // check if the address is evm
+    const isEVMAddress = ethers.utils.isAddress(address);
+    if(isEVMAddress) {
+      return AddressType.ETH
+    }    
+    return undefined
   } catch (e) {
     return undefined;
   }
