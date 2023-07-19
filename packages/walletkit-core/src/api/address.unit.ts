@@ -1,6 +1,11 @@
 import { OP_CODES, Script } from "@defichain/jellyfish-transaction";
 
-import { AddressType, EthDecodedAddress, getDecodedAddress } from "./address";
+import {
+  AddressType,
+  EthDecodedAddress,
+  getAddressType,
+  getDecodedAddress,
+} from "./address";
 
 /* detailed `fromScript()` test cases are done in @defichain/jellyfish-address */
 describe("Address Decoder", () => {
@@ -20,7 +25,6 @@ describe("Address Decoder", () => {
       script,
       network: "testnet",
     };
-
     expect(getDecodedAddress(script, "testnet")).toStrictEqual(expected);
   });
 
@@ -74,5 +78,30 @@ describe("Address Decoder", () => {
     };
 
     expect(getDecodedAddress(script, "testnet")).toBeUndefined();
+  });
+});
+
+describe("Get Address Type", () => {
+  const addresses = [
+    {
+      address: "tf1qzvvn8rp2q93w5rf9afpjjm2w2wtuu2fnvl6j3p",
+      type: AddressType.P2WPKH,
+    },
+    {
+      address: "tf1qncd7qa2cafwv3cpw68vqczg3qj904k2f4lard4wrj50rzkwmagvsemeex5",
+      type: AddressType.P2WSH,
+    },
+    { address: "77nPza1LqwQzS9jMCnxVV3xKYWnLLZePwo", type: AddressType.P2PKH },
+    { address: "tkwD8teFiwr9fGwwX2KfgrgYRbwEiWmMJw", type: AddressType.P2SH },
+    {
+      address: "0xe36f18af5bFfDcB442E84970408F68570aB88F52",
+      type: AddressType.ETH,
+    },
+  ];
+
+  addresses.forEach(({ address, type }) => {
+    it(`should be able to get valid ${type} address type`, () => {
+      expect(getAddressType(address, "testnet")).toStrictEqual(type);
+    });
   });
 });
