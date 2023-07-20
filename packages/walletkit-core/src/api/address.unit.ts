@@ -104,4 +104,10 @@ describe("Get Address Type", () => {
       expect(getAddressType(address, "testnet")).toStrictEqual(type);
     });
   });
+
+  it(`should be able to get valid undefined with wrong address`, () => {
+    expect(
+      getAddressType("bcrt1q6cxskutl6jf0jjeqxc3ymfuqakhw4r247tht58", "testnet")
+    ).toStrictEqual(undefined);
+  });
 });
