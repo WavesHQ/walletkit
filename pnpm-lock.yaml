@@ -33,8 +33,8 @@ importers:
         specifier: workspace:*
         version: link:packages/walletkit-core
       testcontainers:
-        specifier: ^9.9.1
-        version: 9.9.1
+        specifier: ^9.12.0
+        version: 9.12.0
 
   packages/walletkit-bot:
     dependencies:
@@ -634,7 +634,7 @@ packages:
       defichain: 3.31.1
       dockerode: 3.3.5
       tar-fs: 2.1.1
-      testcontainers: 9.9.1
+      testcontainers: 9.12.0
       uuid: 9.0.0
     transitivePeerDependencies:
       - encoding
@@ -5564,6 +5564,17 @@ packages:
     dependencies:
       whatwg-url: 5.0.0
 
+  /node-fetch@2.6.12:
+    resolution: {integrity: sha512-C/fGU2E8ToujUivIO0H+tpQ6HWo4eEmchoPIoXtxCrVghxdKq+QOHqEZW7tuP3KlV3bC8FRMO5nMCC7Zm1VP6g==}
+    engines: {node: 4.x || >=6.0.0}
+    peerDependencies:
+      encoding: ^0.1.0
+    peerDependenciesMeta:
+      encoding:
+        optional: true
+    dependencies:
+      whatwg-url: 5.0.0
+
   /node-forge@1.3.1:
     resolution: {integrity: sha512-dPEtOeMvF9VMcYV/1Wb8CPoVAXtp6MKMlcbAt4ddqmGqUJ6fQZFXkNZNkNlfevtNkGtaSoXf/vNNNSvgrdXwtA==}
     engines: {node: '>= 6.13.0'}
@@ -5904,6 +5915,13 @@ packages:
       object-assign: 4.1.1
       react-is: 16.13.1
 
+  /proper-lockfile@4.1.2:
+    resolution: {integrity: sha512-TjNPblN4BwAWMXU8s9AEz4JmQxnD1NNL7bNOY/AKUzyamc379FWASUhc/K1pL2noVb+XmZKLL68cjzLsiOAMaA==}
+    dependencies:
+      graceful-fs: 4.2.11
+      retry: 0.12.0
+      signal-exit: 3.0.7
+
   /properties-reader@2.2.0:
     resolution: {integrity: sha512-CgVcr8MwGoBKK24r9TwHfZkLLaNFHQ6y4wgT9w/XzdpacOOi5ciH4hcuLechSDAwXsfrGQtI2JTutY2djOx2Ow==}
     engines: {node: '>=10'}
@@ -6204,6 +6222,10 @@ packages:
     dependencies:
       onetime: 5.1.2
       signal-exit: 3.0.7
+
+  /retry@0.12.0:
+    resolution: {integrity: sha512-9LkiTwjUh6rT555DtE9rTX+BKByPfrMzEAtnlEtdEwr3Nkffwiihqe2bWADg+OQRjt9gl6ICdmB/ZFDCGAtSow==}
+    engines: {node: '>= 4'}
 
   /reusify@1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
@@ -6667,8 +6689,8 @@ packages:
       glob: 7.2.3
       minimatch: 3.1.2
 
-  /testcontainers@9.9.1:
-    resolution: {integrity: sha512-44iDiyK0JzK5FbqdrKjmE/8QSZhvCFxh0d/OfG+R9fkznU5KVCYeeUsPULkVRIi210X4FAitSXra1ZU591Zlqw==}
+  /testcontainers@9.12.0:
+    resolution: {integrity: sha512-zmjLTAUqCiDvhDq7TCwcyhI3m/cXXKGnhyLLJ9pgh53VgG9O+P+opX1pIx28aYTUQ7Yu6b5sJf0xoIuxoiclWg==}
     engines: {node: '>= 10.16'}
     dependencies:
       '@balena/dockerignore': 1.0.2
@@ -6681,7 +6703,8 @@ packages:
       docker-compose: 0.24.1
       dockerode: 3.3.5
       get-port: 5.1.1
-      node-fetch: 2.6.11
+      node-fetch: 2.6.12
+      proper-lockfile: 4.1.2
       properties-reader: 2.2.0
       ssh-remote-port-forward: 1.0.4
       tar-fs: 2.1.1
