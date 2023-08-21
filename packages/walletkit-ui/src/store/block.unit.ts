@@ -38,7 +38,7 @@ describe("block reducer", () => {
     };
     const actual = block.reducer(
       initialState,
-      block.actions.updateBlockDetails(payload)
+      block.actions.updateBlockDetails(payload),
     );
     expect(actual).toStrictEqual({ ...initialState, ...payload });
   });
@@ -46,7 +46,7 @@ describe("block reducer", () => {
   it("should handle setConnected", () => {
     const actual = block.reducer(
       initialState,
-      block.actions.setConnected(true)
+      block.actions.setConnected(true),
     );
     expect(actual).toStrictEqual({
       ...initialState,

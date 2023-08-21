@@ -24,7 +24,7 @@ describe("useTheme hook test", () => {
         api,
         colorScheme: desiredTheme,
         logger,
-      })
+      }),
     );
     await waitForNextUpdate();
     expect(result.current.theme).toBe(desiredTheme);
@@ -38,7 +38,7 @@ describe("useTheme hook test", () => {
       get: async () => desiredTheme,
     };
     const { result, waitForNextUpdate } = renderHook(() =>
-      useTheme({ api, colorScheme: "light", logger })
+      useTheme({ api, colorScheme: "light", logger }),
     );
     await waitForNextUpdate();
     expect(result.current.theme).toBe(desiredTheme);
@@ -51,7 +51,7 @@ describe("useTheme hook test", () => {
       get: async () => null,
     };
     const { result, waitForNextUpdate } = renderHook(() =>
-      useTheme({ api, logger })
+      useTheme({ api, logger }),
     );
     await waitForNextUpdate();
     expect(result.current.theme).toBe("light");
@@ -77,7 +77,7 @@ describe("ThemeProvider Context test", () => {
     const rendered = render(
       <ThemeProvider api={api} colorScheme={jest.fn()}>
         <ThemeProviderComponent />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
     expect(rendered).toMatchSnapshot();
   });

@@ -45,7 +45,7 @@ export const ocean = createSlice({
     },
     queueTransaction: (
       state,
-      action: PayloadAction<Omit<OceanTransaction, "broadcasted">>
+      action: PayloadAction<Omit<OceanTransaction, "broadcasted">>,
     ) => {
       state.transactions = [
         ...state.transactions,
@@ -67,10 +67,10 @@ export const ocean = createSlice({
 
 export const firstTransactionSelector = createSelector(
   (state: OceanState) => state.transactions,
-  (transactions) => transactions[0]
+  (transactions) => transactions[0],
 );
 
 export const hasOceanTXQueued = createSelector(
   (state: OceanState) => state.transactions,
-  (transactions) => transactions.length > 0
+  (transactions) => transactions.length > 0,
 );

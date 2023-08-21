@@ -30,7 +30,7 @@ describe("useLanguage hook test", () => {
         locale: desiredLanguage,
         logger,
         onChangeLocale,
-      })
+      }),
     );
     await waitForNextUpdate();
     expect(result.current.language).toBe(desiredLanguage);
@@ -44,7 +44,7 @@ describe("useLanguage hook test", () => {
       get: async () => desiredLanguage,
     };
     const { result, waitForNextUpdate } = renderHook(() =>
-      useLanguage({ api, locale: "en", logger, onChangeLocale })
+      useLanguage({ api, locale: "en", logger, onChangeLocale }),
     );
     await waitForNextUpdate();
     expect(result.current.language).toBe(desiredLanguage);
@@ -57,7 +57,7 @@ describe("useLanguage hook test", () => {
       get: async () => null,
     };
     const { result, waitForNextUpdate } = renderHook(() =>
-      useLanguage({ api, logger, onChangeLocale })
+      useLanguage({ api, logger, onChangeLocale }),
     );
     await waitForNextUpdate();
     expect(result.current.language).toBe("en");
@@ -86,7 +86,7 @@ describe("LanguageProvider Context test", () => {
         logger={logger}
       >
         <ThemeProviderComponent />
-      </LanguageProvider>
+      </LanguageProvider>,
     );
     expect(rendered).toMatchSnapshot();
   });

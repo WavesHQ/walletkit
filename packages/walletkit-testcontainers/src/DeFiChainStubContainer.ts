@@ -50,14 +50,14 @@ export class StartedDeFiChainStubContainer {
   constructor(
     protected defid: StartedNativeChainContainer,
     protected whale: StartedWhaleApiContainer,
-    protected playground: StartedPlaygroundApiContainer
+    protected playground: StartedPlaygroundApiContainer,
   ) {
     this.playgroundClient = new PlaygroundApiClient({
       url: this.playground.getPlaygroundApiClientOptions().url,
     });
     this.playgroundRpcClient = new PlaygroundRpcClient(this.playgroundClient);
     this.whaleClient = new WhaleApiClient(
-      this.whale.getWhaleApiClientOptions()
+      this.whale.getWhaleApiClientOptions(),
     );
   }
 
@@ -71,7 +71,7 @@ export class StartedDeFiChainStubContainer {
     await this.playgroundClient.rpc.call(
       "generatetoaddress",
       [10, "mswsMVsyGMj1FzDMbbxw2QW3KvQAv2FKiy"],
-      "number"
+      "number",
     );
   }
 

@@ -24,7 +24,7 @@ describe("Balance checker", () => {
 
   beforeAll(async () => {
     client = newWhaleAPIClient(
-      newOceanOptions(EnvironmentNetwork.RemotePlayground)
+      newOceanOptions(EnvironmentNetwork.RemotePlayground),
     );
 
     jest

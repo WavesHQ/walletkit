@@ -33,7 +33,7 @@ describe("ocean reducer", () => {
     };
     const addedTransaction = ocean.reducer(
       initialState,
-      ocean.actions.queueTransaction(payload)
+      ocean.actions.queueTransaction(payload),
     );
     expect(addedTransaction).toStrictEqual({
       transactions: [
@@ -47,7 +47,7 @@ describe("ocean reducer", () => {
     });
     const actual = ocean.reducer(
       addedTransaction,
-      ocean.actions.queueTransaction(payload)
+      ocean.actions.queueTransaction(payload),
     );
 
     const pop = ocean.reducer(actual, ocean.actions.popTransaction());

@@ -4,7 +4,7 @@ import { EnvironmentNetwork } from "./environment";
 import { getDefaultDefiChainURL } from "./whale";
 
 export function newPlaygroundClient(
-  network: EnvironmentNetwork
+  network: EnvironmentNetwork,
 ): PlaygroundApiClient {
   const url = getDefaultDefiChainURL(network);
   switch (network) {

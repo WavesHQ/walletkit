@@ -64,7 +64,7 @@ interface ServiceProviderContextI {
 }
 
 const ServiceProviderContext = createContext<ServiceProviderContextI>(
-  undefined as any
+  undefined as any,
 );
 
 export function useServiceProviderContext(): ServiceProviderContextI {
@@ -72,7 +72,7 @@ export function useServiceProviderContext(): ServiceProviderContextI {
 }
 
 export function StoreServiceProvider(
-  props: ServiceProviderContextProps & PropsWithChildren<any>
+  props: ServiceProviderContextProps & PropsWithChildren<any>,
 ): JSX.Element | null {
   const { api, children, logger } = props;
   const { network } = useNetworkContext();
@@ -90,7 +90,7 @@ export function StoreServiceProvider(
 
   const isCustomUrl = useMemo(
     () => currentUrl !== defaultUrl,
-    [currentUrl, defaultUrl]
+    [currentUrl, defaultUrl],
   );
 
   const setUrl = async (newUrl: string): Promise<void> => {

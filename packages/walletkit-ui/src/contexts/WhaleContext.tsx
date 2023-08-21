@@ -35,7 +35,7 @@ export function WhaleProvider({
       whaleAPI: newWhaleAPIClient(newOceanOptions(network, service?.url)),
       whaleRPC: newWhaleRpcClient(newOceanOptions(network, service?.url)),
     }),
-    [network, service?.url]
+    [network, service?.url],
   );
 
   return (

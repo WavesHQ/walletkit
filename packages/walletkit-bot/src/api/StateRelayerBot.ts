@@ -28,7 +28,7 @@ type StateRelayerHandlerProps = {
 const DENOMINATION = "USDT";
 
 export async function handler(
-  props: StateRelayerHandlerProps
+  props: StateRelayerHandlerProps,
 ): Promise<DataStore | undefined> {
   const { urlNetwork, envNetwork } = props;
   const dataStore = {} as DataStore;
@@ -42,7 +42,7 @@ export async function handler(
 
     // sanitise response data
     const poolpairData = rawPoolpairData.filter(
-      (pair: any) => !pair.displaySymbol.includes("/")
+      (pair: any) => !pair.displaySymbol.includes("/"),
     );
 
     /* ------------ Data from /dex ----------- */
@@ -52,7 +52,7 @@ export async function handler(
     // total24HVolume
     const total24HVolume = poolpairData.reduce(
       (acc, currPair) => acc + (currPair.volume?.h24 ?? 0),
-      0
+      0,
     );
     dataStore.total24HVolume = total24HVolume.toString();
 
@@ -65,7 +65,7 @@ export async function handler(
         tokenPrice = new BigNumber(0);
       } else {
         const dexPricePerToken = new BigNumber(
-          dexPriceData.dexPrices[symbol].denominationPrice ?? 0
+          dexPriceData.dexPrices[symbol].denominationPrice ?? 0,
         );
         tokenPrice = dexPricePerToken.multipliedBy(currPair.priceRatio.ba);
       }

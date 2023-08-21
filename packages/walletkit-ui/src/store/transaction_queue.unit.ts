@@ -29,12 +29,12 @@ describe("transaction reducer", () => {
     };
     const actual = transactionQueue.reducer(
       initialState,
-      transactionQueue.actions.push(payload)
+      transactionQueue.actions.push(payload),
     );
     expect(actual).toStrictEqual({ transactions: [payload], err: undefined });
     const pop = transactionQueue.reducer(
       initialState,
-      transactionQueue.actions.pop()
+      transactionQueue.actions.pop(),
     );
     expect(pop).toStrictEqual({ transactions: [], err: undefined });
   });

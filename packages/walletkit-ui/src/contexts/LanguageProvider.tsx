@@ -83,7 +83,7 @@ export function useLanguageContext(): Language {
 }
 
 export function LanguageProvider(
-  props: LanguageContextI & PropsWithChildren<any>
+  props: LanguageContextI & PropsWithChildren<any>,
 ): JSX.Element | null {
   const { api, children, locale, logger, onChangeLocale } = props;
   const { language } = useLanguage({ api, locale, logger, onChangeLocale });

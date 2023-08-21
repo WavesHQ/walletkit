@@ -34,7 +34,7 @@ export const block = createSlice({
         lastSync?: string;
         lastSuccessfulSync?: string;
         tvl?: number;
-      }>
+      }>,
     ) => {
       state.count = action.payload.count;
       state.masternodeCount = action.payload.masternodeCount;

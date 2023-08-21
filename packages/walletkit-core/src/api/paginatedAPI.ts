@@ -1,7 +1,7 @@
 import { ApiPagedResponse } from "@defichain/whale-api-client";
 
 export async function getPaginatedResponse<T>(
-  api: (limit: number, next?: string) => Promise<ApiPagedResponse<T>>
+  api: (limit: number, next?: string) => Promise<ApiPagedResponse<T>>,
 ): Promise<T[]> {
   const current = [];
   let hasNext = false;

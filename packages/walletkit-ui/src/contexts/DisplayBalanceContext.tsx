@@ -11,7 +11,7 @@ interface DisplayBalancesProps {
 }
 
 const DisplayBalancesContext = createContext<DisplayBalancesProps>(
-  undefined as any
+  undefined as any,
 );
 
 /**
@@ -35,14 +35,14 @@ interface DisplayBalancesProviderProps {
 }
 
 export function DisplayBalancesProvider(
-  props: React.PropsWithChildren<DisplayBalancesProviderProps>
+  props: React.PropsWithChildren<DisplayBalancesProviderProps>,
 ): JSX.Element | null {
   const { logger, DisplayBalancesPersistence, children } = props;
   const [isBalancesDisplayed, setIsBalancesDisplayed] = useState<boolean>(true);
   const toggleDisplayBalances = async (): Promise<void> => {
     setIsBalancesDisplayed(!isBalancesDisplayed);
     await DisplayBalancesPersistence.set(!isBalancesDisplayed).catch((err) =>
-      logger.error(err)
+      logger.error(err),
     );
   };
 

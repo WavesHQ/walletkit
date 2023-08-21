@@ -33,7 +33,7 @@ interface WalletPersistenceContextI {
 }
 
 const WalletPersistenceContext = createContext<WalletPersistenceContextI>(
-  undefined as any
+  undefined as any,
 );
 
 /**
@@ -57,13 +57,13 @@ interface WalletPersistenceProviderI {
 }
 
 export function WalletPersistenceProvider(
-  props: WalletPersistenceProviderI & PropsWithChildren<any>
+  props: WalletPersistenceProviderI & PropsWithChildren<any>,
 ): JSX.Element | null {
   const { api, logger, children } = props;
   const { network } = useNetworkContext();
   const [isLoaded, setIsLoaded] = useState(false);
   const [dataList, setDataList] = useState<Array<WalletPersistenceDataI<any>>>(
-    []
+    [],
   );
 
   useEffect(() => {

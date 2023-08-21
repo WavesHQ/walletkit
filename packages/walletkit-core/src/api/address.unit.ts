@@ -14,7 +14,7 @@ describe("Address Decoder", () => {
       stack: [
         OP_CODES.OP_0,
         OP_CODES.OP_PUSHDATA_HEX_LE(
-          "9e1be07558ea5cc8e02ed1d80c0911048afad949affa36d5c3951e3159dbea19"
+          "9e1be07558ea5cc8e02ed1d80c0911048afad949affa36d5c3951e3159dbea19",
         ),
       ],
     };
@@ -51,7 +51,7 @@ describe("Address Decoder", () => {
       stack: [
         OP_CODES.OP_1,
         OP_CODES.OP_PUSHDATA_HEX_LE(
-          "9e1be07558ea5cc8e02ed1d80c0911048afad949affa36d5c3951e3159dbea19"
+          "9e1be07558ea5cc8e02ed1d80c0911048afad949affa36d5c3951e3159dbea19",
         ),
       ],
     };
@@ -72,7 +72,7 @@ describe("Address Decoder", () => {
       stack: [
         OP_CODES.OP_16,
         OP_CODES.OP_PUSHDATA_HEX_LE(
-          "9e1be07558ea5cc8e02ed1d80c0911048afad949affa36d5c3951e3159dbea19"
+          "9e1be07558ea5cc8e02ed1d80c0911048afad949affa36d5c3951e3159dbea19",
         ),
       ],
     };
@@ -107,7 +107,7 @@ describe("Get Address Type", () => {
 
   it(`should be able to get valid undefined with wrong address`, () => {
     expect(
-      getAddressType("bcrt1q6cxskutl6jf0jjeqxc3ymfuqakhw4r247tht58", "testnet")
+      getAddressType("bcrt1q6cxskutl6jf0jjeqxc3ymfuqakhw4r247tht58", "testnet"),
     ).toStrictEqual(undefined);
   });
 });

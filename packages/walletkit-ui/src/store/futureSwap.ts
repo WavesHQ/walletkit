@@ -42,13 +42,13 @@ const initialState: FutureSwapState = {
 export const fetchFutureSwaps = createAsyncThunk(
   "wallet/fetchFutureSwaps",
   async ({ client, address }: { client: WhaleRpcClient; address: string }) =>
-    client.account.getPendingFutureSwaps(address)
+    client.account.getPendingFutureSwaps(address),
 );
 
 export const fetchExecutionBlock = createAsyncThunk(
   "wallet/fetchNextFutureSwapBlock",
   async ({ client }: { client: WhaleRpcClient }) =>
-    client.oracle.getFutureSwapBlock()
+    client.oracle.getFutureSwapBlock(),
 );
 
 export const futureSwaps = createSlice({
@@ -60,13 +60,13 @@ export const futureSwaps = createSlice({
       fetchFutureSwaps.fulfilled,
       (state, action: PayloadAction<GetFutureInfo>) => {
         state.futureSwaps = action.payload.values;
-      }
+      },
     );
     builder.addCase(
       fetchExecutionBlock.fulfilled,
       (state, action: PayloadAction<number>) => {
         state.executionBlock = action.payload;
-      }
+      },
     );
   },
 });
@@ -76,7 +76,7 @@ export const selectFutureSwapState = (state: any): FutureSwapState =>
 
 export const hasFutureSwap = createSelector(
   (state: FutureSwapState) => state.futureSwaps,
-  (swap): boolean => swap.length > 0
+  (swap): boolean => swap.length > 0,
 );
 
 export const futureSwapSelector = createSelector(
@@ -88,10 +88,10 @@ export const futureSwapSelector = createSelector(
           const [sourceAmount, sourceSymbol] = swap.source.split("@"); // ['123', 'DUSD']
           const destinationSymbol = swap.destination;
           const sourceLoanToken = loans.loanTokens.find(
-            (token) => token.token.symbol === sourceSymbol
+            (token) => token.token.symbol === sourceSymbol,
           );
           const destinationLoanToken = loans.loanTokens.find(
-            (token) => token.token.symbol === destinationSymbol
+            (token) => token.token.symbol === destinationSymbol,
           );
           const key = `${sourceSymbol}-${destinationSymbol}`;
           swaps[key] = {
@@ -117,7 +117,7 @@ export const futureSwapSelector = createSelector(
 
           return swaps;
         },
-        {}
-      )
-    )
+        {},
+      ),
+    ),
 );

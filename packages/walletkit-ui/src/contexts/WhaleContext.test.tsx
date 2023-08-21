@@ -13,7 +13,7 @@ import { useWhaleApiClient, WhaleProvider } from "./WhaleContext";
 const networkContext = jest.spyOn(NetworkContext, "useNetworkContext");
 const serviceProviderContext = jest.spyOn(
   ServiceProviderContext,
-  "useServiceProviderContext"
+  "useServiceProviderContext",
 );
 
 describe("Whale Context test", () => {
@@ -52,13 +52,13 @@ describe("Whale Context test", () => {
           () =>
             ({
               network: networkDetail.name,
-            } as any)
+            }) as any,
         );
         serviceProviderContext.mockImplementation(
           () =>
             ({
               url: networkDetail.url,
-            } as any)
+            }) as any,
         );
         function WhaleProviderComponent(): JSX.Element {
           const client = useWhaleApiClient() as any;
@@ -78,7 +78,7 @@ describe("Whale Context test", () => {
               "rawtx",
               "fee",
               "loan",
-            ])
+            ]),
           );
           const options = {
             version: "v0",
@@ -97,7 +97,7 @@ describe("Whale Context test", () => {
         const rendered = render(
           <WhaleProvider>
             <WhaleProviderComponent />
-          </WhaleProvider>
+          </WhaleProvider>,
         );
         expect(rendered).toMatchSnapshot();
       });
@@ -141,13 +141,13 @@ describe("Whale custom provider url test", () => {
           () =>
             ({
               network: networkDetail.name,
-            } as any)
+            }) as any,
         );
         serviceProviderContext.mockImplementation(
           () =>
             ({
               url: networkDetail.url,
-            } as any)
+            }) as any,
         );
         function WhaleProviderComponent(): JSX.Element {
           const client = useWhaleApiClient() as any;
@@ -167,7 +167,7 @@ describe("Whale custom provider url test", () => {
               "rawtx",
               "fee",
               "loan",
-            ])
+            ]),
           );
           const options = {
             version: "v0",
@@ -186,7 +186,7 @@ describe("Whale custom provider url test", () => {
         const rendered = render(
           <WhaleProvider>
             <WhaleProviderComponent />
-          </WhaleProvider>
+          </WhaleProvider>,
         );
         expect(rendered).toMatchSnapshot();
       });

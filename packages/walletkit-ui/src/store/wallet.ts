@@ -99,7 +99,7 @@ const unifiedDFI: WalletToken = {
  */
 const getAllTokens = async (client: WhaleApiClient): Promise<TokenData[]> => {
   const allTokens: TokenData[] = await getPaginatedResponse<TokenData>(
-    (limit, next) => client.tokens.list(limit, next)
+    (limit, next) => client.tokens.list(limit, next),
   );
   return allTokens.filter((token) => token.isDAT);
 };
@@ -149,7 +149,7 @@ export const fetchPoolPairs = createAsyncThunk(
       type: "available",
       data,
     }));
-  }
+  },
 );
 
 export const fetchDexPrice = createAsyncThunk(
@@ -167,7 +167,7 @@ export const fetchDexPrice = createAsyncThunk(
       dexPrices,
       denomination,
     };
-  }
+  },
 );
 
 export const fetchTokens = createAsyncThunk(
@@ -193,7 +193,7 @@ export const fetchTokens = createAsyncThunk(
       allTokens,
       utxoBalance,
     };
-  }
+  },
 );
 
 export const fetchSwappableTokens = createAsyncThunk(
@@ -205,7 +205,7 @@ export const fetchSwappableTokens = createAsyncThunk(
     client: WhaleApiClient;
     fromTokenId: string;
   }): Promise<AllSwappableTokensResult> =>
-    client.poolpairs.getSwappableTokens(fromTokenId)
+    client.poolpairs.getSwappableTokens(fromTokenId),
 );
 
 export const wallet = createSlice({
@@ -222,9 +222,9 @@ export const wallet = createSlice({
       (state, action: PayloadAction<DexItem[]>) => {
         state.hasFetchedPoolpairData = true;
         state.poolpairs = action.payload.filter(
-          ({ data }) => !data.symbol.includes("/v1")
+          ({ data }) => !data.symbol.includes("/v1"),
         ); // Filter out v1 pairs due to stock split
-      }
+      },
     );
     builder.addCase(
       fetchDexPrice.fulfilled,
@@ -233,13 +233,13 @@ export const wallet = createSlice({
         action: PayloadAction<{
           dexPrices: DexPricesProps;
           denomination: string;
-        }>
+        }>,
       ) => {
         state.dexPrices = {
           ...state.dexPrices,
           [action.payload.denomination]: action.payload.dexPrices,
         };
-      }
+      },
     );
     builder.addCase(
       fetchTokens.fulfilled,
@@ -249,17 +249,17 @@ export const wallet = createSlice({
           tokens: AddressToken[];
           allTokens: TokenData[];
           utxoBalance: string;
-        }>
+        }>,
       ) => {
         state.hasFetchedToken = true;
         state.tokens = action.payload.tokens.map(setTokenSymbol);
         state.utxoBalance = action.payload.utxoBalance;
         state.allTokens = associateTokens(
           action.payload.allTokens.filter(
-            (token) => !token.symbol.includes("/v1")
-          )
+            (token) => !token.symbol.includes("/v1"),
+          ),
         ); // Filter out v1 tokens due to stock split
-      }
+      },
     );
     builder.addCase(
       fetchSwappableTokens.fulfilled,
@@ -271,7 +271,7 @@ export const wallet = createSlice({
             [action.payload.fromToken.id]: action.payload,
           },
         };
-      }
+      },
     );
   },
 });
@@ -290,7 +290,7 @@ const rawTokensSelector = createSelector(
       rawTokens.push(unifiedDFI);
     }
     return [...rawTokens, ...tokens];
-  }
+  },
 );
 
 export const tokensSelector = createSelector(
@@ -298,7 +298,7 @@ export const tokensSelector = createSelector(
   (tokens, utxoBalance) => {
     const utxoAmount = new BigNumber(utxoBalance);
     const tokenAmount = new BigNumber(
-      (tokens.find((t) => t.id === "0") ?? tokenDFI).amount
+      (tokens.find((t) => t.id === "0") ?? tokenDFI).amount,
     );
     return tokens.map((t) => {
       if (t.id === "0_utxo") {
@@ -315,22 +315,22 @@ export const tokensSelector = createSelector(
       }
       return t;
     });
-  }
+  },
 );
 
 export const DFITokenSelector = createSelector(
   tokensSelector,
-  (tokens) => tokens.find((token) => token.id === "0") ?? tokenDFI
+  (tokens) => tokens.find((token) => token.id === "0") ?? tokenDFI,
 );
 
 export const DFIUtxoSelector = createSelector(
   tokensSelector,
-  (tokens) => tokens.find((token) => token.id === "0_utxo") ?? utxoDFI
+  (tokens) => tokens.find((token) => token.id === "0_utxo") ?? utxoDFI,
 );
 
 export const unifiedDFISelector = createSelector(
   tokensSelector,
-  (tokens) => tokens.find((token) => token.id === "0_unified") ?? unifiedDFI
+  (tokens) => tokens.find((token) => token.id === "0_unified") ?? unifiedDFI,
 );
 
 const selectTokenId = (state: WalletState, tokenId: string): string => tokenId;
@@ -347,7 +347,7 @@ export const tokenSelector = createSelector(
         return token.id === "0_unified";
       }
       return token.id === tokenId;
-    })
+    }),
 );
 
 /**
@@ -355,7 +355,7 @@ export const tokenSelector = createSelector(
  */
 export const tokenSelectorByDisplaySymbol = createSelector(
   [(state: WalletState) => state.allTokens, selectTokenId],
-  (allTokens, displaySymbol) => allTokens[displaySymbol]
+  (allTokens, displaySymbol) => allTokens[displaySymbol],
 );
 
 /**
@@ -363,7 +363,7 @@ export const tokenSelectorByDisplaySymbol = createSelector(
  */
 export const dexPricesSelectorByDenomination = createSelector(
   [(state: WalletState) => state.dexPrices, selectTokenId],
-  (dexPrices, denomination) => dexPrices[denomination] ?? {}
+  (dexPrices, denomination) => dexPrices[denomination] ?? {},
 );
 
 /**
@@ -371,5 +371,5 @@ export const dexPricesSelectorByDenomination = createSelector(
  */
 export const poolPairSelector = createSelector(
   [(state: WalletState) => state.poolpairs, selectTokenId],
-  (poolpairs, id) => poolpairs.find((pair) => pair.data.id === id)
+  (poolpairs, id) => poolpairs.find((pair) => pair.data.id === id),
 );

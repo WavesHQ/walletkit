@@ -39,7 +39,7 @@ export function StatsProvider(props: StatsProviderProps): JSX.Element | null {
               lastSync: new Date().toString(),
               lastSuccessfulSync: new Date().toString(),
               tvl: tvl?.dex ?? 0,
-            })
+            }),
           );
           dispatch(block.actions.setConnected(true));
         })
@@ -50,7 +50,7 @@ export function StatsProvider(props: StatsProviderProps): JSX.Element | null {
               count: 0,
               masternodeCount: 0,
               lastSync: new Date().toString(),
-            })
+            }),
           );
           dispatch(block.actions.setConnected(false));
           logger.error(err);

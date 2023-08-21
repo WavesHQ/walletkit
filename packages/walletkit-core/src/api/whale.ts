@@ -8,7 +8,7 @@ import { EnvironmentNetwork } from "./environment";
 
 export function newOceanOptions(
   network: EnvironmentNetwork,
-  url?: string
+  url?: string,
 ): WhaleApiClientOptions {
   switch (network) {
     case EnvironmentNetwork.LocalPlayground:
@@ -46,16 +46,16 @@ export function newOceanOptions(
 }
 
 export function newWhaleAPIClient(
-  options: WhaleApiClientOptions
+  options: WhaleApiClientOptions,
 ): WhaleApiClient {
   return new WhaleApiClient(options);
 }
 
 export function newWhaleRpcClient(
-  options: WhaleApiClientOptions
+  options: WhaleApiClientOptions,
 ): WhaleRpcClient {
   return new WhaleRpcClient(
-    `${options.url}/${options.version}/${options.network}/rpc`
+    `${options.url}/${options.version}/${options.network}/rpc`,
   );
 }
 
