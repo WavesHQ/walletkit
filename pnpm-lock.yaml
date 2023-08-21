@@ -33,7 +33,7 @@ importers:
         specifier: workspace:*
         version: link:packages/walletkit-core
       testcontainers:
-        specifier: ^9.9.1
+        specifier: ^9.12.0
         version: 9.12.0
 
   packages/walletkit-bot:
