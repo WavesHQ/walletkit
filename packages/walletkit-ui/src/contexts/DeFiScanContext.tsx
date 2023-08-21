@@ -41,7 +41,7 @@ function getNetworkParams(network: EnvironmentNetwork): string {
 export function getURLByNetwork(
   path: string,
   network: EnvironmentNetwork,
-  id: number | string
+  id: number | string,
 ): string {
   return `${baseDefiScanUrl}/${path}/${id}${getNetworkParams(network)}`;
 }
@@ -49,7 +49,7 @@ export function getURLByNetwork(
 export function getTxURLByNetwork(
   network: EnvironmentNetwork,
   txid: string,
-  rawtx?: string
+  rawtx?: string,
 ): string {
   let baseUrl = `${baseDefiScanUrl}/transactions/${txid}`;
 
@@ -67,7 +67,7 @@ export function getTxURLByNetwork(
 }
 
 export function DeFiScanProvider(
-  props: React.PropsWithChildren<any>
+  props: React.PropsWithChildren<any>,
 ): JSX.Element | null {
   const { network } = useNetworkContext();
   const { children } = props;
@@ -89,7 +89,7 @@ export function DeFiScanProvider(
       getBlocksCountdownUrl: (blockCount: number) =>
         getURLByNetwork("blocks/countdown", network, blockCount),
     }),
-    [network]
+    [network],
   );
 
   return (

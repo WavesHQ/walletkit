@@ -49,9 +49,9 @@ export const transactionQueue = createSlice({
 
 export const first = createSelector(
   (state: TransactionQueue) => state.transactions,
-  (transactions) => transactions[0]
+  (transactions) => transactions[0],
 );
 export const hasTxQueued = createSelector(
   (state: TransactionQueue) => state.transactions,
-  (transactions) => transactions.length > 0
+  (transactions) => transactions.length > 0,
 );

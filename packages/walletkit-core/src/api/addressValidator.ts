@@ -3,7 +3,7 @@ import { NetworkName } from "@defichain/jellyfish-network";
 
 export const validateAddress = (
   address: string,
-  network: NetworkName
+  network: NetworkName,
 ): boolean => {
   const decodedAddress = fromAddress(address, network);
   return decodedAddress !== undefined;

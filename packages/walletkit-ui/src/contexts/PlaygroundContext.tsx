@@ -14,7 +14,7 @@ interface PlaygroundContextI {
 }
 
 const PlaygroundContext = createContext<PlaygroundContextI | undefined>(
-  undefined
+  undefined,
 );
 
 export function usePlaygroundContext(): PlaygroundContextI {
@@ -27,7 +27,7 @@ export function usePlaygroundContext(): PlaygroundContextI {
 }
 
 export function PlaygroundProvider(
-  props: React.PropsWithChildren<any>
+  props: React.PropsWithChildren<any>,
 ): JSX.Element | null {
   const { children } = props;
   const { network } = useNetworkContext();

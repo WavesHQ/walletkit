@@ -58,25 +58,25 @@ export const fetchVaults = createAsyncThunk(
     size?: number;
     address: string;
     client: WhaleApiClient;
-  }) => client.address.listVault(address, size)
+  }) => client.address.listVault(address, size),
 );
 
 export const fetchLoanTokens = createAsyncThunk(
   "wallet/fetchLoanTokens",
   async ({ size = 200, client }: { size?: number; client: WhaleApiClient }) =>
-    client.loan.listLoanToken(size)
+    client.loan.listLoanToken(size),
 );
 
 export const fetchLoanSchemes = createAsyncThunk(
   "wallet/fetchLoanSchemes",
   async ({ size = 50, client }: { size?: number; client: WhaleApiClient }) =>
-    client.loan.listScheme(size)
+    client.loan.listScheme(size),
 );
 
 export const fetchCollateralTokens = createAsyncThunk(
   "wallet/fetchCollateralTokens",
   async ({ size = 50, client }: { size?: number; client: WhaleApiClient }) =>
-    client.loan.listCollateralToken(size)
+    client.loan.listCollateralToken(size),
 );
 
 export const fetchPrice = createAsyncThunk(
@@ -92,7 +92,7 @@ export const fetchPrice = createAsyncThunk(
   }) => {
     const activePrices = await client.prices.getFeedActive(token, currency, 1);
     return activePrices[0];
-  }
+  },
 );
 
 export const loans = createSlice({
@@ -109,27 +109,27 @@ export const loans = createSlice({
       (state, action: PayloadAction<LoanVault[]>) => {
         state.vaults = action.payload;
         state.hasFetchedVaultsData = true;
-      }
+      },
     );
     builder.addCase(
       fetchLoanTokens.fulfilled,
       (state, action: PayloadAction<LoanToken[]>) => {
         state.loanTokens = action.payload;
         state.hasFetchedLoansData = true;
-      }
+      },
     );
     builder.addCase(
       fetchLoanSchemes.fulfilled,
       (state, action: PayloadAction<LoanScheme[]>) => {
         state.loanSchemes = action.payload;
         state.hasFetchedLoanSchemes = true;
-      }
+      },
     );
     builder.addCase(
       fetchCollateralTokens.fulfilled,
       (state, action: PayloadAction<CollateralToken[]>) => {
         state.collateralTokens = action.payload;
-      }
+      },
     );
     builder.addCase(
       fetchPrice.fulfilled,
@@ -140,7 +140,7 @@ export const loans = createSlice({
             [action.payload.key]: action.payload,
           },
         };
-      }
+      },
     );
   },
 });
@@ -153,13 +153,13 @@ export const ascColRatioLoanScheme = createSelector(
     schemes
       .map((c) => c)
       .sort((a, b) =>
-        new BigNumber(a.minColRatio).minus(b.minColRatio).toNumber()
-      )
+        new BigNumber(a.minColRatio).minus(b.minColRatio).toNumber(),
+      ),
 );
 
 export const loanTokensSelector = createSelector(
   (state: LoansState) => state.loanTokens,
-  (loanTokens) => loanTokens
+  (loanTokens) => loanTokens,
 );
 
 const selectTokenId = (state: LoansState, tokenId: string): string => tokenId;
@@ -167,12 +167,12 @@ const selectTokenId = (state: LoansState, tokenId: string): string => tokenId;
 export const loanTokenByTokenId = createSelector(
   [selectTokenId, loanTokensSelector],
   (tokenId, loanTokens) =>
-    loanTokens.find((loanToken) => loanToken.token.id === tokenId)
+    loanTokens.find((loanToken) => loanToken.token.id === tokenId),
 );
 
 export const loanPaymentTokenActivePrices = createSelector(
   (state: LoansState) => state.loanPaymentTokenActivePrices,
-  (activePrices) => activePrices
+  (activePrices) => activePrices,
 );
 
 export const vaultsSelector = createSelector(
@@ -207,7 +207,7 @@ export const vaultsSelector = createSelector(
           colRatio,
           minColRatio,
           totalLoanValue,
-          totalCollateralValue
+          totalCollateralValue,
         );
         return {
           ...vault,
@@ -215,7 +215,7 @@ export const vaultsSelector = createSelector(
         };
       })
       .sort((a, b) => order[a.vaultState] - order[b.vaultState]);
-  }
+  },
 );
 
 //* Filter vaults that will be removed with Total Portfolio Amount
@@ -227,6 +227,6 @@ export const activeVaultsSelector = createSelector(
         LoanVaultState.ACTIVE,
         LoanVaultState.MAY_LIQUIDATE,
         LoanVaultState.FROZEN,
-      ].includes(value.state)
-    ) as LoanVaultActive[]
+      ].includes(value.state),
+    ) as LoanVaultActive[],
 );

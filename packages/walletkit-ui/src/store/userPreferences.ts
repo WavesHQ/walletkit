@@ -50,7 +50,7 @@ export const fetchUserPreferences = createAsyncThunk(
   "userPreferences/fetchUserPreferences",
   // TODO @julio replace with type
   async (network: EnvironmentNetwork, localStorage: any) =>
-    await localStorage.getUserPreferences(network)
+    await localStorage.getUserPreferences(network),
 );
 
 export const setUserPreferences = createAsyncThunk(
@@ -66,17 +66,17 @@ export const setUserPreferences = createAsyncThunk(
     localStorage: any;
   }) => {
     await localStorage.setUserPreferences(network, preferences);
-  }
+  },
 );
 
 export const setAddresses = createAsyncThunk(
   "userPreferences/setAddresses",
-  async (addresses: LabeledAddress) => addresses
+  async (addresses: LabeledAddress) => addresses,
 );
 
 export const setAddressBook = createAsyncThunk(
   "userPreferences/setAddressBook",
-  async (addressBook: LabeledAddress) => addressBook
+  async (addressBook: LabeledAddress) => addressBook,
 );
 
 export const userPreferences = createSlice({
@@ -100,31 +100,31 @@ export const userPreferences = createSlice({
       (state, action: PayloadAction<UserPreferences>) => {
         state = action.payload;
         return state;
-      }
+      },
     );
     builder.addCase(
       setAddresses.fulfilled,
       (state, action: PayloadAction<LabeledAddress>) => {
         state.addresses = action.payload;
         return state;
-      }
+      },
     );
     builder.addCase(
       setAddressBook.fulfilled,
       (state, action: PayloadAction<LabeledAddress>) => {
         state.addressBook = action.payload;
         return state;
-      }
+      },
     );
   },
 });
 
 export const selectAddressBookArray = createSelector(
   (state: UserPreferences) => state.addressBook,
-  (addressBook) => prepopulateField(addressBook)
+  (addressBook) => prepopulateField(addressBook),
 );
 
 export const selectLocalWalletAddressArray = createSelector(
   (state: UserPreferences) => state.addresses,
-  (walletAddress) => prepopulateField(walletAddress)
+  (walletAddress) => prepopulateField(walletAddress),
 );

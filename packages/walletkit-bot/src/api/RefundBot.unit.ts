@@ -24,7 +24,7 @@ test.skip("should return transaction id when succesfully refunded ETH tokens (wi
       envNetwork: EnvironmentNetwork.RemotePlayground,
       mnemonic: DFC_PLAYGROUND_MNEMONIC,
     },
-    expect.stringMatching(/Send TxId:/)
+    expect.stringMatching(/Send TxId:/),
   );
 });
 
@@ -41,7 +41,7 @@ test.skip("should return transaction id when succesfully refunded DFI UTXO (with
       envNetwork: EnvironmentNetwork.RemotePlayground,
       mnemonic: DFC_PLAYGROUND_MNEMONIC,
     },
-    expect.stringMatching(/Send TxId:/)
+    expect.stringMatching(/Send TxId:/),
   );
 });
 
@@ -56,7 +56,7 @@ test("should return invalid DeFiChain private keys", async () => {
       envNetwork: EnvironmentNetwork.RemotePlayground,
       mnemonic: DFC_INVALID_PLAYGROUND_MNEMONIC,
     },
-    "Invalid DeFiChain private keys!"
+    "Invalid DeFiChain private keys!",
   );
 });
 
@@ -71,7 +71,7 @@ test("should return unable to decode address given the wrong refund address' ind
       envNetwork: EnvironmentNetwork.RemotePlayground,
       mnemonic: DFC_PLAYGROUND_MNEMONIC,
     },
-    "Invalid DeFiChain private keys!"
+    "Invalid DeFiChain private keys!",
   );
 });
 
@@ -86,13 +86,13 @@ test("should return unable to decode address given the wrong refund address", as
       envNetwork: EnvironmentNetwork.RemotePlayground,
       mnemonic: DFC_PLAYGROUND_MNEMONIC,
     },
-    `Unable to decode Address - ${INVALID_REFUND_PLAYGROUND_ADDRESS}`
+    `Unable to decode Address - ${INVALID_REFUND_PLAYGROUND_ADDRESS}`,
   );
 });
 
 async function spiedConsoleWithReturnResponse(
   mockedObject: HandlerProps,
-  errorMessage: string
+  errorMessage: string,
 ): Promise<void> {
   const consoleSpy = jest.spyOn(console, "log");
   try {
@@ -104,7 +104,7 @@ async function spiedConsoleWithReturnResponse(
 }
 async function spiedConsoleWithReturnErrorResponse(
   mockedObject: HandlerProps,
-  errorMessage: string
+  errorMessage: string,
 ): Promise<void> {
   const consoleSpy = jest.spyOn(console, "log").mockImplementation();
   try {

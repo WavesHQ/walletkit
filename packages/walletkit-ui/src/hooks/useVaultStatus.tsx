@@ -9,7 +9,7 @@ export function useVaultStatus(
   collateralRatio: BigNumber,
   minColRatio: BigNumber,
   totalLoanAmount: BigNumber,
-  totalCollateralValue: BigNumber
+  totalCollateralValue: BigNumber,
 ): VaultHealthItem {
   const colRatio = collateralRatio.gte(0) ? collateralRatio : new BigNumber(0);
   const stats = useCollateralRatioStats({

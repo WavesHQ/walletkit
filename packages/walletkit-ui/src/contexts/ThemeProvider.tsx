@@ -71,7 +71,7 @@ export interface ThemeProviderProps extends PropsWithChildren<{}> {
 }
 
 export function ThemeProvider(
-  props: ThemeContextI & React.PropsWithChildren<any>
+  props: ThemeContextI & React.PropsWithChildren<any>,
 ): JSX.Element | null {
   const { children, api, colorScheme, logger } = props;
   const { theme } = useTheme({ api, colorScheme, logger });

@@ -30,12 +30,12 @@ export interface EncryptedMnemonicWalletI {
   initProvider: (
     data: WalletPersistenceDataI<EncryptedProviderData>,
     network: EnvironmentNetwork,
-    promptInterface: PromptInterface
+    promptInterface: PromptInterface,
   ) => EncryptedHdNodeProvider;
   toData: (
     mnemonic: string[],
     network: EnvironmentNetwork,
-    passphrase: string
+    passphrase: string,
   ) => Promise<WalletPersistenceDataI<EncryptedProviderData>>;
   generateWords?: () => string[];
 }
@@ -43,11 +43,11 @@ export interface EncryptedMnemonicWalletI {
 export interface UnencryptedMnemonicWalletI {
   initProvider: (
     data: WalletPersistenceDataI<MnemonicProviderData>,
-    network: EnvironmentNetwork
+    network: EnvironmentNetwork,
   ) => MnemonicHdNodeProvider;
   toData: (
     mnemonic: string[],
-    network: EnvironmentNetwork
+    network: EnvironmentNetwork,
   ) => WalletPersistenceDataI<MnemonicProviderData>;
   generateWords?: () => string[];
 }
@@ -64,14 +64,14 @@ interface WalletNodeContextI {
 const WalletNodeContext = createContext<WalletNodeContextI>(undefined as any);
 
 function MnemonicUnprotectedProvider(
-  props: WalletNodeProviderProps<MnemonicProviderData>
+  props: WalletNodeProviderProps<MnemonicProviderData>,
 ): JSX.Element | null {
   const { MnemonicUnprotected, children, data } = props;
   const { network } = useNetworkContext();
 
   const provider = useMemo(
     () => MnemonicUnprotected.initProvider(data, network),
-    [network, data]
+    [network, data],
   );
 
   return (
@@ -83,7 +83,7 @@ function MnemonicUnprotectedProvider(
 }
 
 function MnemonicEncryptedProvider(
-  props: WalletNodeProviderProps<EncryptedProviderData>
+  props: WalletNodeProviderProps<EncryptedProviderData>,
 ): JSX.Element | null {
   const { MnemonicEncrypted, children, data } = props;
   const { network } = useNetworkContext();
@@ -99,7 +99,7 @@ function MnemonicEncryptedProvider(
           throw new Error("No UI attached for passphrase prompting");
         },
       }),
-    [network, data]
+    [network, data],
   );
 
   return (
@@ -128,7 +128,7 @@ interface WalletNodeProviderProps<T> extends PropsWithChildren<any> {
  * Automatically determine the correct WalletProvider to use based on the wallet type.
  */
 export function WalletNodeProvider(
-  props: WalletNodeProviderProps<any>
+  props: WalletNodeProviderProps<any>,
 ): JSX.Element | null {
   const { data, children } = props;
   if (data.type === WalletType.MNEMONIC_UNPROTECTED) {

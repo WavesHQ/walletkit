@@ -41,7 +41,7 @@ export interface EthDecodedAddress {
 
 export function getDecodedAddress(
   script: Script,
-  network: NetworkName
+  network: NetworkName,
 ): EthDecodedAddress | undefined {
   try {
     // check if is dfc address first
@@ -83,7 +83,7 @@ export function getDecodedAddress(
 
 export function getAddressType(
   address: string,
-  network: NetworkName
+  network: NetworkName,
 ): AddressType | undefined {
   try {
     // check if is dfc address first

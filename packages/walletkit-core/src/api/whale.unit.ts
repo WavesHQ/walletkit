@@ -66,14 +66,14 @@ describe("whale", () => {
 
   it("should match default ocean url for local playground", () => {
     const defaultURL = getDefaultDefiChainURL(
-      EnvironmentNetwork.LocalPlayground
+      EnvironmentNetwork.LocalPlayground,
     );
     expect(defaultURL).toStrictEqual("http://localhost:19553");
   });
 
   it("should match default ocean url for remote playground", () => {
     const defaultURL = getDefaultDefiChainURL(
-      EnvironmentNetwork.RemotePlayground
+      EnvironmentNetwork.RemotePlayground,
     );
     expect(defaultURL).toStrictEqual("https://playground.jellyfishsdk.com");
   });
@@ -100,7 +100,7 @@ describe("whale custom provider", () => {
   it("should match custom provider URL for local playground", () => {
     const oceanOptions = newOceanOptions(
       EnvironmentNetwork.LocalPlayground,
-      customProviderURL
+      customProviderURL,
     );
     expect(oceanOptions).toMatchObject({
       url: customProviderURL,
@@ -112,7 +112,7 @@ describe("whale custom provider", () => {
   it("should match custom provider URL for testnet", () => {
     const oceanOptions = newOceanOptions(
       EnvironmentNetwork.TestNet,
-      customProviderURL
+      customProviderURL,
     );
     expect(oceanOptions).toMatchObject({
       url: customProviderURL,
@@ -124,7 +124,7 @@ describe("whale custom provider", () => {
   it("should match custom provider URL for mainnet", () => {
     const oceanOptions = newOceanOptions(
       EnvironmentNetwork.MainNet,
-      customProviderURL
+      customProviderURL,
     );
     expect(oceanOptions).toMatchObject({
       url: customProviderURL,
@@ -136,7 +136,7 @@ describe("whale custom provider", () => {
   it("should match custom provider URL for devnet", () => {
     const oceanOptions = newOceanOptions(
       EnvironmentNetwork.DevNet,
-      customProviderURL
+      customProviderURL,
     );
     expect(oceanOptions).toMatchObject({
       url: customProviderURL,

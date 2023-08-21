@@ -37,7 +37,7 @@ interface WalletPersistenceDataI<T> {
 
 export function toData(
   mnemonic: string[],
-  envNetwork: EnvironmentNetwork
+  envNetwork: EnvironmentNetwork,
 ): WalletPersistenceDataI<MnemonicProviderData> {
   const options = getBip32Option(envNetwork);
   const data = MnemonicHdNodeProvider.wordsToData(mnemonic, options);
@@ -51,7 +51,7 @@ export function toData(
 
 export function initProvider(
   data: WalletPersistenceDataI<MnemonicProviderData>,
-  envNetwork: EnvironmentNetwork
+  envNetwork: EnvironmentNetwork,
 ): MnemonicHdNodeProvider {
   if (data.type !== WalletType.MNEMONIC_UNPROTECTED || data.version !== "v1") {
     throw new Error("Unexpected WalletPersistenceDataI");
@@ -64,12 +64,12 @@ export function initProvider(
 export function initJellyfishWallet<HdNode extends WalletHdNode>(
   provider: WalletHdNodeProvider<HdNode>,
   urlNetwork: string,
-  envNetwork: EnvironmentNetwork
+  envNetwork: EnvironmentNetwork,
 ): JellyfishWallet<WhaleWalletAccount, HdNode> {
   const client = getWhaleClient(urlNetwork, envNetwork);
   const accountProvider = new WhaleWalletAccountProvider(
     client,
-    getJellyfishNetwork(envNetwork)
+    getJellyfishNetwork(envNetwork),
   );
   return new JellyfishWallet(provider, accountProvider);
 }
@@ -78,7 +78,7 @@ export function createWallet(
   urlNetwork: string,
   envNetwork: EnvironmentNetwork,
   mnemonic: string,
-  index: number = 0
+  index: number = 0,
 ): WhaleWalletAccount {
   if (!validateMnemonicSentence(mnemonic)) {
     throw new Error("Invalid DeFiChain mnemonic!");
@@ -90,7 +90,7 @@ export function createWallet(
 
 export function getWhaleClient(
   urlNetwork: string,
-  envNetwork: EnvironmentNetwork
+  envNetwork: EnvironmentNetwork,
 ): WhaleApiClient {
   return new WhaleApiClient({
     url: urlNetwork,
@@ -101,11 +101,11 @@ export function getWhaleClient(
 
 export function getAddressScript(
   address: string,
-  envNetwork: EnvironmentNetwork
+  envNetwork: EnvironmentNetwork,
 ): Script {
   const decodedAddress = fromAddress(
     address,
-    getJellyfishNetwork(envNetwork).name
+    getJellyfishNetwork(envNetwork).name,
   );
   if (decodedAddress === undefined) {
     throw new Error(`Unable to decode Address - ${address}`);
@@ -118,7 +118,7 @@ export function getAddressScript(
  */
 export async function getUTXOBalance(
   address: string,
-  client: WhaleApiClient
+  client: WhaleApiClient,
 ): Promise<BigNumber> {
   return new BigNumber(await client.address.getBalance(address));
 }

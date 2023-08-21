@@ -9,7 +9,7 @@ interface IStoreProvider {
 }
 
 export function StoreProvider(
-  props: PropsWithChildren<IStoreProvider>
+  props: PropsWithChildren<IStoreProvider>,
 ): JSX.Element {
   const { children, initializeStore } = props;
   const { wallets } = useWalletPersistenceContext();

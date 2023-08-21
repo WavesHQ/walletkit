@@ -117,10 +117,10 @@ export function useResultingCollateralizationRatioByCollateral({
   const atRiskThresholdRatio = 1.5;
   const liquidatedThresholdRatio = 1.25;
   const atRiskThreshold = new BigNumber(minCollateralRatio).multipliedBy(
-    atRiskThresholdRatio
+    atRiskThresholdRatio,
   );
   const liquidatedThreshold = new BigNumber(minCollateralRatio).multipliedBy(
-    liquidatedThresholdRatio
+    liquidatedThresholdRatio,
   );
 
   const isAtRisk =
@@ -144,7 +144,7 @@ export function useResultingCollateralizationRatioByCollateral({
     minCollateralRatio: BigNumber,
     resultingCollateralRatio: BigNumber,
     thresholdRatio: number,
-    isHealthy: boolean
+    isHealthy: boolean,
   ): number => {
     let colorBarsCount = -1;
     let index = 1;
@@ -154,8 +154,8 @@ export function useResultingCollateralizationRatioByCollateral({
           new BigNumber(thresholdRatio)
             .minus(1)
             .dividedBy(isHealthy ? 1 : numOfColorBarPerStatus)
-            .times(index) // divide threshold to number of bars
-        )
+            .times(index), // divide threshold to number of bars
+        ),
       );
 
       if (resultingCollateralRatio.isLessThanOrEqualTo(colorBarMaxAmount)) {
@@ -173,7 +173,7 @@ export function useResultingCollateralizationRatioByCollateral({
     minCollateralRatio,
     resultingColRatio,
     getRatio(),
-    isHealthy
+    isHealthy,
   );
 
   let displayedColorBars = -1;

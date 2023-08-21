@@ -29,7 +29,7 @@ describe("State Relayer Bot Tests", () => {
     // should check data from /dex is parsed correctly
     expect(response).toHaveProperty(
       "totalValueLockInPoolPair",
-      "272281685.3262795"
+      "272281685.3262795",
     );
     expect(response).toHaveProperty("total24HVolume", "60010");
     expect(response).toHaveProperty("pair", expectedPairData);

@@ -31,7 +31,7 @@ const initialState: AuctionsState = {
 export const fetchAuctions = createAsyncThunk(
   "wallet/fetchAuctions",
   async ({ size = 200, client }: { size?: number; client: WhaleApiClient }) =>
-    client.loan.listAuction(size)
+    client.loan.listAuction(size),
 );
 
 export const fetchBidHistory = createAsyncThunk(
@@ -53,8 +53,8 @@ export const fetchBidHistory = createAsyncThunk(
       vaultId,
       liquidationHeight,
       batchIndex,
-      size
-    )
+      size,
+    ),
 );
 
 export const auctions = createSlice({
@@ -71,13 +71,13 @@ export const auctions = createSlice({
       (state, action: PayloadAction<LoanVaultLiquidated[]>) => {
         state.auctions = action.payload;
         state.hasFetchAuctionsData = true;
-      }
+      },
     );
     builder.addCase(
       fetchBidHistory.fulfilled,
       (state, action: PayloadAction<VaultAuctionBatchHistory[]>) => {
         state.bidHistory = action.payload;
-      }
+      },
     );
   },
 });
@@ -97,12 +97,12 @@ export const getAuctionBatches = createSelector(
             ...batch,
             auction,
             collateralTokenSymbols: batch.collaterals.map(
-              ({ displaySymbol }) => displaySymbol
+              ({ displaySymbol }) => displaySymbol,
             ),
           });
         });
         return filteredAuctionBatches;
       },
-      []
-    )
+      [],
+    ),
 );
