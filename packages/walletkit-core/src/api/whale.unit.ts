@@ -52,6 +52,15 @@ describe("whale", () => {
     });
   });
 
+  it("should match ocean options for changi", () => {
+    const oceanOptions = newOceanOptions(EnvironmentNetwork.Changi);
+    expect(oceanOptions).toMatchObject({
+      url: "http://changi.ocean.jellyfishsdk.com",
+      network: "changi",
+      version: "v0",
+    });
+  });
+
   it("should create new instance of whale api client", () => {
     const oceanOptions = newOceanOptions(EnvironmentNetwork.TestNet);
     const whaleApiClient = newWhaleAPIClient(oceanOptions);
@@ -91,6 +100,11 @@ describe("whale", () => {
   it("should match default ocean url for devnet", () => {
     const defaultURL = getDefaultDefiChainURL(EnvironmentNetwork.DevNet);
     expect(defaultURL).toStrictEqual("http://devnet.ocean.jellyfishsdk.com");
+  });
+
+  it("should match default ocean url for changi", () => {
+    const defaultURL = getDefaultDefiChainURL(EnvironmentNetwork.Changi);
+    expect(defaultURL).toStrictEqual("http://changi.ocean.jellyfishsdk.com");
   });
 });
 
@@ -141,6 +155,18 @@ describe("whale custom provider", () => {
     expect(oceanOptions).toMatchObject({
       url: customProviderURL,
       network: "devnet",
+      version: "v0",
+    });
+  });
+
+  it("should match custom provider URL for changi", () => {
+    const oceanOptions = newOceanOptions(
+      EnvironmentNetwork.Changi,
+      customProviderURL
+    );
+    expect(oceanOptions).toMatchObject({
+      url: customProviderURL,
+      network: "changi",
       version: "v0",
     });
   });

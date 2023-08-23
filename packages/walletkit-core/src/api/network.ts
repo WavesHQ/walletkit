@@ -9,7 +9,7 @@ import { Bip32Options } from "@defichain/jellyfish-wallet-mnemonic";
 
 import { EnvironmentNetwork } from "./environment";
 
-export function getJellyfishNetwork(network: EnvironmentNetwork): Network {
+export function getJellyfishNetwork (network: EnvironmentNetwork): Network {
   switch (network) {
     case EnvironmentNetwork.MainNet:
       return MainNet;
@@ -19,13 +19,14 @@ export function getJellyfishNetwork(network: EnvironmentNetwork): Network {
       return DevNet;
     case EnvironmentNetwork.LocalPlayground:
     case EnvironmentNetwork.RemotePlayground:
+    case EnvironmentNetwork.Changi:
       return RegTest;
     default:
       return RegTest;
   }
 }
 
-export function getBip32Option(envNetwork: EnvironmentNetwork): Bip32Options {
+export function getBip32Option (envNetwork: EnvironmentNetwork): Bip32Options {
   const network = getJellyfishNetwork(envNetwork);
   return {
     bip32: {

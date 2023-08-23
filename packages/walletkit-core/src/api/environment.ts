@@ -7,6 +7,7 @@ export enum EnvironmentNetwork {
   MainNet = "MainNet",
   TestNet = "TestNet",
   DevNet = "DevNet",
+  Changi = "Changi"
 }
 
 export enum EnvironmentName {
@@ -30,6 +31,7 @@ export const environments: Record<EnvironmentName, Environment> = {
       EnvironmentNetwork.TestNet,
       EnvironmentNetwork.DevNet,
       EnvironmentNetwork.RemotePlayground,
+      EnvironmentNetwork.Changi
     ],
   },
   Preview: {
@@ -40,6 +42,7 @@ export const environments: Record<EnvironmentName, Environment> = {
       EnvironmentNetwork.DevNet,
       EnvironmentNetwork.TestNet,
       EnvironmentNetwork.MainNet,
+      EnvironmentNetwork.Changi
     ],
   },
   Development: {
@@ -51,6 +54,7 @@ export const environments: Record<EnvironmentName, Environment> = {
       EnvironmentNetwork.DevNet,
       EnvironmentNetwork.TestNet,
       EnvironmentNetwork.MainNet,
+      EnvironmentNetwork.Changi
     ],
   },
 };
@@ -58,7 +62,7 @@ export const environments: Record<EnvironmentName, Environment> = {
 /**
  * @return Environment of current Wallet, checked via expo release channels
  */
-export function getEnvironment(channel: string): Environment {
+export function getEnvironment (channel: string): Environment {
   if (channel === "production") {
     return environments[EnvironmentName.Production];
   }
@@ -73,7 +77,7 @@ export function getEnvironment(channel: string): Environment {
 /**
  * @param {EnvironmentNetwork} network to check if it is a playground network
  */
-export function isPlayground(network: EnvironmentNetwork): boolean {
+export function isPlayground (network: EnvironmentNetwork): boolean {
   return [
     EnvironmentNetwork.LocalPlayground,
     EnvironmentNetwork.RemotePlayground,

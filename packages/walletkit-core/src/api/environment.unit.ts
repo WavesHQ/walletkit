@@ -48,5 +48,7 @@ describe("environments", () => {
     expect(isPlayground(EnvironmentNetwork.RemotePlayground)).toBe(true);
     expect(isPlayground(EnvironmentNetwork.MainNet)).toBe(false);
     expect(isPlayground(EnvironmentNetwork.TestNet)).toBe(false);
+    expect(isPlayground(EnvironmentNetwork.Changi)).toBe(false);
+
   });
 });

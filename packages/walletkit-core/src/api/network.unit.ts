@@ -21,4 +21,9 @@ describe("network", () => {
     const bip32Options = getBip32Option(EnvironmentNetwork.RemotePlayground);
     expect(bip32Options).toMatchSnapshot();
   });
+
+  it("should resolve bip32 option for Changi", () => {
+    const bip32Options = getBip32Option(EnvironmentNetwork.Changi);
+    expect(bip32Options).toMatchSnapshot();
+  });
 });
