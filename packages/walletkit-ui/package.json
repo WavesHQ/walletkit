@@ -20,11 +20,11 @@
     "smart-buffer": "^4.2.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/react": "18.2.20",
-    "jest-environment-jsdom": "^29.6.2"
+    "jest-environment-jsdom": "^29.6.4"
   },
   "scripts": {
     "build": "tsc -b ./tsconfig.build.json",
