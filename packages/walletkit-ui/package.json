@@ -8,10 +8,10 @@
     "dist"
   ],
   "dependencies": {
-    "@stickyjs/jest": "^1.3.1",
-    "@waveshq/standard-defichain-jellyfishsdk": "^1.9.3",
-    "@waveshq/standard-web": "^1.9.3",
-    "@waveshq/standard-web-linter": "^1.9.3",
+    "@stickyjs/jest": "^1.3.2",
+    "@waveshq/standard-defichain-jellyfishsdk": "^2.0.0",
+    "@waveshq/standard-web": "^2.0.0",
+    "@waveshq/standard-web-linter": "^2.0.0",
     "@waveshq/walletkit-core": "workspace:*",
     "bignumber.js": "^9.1.1",
     "dayjs": "^1.11.9",
