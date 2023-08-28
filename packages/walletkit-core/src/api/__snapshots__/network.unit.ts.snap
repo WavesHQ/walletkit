@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`network should resolve bip32 option for Changi 1`] = `
+{
+  "bip32": {
+    "private": 70615956,
+    "public": 70617039,
+  },
+  "wif": 239,
+}
+`;
+
 exports[`network should resolve bip32 option for LocalPlayground 1`] = `
 {
   "bip32": {
