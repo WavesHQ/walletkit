@@ -6,7 +6,7 @@ import {
 
 import { EnvironmentNetwork } from "./environment";
 
-export function newOceanOptions (
+export function newOceanOptions(
   network: EnvironmentNetwork,
   url?: string,
 ): WhaleApiClientOptions {
@@ -51,21 +51,21 @@ export function newOceanOptions (
   }
 }
 
-export function newWhaleAPIClient (
-  options: WhaleApiClientOptions
+export function newWhaleAPIClient(
+  options: WhaleApiClientOptions,
 ): WhaleApiClient {
   return new WhaleApiClient(options);
 }
 
-export function newWhaleRpcClient (
-  options: WhaleApiClientOptions
+export function newWhaleRpcClient(
+  options: WhaleApiClientOptions,
 ): WhaleRpcClient {
   return new WhaleRpcClient(
     `${options.url}/${options.version}/${options.network}/rpc`,
   );
 }
 
-export function getDefaultDefiChainURL (network: EnvironmentNetwork): string {
+export function getDefaultDefiChainURL(network: EnvironmentNetwork): string {
   const { url } = newOceanOptions(network);
   return url as string;
 }

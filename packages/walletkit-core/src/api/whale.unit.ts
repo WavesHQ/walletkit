@@ -162,7 +162,7 @@ describe("whale custom provider", () => {
   it("should match custom provider URL for changi", () => {
     const oceanOptions = newOceanOptions(
       EnvironmentNetwork.Changi,
-      customProviderURL
+      customProviderURL,
     );
     expect(oceanOptions).toMatchObject({
       url: customProviderURL,
