@@ -35,6 +35,12 @@ export function newOceanOptions(
         network: "devnet",
         version: "v0",
       };
+    case EnvironmentNetwork.Changi:
+      return {
+        url: url ?? "http://changi.ocean.jellyfishsdk.com",
+        network: "changi",
+        version: "v0",
+      };
     case EnvironmentNetwork.MainNet:
     default:
       return {

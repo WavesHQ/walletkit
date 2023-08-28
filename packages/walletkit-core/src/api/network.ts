@@ -19,6 +19,7 @@ export function getJellyfishNetwork(network: EnvironmentNetwork): Network {
       return DevNet;
     case EnvironmentNetwork.LocalPlayground:
     case EnvironmentNetwork.RemotePlayground:
+    case EnvironmentNetwork.Changi:
       return RegTest;
     default:
       return RegTest;

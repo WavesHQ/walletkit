@@ -7,6 +7,7 @@ export enum EnvironmentNetwork {
   MainNet = "MainNet",
   TestNet = "TestNet",
   DevNet = "DevNet",
+  Changi = "Changi",
 }
 
 export enum EnvironmentName {
@@ -30,6 +31,7 @@ export const environments: Record<EnvironmentName, Environment> = {
       EnvironmentNetwork.TestNet,
       EnvironmentNetwork.DevNet,
       EnvironmentNetwork.RemotePlayground,
+      EnvironmentNetwork.Changi,
     ],
   },
   Preview: {
@@ -40,6 +42,7 @@ export const environments: Record<EnvironmentName, Environment> = {
       EnvironmentNetwork.DevNet,
       EnvironmentNetwork.TestNet,
       EnvironmentNetwork.MainNet,
+      EnvironmentNetwork.Changi,
     ],
   },
   Development: {
@@ -51,6 +54,7 @@ export const environments: Record<EnvironmentName, Environment> = {
       EnvironmentNetwork.DevNet,
       EnvironmentNetwork.TestNet,
       EnvironmentNetwork.MainNet,
+      EnvironmentNetwork.Changi,
     ],
   },
 };

@@ -43,6 +43,11 @@ describe("Whale Context test", () => {
       network: "devnet",
       name: EnvironmentNetwork.DevNet,
     },
+    {
+      url: "http://changi.ocean.jellyfishsdk.com",
+      network: "changi",
+      name: EnvironmentNetwork.Changi,
+    },
   ];
 
   networkDetails.forEach((networkDetail) => {
@@ -131,6 +136,11 @@ describe("Whale custom provider url test", () => {
       url: "https://custom.devnet.com",
       network: "devnet",
       name: EnvironmentNetwork.DevNet,
+    },
+    {
+      url: "https://custom.changi.com",
+      network: "changi",
+      name: EnvironmentNetwork.Changi,
     },
   ];
 
