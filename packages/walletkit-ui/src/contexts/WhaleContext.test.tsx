@@ -44,7 +44,7 @@ describe("Whale Context test", () => {
       name: EnvironmentNetwork.DevNet,
     },
     {
-      url: "http://changi.ocean.jellyfishsdk.com",
+      url: "https://changi.ocean.jellyfishsdk.com",
       network: "changi",
       name: EnvironmentNetwork.Changi,
     },

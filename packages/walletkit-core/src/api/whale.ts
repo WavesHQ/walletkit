@@ -6,7 +6,7 @@ import {
 
 import { EnvironmentNetwork } from "./environment";
 
-export function newOceanOptions(
+export function newOceanOptions (
   network: EnvironmentNetwork,
   url?: string,
 ): WhaleApiClientOptions {
@@ -37,7 +37,7 @@ export function newOceanOptions(
       };
     case EnvironmentNetwork.Changi:
       return {
-        url: url ?? "http://changi.ocean.jellyfishsdk.com",
+        url: url ?? "https://changi.ocean.jellyfishsdk.com",
         network: "changi",
         version: "v0",
       };
@@ -51,13 +51,13 @@ export function newOceanOptions(
   }
 }
 
-export function newWhaleAPIClient(
+export function newWhaleAPIClient (
   options: WhaleApiClientOptions,
 ): WhaleApiClient {
   return new WhaleApiClient(options);
 }
 
-export function newWhaleRpcClient(
+export function newWhaleRpcClient (
   options: WhaleApiClientOptions,
 ): WhaleRpcClient {
   return new WhaleRpcClient(
@@ -65,7 +65,7 @@ export function newWhaleRpcClient(
   );
 }
 
-export function getDefaultDefiChainURL(network: EnvironmentNetwork): string {
+export function getDefaultDefiChainURL (network: EnvironmentNetwork): string {
   const { url } = newOceanOptions(network);
   return url as string;
 }
