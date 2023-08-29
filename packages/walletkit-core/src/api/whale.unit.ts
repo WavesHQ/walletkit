@@ -55,7 +55,7 @@ describe("whale", () => {
   it("should match ocean options for changi", () => {
     const oceanOptions = newOceanOptions(EnvironmentNetwork.Changi);
     expect(oceanOptions).toMatchObject({
-      url: "http://changi.ocean.jellyfishsdk.com",
+      url: "https://changi.ocean.jellyfishsdk.com",
       network: "changi",
       version: "v0",
     });
@@ -104,7 +104,7 @@ describe("whale", () => {
 
   it("should match default ocean url for changi", () => {
     const defaultURL = getDefaultDefiChainURL(EnvironmentNetwork.Changi);
-    expect(defaultURL).toStrictEqual("http://changi.ocean.jellyfishsdk.com");
+    expect(defaultURL).toStrictEqual("https://changi.ocean.jellyfishsdk.com");
   });
 });
 

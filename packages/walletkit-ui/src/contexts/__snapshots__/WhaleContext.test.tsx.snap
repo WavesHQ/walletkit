@@ -7,7 +7,7 @@ exports[`Whale Context test Whale Context test for Changi should match snapshot 
     <div>
       <div>
         <span>
-          {"url":"http://changi.ocean.jellyfishsdk.com","timeout":60000,"version":"v0","network":"changi"}
+          {"url":"https://changi.ocean.jellyfishsdk.com","timeout":60000,"version":"v0","network":"changi"}
         </span>
       </div>
     </div>
@@ -15,7 +15,7 @@ exports[`Whale Context test Whale Context test for Changi should match snapshot 
   "container": <div>
     <div>
       <span>
-        {"url":"http://changi.ocean.jellyfishsdk.com","timeout":60000,"version":"v0","network":"changi"}
+        {"url":"https://changi.ocean.jellyfishsdk.com","timeout":60000,"version":"v0","network":"changi"}
       </span>
     </div>
   </div>,

@@ -37,7 +37,7 @@ export function newOceanOptions(
       };
     case EnvironmentNetwork.Changi:
       return {
-        url: url ?? "http://changi.ocean.jellyfishsdk.com",
+        url: url ?? "https://changi.ocean.jellyfishsdk.com",
         network: "changi",
         version: "v0",
       };
