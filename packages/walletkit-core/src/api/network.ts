@@ -4,6 +4,7 @@ import {
   Network,
   RegTest,
   TestNet,
+  Changi,
 } from "@defichain/jellyfish-network";
 import { Bip32Options } from "@defichain/jellyfish-wallet-mnemonic";
 
@@ -17,10 +18,10 @@ export function getJellyfishNetwork(network: EnvironmentNetwork): Network {
       return TestNet;
     case EnvironmentNetwork.DevNet:
       return DevNet;
+    case EnvironmentNetwork.Changi:
+      return Changi;
     case EnvironmentNetwork.LocalPlayground:
     case EnvironmentNetwork.RemotePlayground:
-    case EnvironmentNetwork.Changi:
-      return RegTest;
     default:
       return RegTest;
   }
