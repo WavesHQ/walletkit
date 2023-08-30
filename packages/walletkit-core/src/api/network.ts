@@ -1,10 +1,10 @@
 import {
+  Changi,
   DevNet,
   MainNet,
   Network,
   RegTest,
   TestNet,
-  Changi,
 } from "@defichain/jellyfish-network";
 import { Bip32Options } from "@defichain/jellyfish-wallet-mnemonic";
 
