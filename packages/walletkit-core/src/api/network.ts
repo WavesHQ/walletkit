@@ -1,4 +1,5 @@
 import {
+  Changi,
   DevNet,
   MainNet,
   Network,
@@ -17,10 +18,10 @@ export function getJellyfishNetwork(network: EnvironmentNetwork): Network {
       return TestNet;
     case EnvironmentNetwork.DevNet:
       return DevNet;
+    case EnvironmentNetwork.Changi:
+      return Changi;
     case EnvironmentNetwork.LocalPlayground:
     case EnvironmentNetwork.RemotePlayground:
-    case EnvironmentNetwork.Changi:
-      return RegTest;
     default:
       return RegTest;
   }
