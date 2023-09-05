@@ -222,7 +222,8 @@ export const wallet = createSlice({
       (state, action: PayloadAction<DexItem[]>) => {
         state.hasFetchedPoolpairData = true;
         state.poolpairs = action.payload.filter(
-          ({ data }) => !data.symbol.includes("/v1"),
+          ({ data }) =>
+            !data.symbol.includes("/v1") && !data.symbol.includes("BURN2"),
         ); // Filter out v1 pairs due to stock split
       },
     );
