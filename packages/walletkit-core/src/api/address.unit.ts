@@ -32,13 +32,13 @@ describe("Address Decoder", () => {
     const script: Script = {
       stack: [
         OP_CODES.OP_16,
-        OP_CODES.OP_PUSHDATA_HEX_LE("98bd4c07f8eddf293f81e511921106d0c7f2839d"),
+        OP_CODES.OP_PUSHDATA_HEX_BE("98bd4c07f8eddf293f81e511921106d0c7f2839d"),
       ],
     };
 
     const expected: EthDecodedAddress = {
       type: AddressType.ETH,
-      address: "0x98bd4c07F8eddf293f81E511921106d0C7f2839D",
+      address: "0x98bd4c07f8eddf293f81e511921106d0c7f2839d",
       script,
       network: "testnet",
     };
