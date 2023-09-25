@@ -39,7 +39,7 @@ export interface EthDecodedAddress {
   network: NetworkName;
 }
 
-export function getDecodedAddress (
+export function getDecodedAddress(
   script: Script,
   network: NetworkName,
 ): EthDecodedAddress | undefined {
@@ -83,7 +83,7 @@ export function getDecodedAddress (
   }
 }
 
-export function getAddressType (
+export function getAddressType(
   address: string,
   network: NetworkName,
 ): AddressType | undefined {
