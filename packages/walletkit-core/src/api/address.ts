@@ -1,4 +1,4 @@
-import { Eth,fromAddress, fromScript } from "@defichain/jellyfish-address";
+import { Eth, fromAddress, fromScript } from "@defichain/jellyfish-address";
 import { NetworkName } from "@defichain/jellyfish-network";
 import { Script } from "@defichain/jellyfish-transaction";
 import { ethers } from "ethers";
@@ -67,7 +67,7 @@ export function getDecodedAddress (
     */
 
     // extract script OPCodes and Hex
-    const decodedEthAddress = Eth.fromScript(script)
+    const decodedEthAddress = Eth.fromScript(script);
     if (decodedEthAddress !== undefined) {
       return {
         type: AddressType.ETH,
@@ -76,6 +76,8 @@ export function getDecodedAddress (
         network,
       };
     }
+
+    return undefined;
   } catch (e) {
     return undefined;
   }
