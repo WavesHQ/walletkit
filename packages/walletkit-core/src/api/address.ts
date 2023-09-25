@@ -1,6 +1,6 @@
-import { fromAddress, fromScript, Eth } from "@defichain/jellyfish-address";
+import { Eth,fromAddress, fromScript } from "@defichain/jellyfish-address";
 import { NetworkName } from "@defichain/jellyfish-network";
-import { OP_PUSHDATA, Script } from "@defichain/jellyfish-transaction";
+import { Script } from "@defichain/jellyfish-transaction";
 import { ethers } from "ethers";
 
 /**
