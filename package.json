@@ -28,6 +28,11 @@
       "check-file/filename-naming-convention": "off"
     }
   },
+  "pnpm": {
+    "overrides": {
+      "eslint": "^8.50.0"
+    }
+  },
   "devDependencies": {
     "@stickyjs/eslint-config": "^1.3.2",
     "@stickyjs/turbo": "^1.3.2",
