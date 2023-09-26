@@ -11,7 +11,8 @@
     "build": "tsc -b ./tsconfig.build.json",
     "test": "jest --maxWorkers=100%",
     "lint": "eslint .",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "format": "prettier --write ."
   },
   "jest": {
     "preset": "@stickyjs/jest"
