@@ -18,8 +18,8 @@ importers:
         specifier: ^1.3.2
         version: 1.3.2(turbo@1.10.12)(typanion@3.14.0)
       '@types/react':
-        specifier: 18.2.21
-        version: 18.2.21
+        specifier: 18.2.22
+        version: 18.2.22
       '@waveshq/standard-defichain-jellyfishsdk':
         specifier: ^2.11.3
         version: 2.11.3(@types/tar-fs@2.0.1)
@@ -65,8 +65,8 @@ importers:
         specifier: ^1.3.2
         version: 1.3.2(@babel/core@7.22.10)(typescript@5.2.2)
       '@types/react':
-        specifier: 18.2.21
-        version: 18.2.21
+        specifier: 18.2.22
+        version: 18.2.22
 
   packages/walletkit-testcontainers:
     dependencies:
@@ -84,13 +84,13 @@ importers:
         specifier: ^1.3.2
         version: 1.3.2(@babel/core@7.22.10)(typescript@5.2.2)
       '@waveshq/standard-defichain-jellyfishsdk':
-        specifier: ^2.11.3
+        specifier: ^2.11.2
         version: 2.11.3(@types/tar-fs@2.0.1)
       '@waveshq/standard-web':
-        specifier: ^2.11.3
+        specifier: ^2.11.2
         version: 2.11.3(@babel/core@7.22.10)(redux@4.2.1)
       '@waveshq/standard-web-linter':
-        specifier: ^2.11.3
+        specifier: ^2.11.2
         version: 2.11.3(@babel/core@7.22.10)(@typescript-eslint/eslint-plugin@6.4.1)(@typescript-eslint/parser@6.4.1)(react-dom@18.2.0)(react@18.2.0)
       '@waveshq/walletkit-core':
         specifier: workspace:*
@@ -119,10 +119,10 @@ importers:
         version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
       '@testing-library/react-hooks':
         specifier: ^8.0.1
-        version: 8.0.1(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
+        version: 8.0.1(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0)
       '@types/react':
-        specifier: 18.2.21
-        version: 18.2.21
+        specifier: 18.2.22
+        version: 18.2.22
       jest-environment-jsdom:
         specifier: ^29.6.4
         version: 29.6.4
@@ -1726,7 +1726,7 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react-hooks@8.0.1(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0):
+  /@testing-library/react-hooks@8.0.1(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -1743,7 +1743,7 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.22.10
-      '@types/react': 18.2.21
+      '@types/react': 18.2.22
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-error-boundary: 3.1.4(react@18.2.0)
@@ -1822,7 +1822,7 @@ packages:
   /@types/hoist-non-react-statics@3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
     dependencies:
-      '@types/react': 18.2.21
+      '@types/react': 18.2.22
       hoist-non-react-statics: 3.3.2
 
   /@types/istanbul-lib-coverage@2.0.4:
@@ -1890,14 +1890,7 @@ packages:
   /@types/react-dom@18.2.7:
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
     dependencies:
-      '@types/react': 18.2.21
-
-  /@types/react@18.2.21:
-    resolution: {integrity: sha512-neFKG/sBAwGxHgXiIxnbm3/AAVQ/cMRS93hvBpg8xYRbeQSPVABp9U2bRnPf0iI4+Ucdv3plSxKK+3CW2ENJxA==}
-    dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.3
-      csstype: 3.1.2
+      '@types/react': 18.2.22
 
   /@types/react@18.2.22:
     resolution: {integrity: sha512-60fLTOLqzarLED2O3UQImc/lsNRgG0jE/a1mPW9KjMemY0LMITWEsbS4VvZ4p6rorEHd5YKxxmMKSDK505GHpA==}
