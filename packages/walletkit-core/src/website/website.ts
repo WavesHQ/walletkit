@@ -138,7 +138,8 @@ export type FeatureFlagID =
   | "send_v2"
   | "composite_swap_v2"
   | "unloop_dusd"
-  | "ocg_cfp_dfip";
+  | "ocg_cfp_dfip"
+  | "evm";
 
 // Stages of feature flag
 export type FeatureFlagStage = "alpha" | "beta" | "public";
