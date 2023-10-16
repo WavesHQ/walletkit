@@ -13,7 +13,7 @@
     "@waveshq/standard-web": "^2.14.0",
     "@waveshq/standard-web-linter": "^2.14.0",
     "@waveshq/walletkit-core": "workspace:*",
-    "bignumber.js": "^9.1.1",
+    "bignumber.js": "^9.1.2",
     "dayjs": "^1.11.9",
     "immer": "^9.0.21",
     "reselect": "^4.1.8",
