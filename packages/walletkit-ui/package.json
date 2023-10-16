@@ -13,8 +13,8 @@
     "@waveshq/standard-web": "^2.14.0",
     "@waveshq/standard-web-linter": "^2.14.0",
     "@waveshq/walletkit-core": "workspace:*",
-    "bignumber.js": "^9.1.1",
-    "dayjs": "^1.11.9",
+    "bignumber.js": "^9.1.2",
+    "dayjs": "^1.11.10",
     "immer": "^9.0.21",
     "reselect": "^4.1.8",
     "smart-buffer": "^4.2.0"
@@ -23,8 +23,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
-    "@types/react": "18.2.22",
-    "jest-environment-jsdom": "^29.6.4"
+    "@types/react": "18.2.28",
+    "jest-environment-jsdom": "^29.7.0"
   },
   "scripts": {
     "build": "tsc -b ./tsconfig.build.json",
