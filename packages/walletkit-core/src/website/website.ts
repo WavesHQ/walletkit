@@ -140,7 +140,8 @@ export type FeatureFlagID =
   | "unloop_dusd"
   | "ocg_cfp_dfip"
   | "evm"
-  | "loop_dusd";
+  | "loop_dusd"
+  | "save_tx";
 
 // Stages of feature flag
 export type FeatureFlagStage = "alpha" | "beta" | "public";
