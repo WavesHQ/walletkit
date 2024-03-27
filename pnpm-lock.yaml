@@ -18,8 +18,8 @@ importers:
         specifier: ^1.3.2
         version: 1.3.4(turbo@1.10.12)(typanion@3.14.0)
       '@types/react':
-        specifier: 18.2.28
-        version: 18.2.28
+        specifier: 18.2.73
+        version: 18.2.73
       '@waveshq/standard-defichain-jellyfishsdk':
         specifier: ^2.14.0
         version: 2.14.0(@types/tar-fs@2.0.1)
@@ -65,8 +65,8 @@ importers:
         specifier: ^1.3.2
         version: 1.3.4(@babel/core@7.22.10)(typescript@5.2.2)
       '@types/react':
-        specifier: 18.2.28
-        version: 18.2.28
+        specifier: 18.2.73
+        version: 18.2.73
 
   packages/walletkit-testcontainers:
     dependencies:
@@ -119,10 +119,10 @@ importers:
         version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
       '@testing-library/react-hooks':
         specifier: ^8.0.1
-        version: 8.0.1(@types/react@18.2.28)(react-dom@18.2.0)(react@18.2.0)
+        version: 8.0.1(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0)
       '@types/react':
-        specifier: 18.2.28
-        version: 18.2.28
+        specifier: 18.2.73
+        version: 18.2.73
       jest-environment-jsdom:
         specifier: ^29.7.0
         version: 29.7.0
@@ -1859,7 +1859,7 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react-hooks@8.0.1(@types/react@18.2.28)(react-dom@18.2.0)(react@18.2.0):
+  /@testing-library/react-hooks@8.0.1(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -1876,7 +1876,7 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.22.10
-      '@types/react': 18.2.28
+      '@types/react': 18.2.73
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-error-boundary: 3.1.4(react@18.2.0)
@@ -1955,7 +1955,7 @@ packages:
   /@types/hoist-non-react-statics@3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
     dependencies:
-      '@types/react': 18.2.28
+      '@types/react': 18.2.73
       hoist-non-react-statics: 3.3.2
 
   /@types/istanbul-lib-coverage@2.0.4:
@@ -2030,12 +2030,12 @@ packages:
   /@types/react-dom@18.2.13:
     resolution: {integrity: sha512-eJIUv7rPP+EC45uNYp/ThhSpE16k22VJUknt5OLoH9tbXoi8bMhwLf5xRuWMywamNbWzhrSmU7IBJfPup1+3fw==}
     dependencies:
-      '@types/react': 18.2.28
+      '@types/react': 18.2.73
 
   /@types/react-dom@18.2.7:
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
     dependencies:
-      '@types/react': 18.2.28
+      '@types/react': 18.2.73
     dev: true
 
   /@types/react@18.2.28:
@@ -2043,6 +2043,12 @@ packages:
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
+      csstype: 3.1.2
+
+  /@types/react@18.2.73:
+    resolution: {integrity: sha512-XcGdod0Jjv84HOC7N5ziY3x+qL0AfmubvKOZ9hJjJ2yd5EE+KYjWhdOjt387e9HPheHkdggF9atTifMRtyAaRA==}
+    dependencies:
+      '@types/prop-types': 15.7.5
       csstype: 3.1.2
 
   /@types/readdir-glob@1.1.1:
