@@ -8,7 +8,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@stickyjs/jest": "^1.3.2"
+    "@stickyjs/jest": "^1.3.10"
   },
   "scripts": {
     "build": "tsc -b ./tsconfig.build.json",
